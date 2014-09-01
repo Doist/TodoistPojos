@@ -8,9 +8,9 @@ The naming follows the same as the API, both for classes, variables and methods,
 
 For the most part, you should extend the `Base*` class files and add the necessary logic for your application — persistence, serialization, syncing, etc, whatever you need.
 
-### General considerations
+## General considerations
 
-#### Temporary ids
+### Temporary ids
 
 Temporary ids are negative `long` values. Regular ids start at 0 and go up from there. The API supports any type of value for temporary ids, so special `String` values would also work. However, this would require an additional field to hold the temporary id, additional logic, and seems completely unecessary for most usages.
 
