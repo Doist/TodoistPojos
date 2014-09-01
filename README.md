@@ -16,7 +16,7 @@ Temporary ids are negative `long` values. Regular ids start at 0 and go up from 
 
 The generation of temporary ids is up to the host application, but the algorithm can be really simple: start at -1 and go down from there. An Android application could use something like the following:
 
-```
+```java
 public static synchronized long getNextTempId(Context context) {
 	SharedPreferences preferences = context.getSharedPreferences("todoist_temp_ids", Context.MODE_PRIVATE);
 	SharedPreferences.Editor editor = preferences.edit();
