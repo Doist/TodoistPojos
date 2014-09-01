@@ -22,9 +22,11 @@ public static synchronized long getNextTempId(Context context) {
 	SharedPreferences.Editor editor = preferences.edit();
 	long id = preferences.getLong("temp_id", 0) - 1;
 	if (id > Long.MIN_VALUE) {
-		editor.putLong("temp_id", id) // Save decremented temp id.
+		// Save decremented temp id.
+		editor.putLong("temp_id", id);
 	} else {
-		editor.remove("temp_id"); // Restart from -1 in next call.
+		// Restart from -1 in next call.
+		editor.remove("temp_id");
 	}
 	editor.commit();
 	return id;
