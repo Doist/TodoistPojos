@@ -41,8 +41,8 @@ public class BaseFilter extends TodoistObjectWithId {
      * color index is returned.
      */
     public int getColorWithinBounds() {
-        if(color < 0 || color > Colors.FILTER_COLORS.length - 1) {
-            return Colors.DEFAULT_FILTER_COLOR;
+        if(color < 0 || color > COLORS.length - 1) {
+            return DEFAULT_COLOR;
         } else {
             return color;
         }

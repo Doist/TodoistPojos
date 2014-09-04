@@ -37,8 +37,8 @@ public class BaseLabel extends TodoistObjectWithId implements Comparable<BaseLab
      * color index is returned.
      */
     public int getColorWithinBounds() {
-        if(color < 0 || color > Colors.LABEL_COLORS.length - 1) {
-            return Colors.DEFAULT_LABEL_COLOR;
+        if(color < 0 || color > COLORS.length - 1) {
+            return DEFAULT_COLOR;
         } else {
             return color;
         }

@@ -64,9 +64,8 @@ public class BaseProject extends TodoistObjectWithId {
      */
     public int getColorWithinBounds(boolean isPremium) {
         if (color < 0
-                || (isPremium && color > Colors.PROJECT_COLORS_PREMIUM.length - 1)
-                || (!isPremium && color > Colors.PROJECT_COLORS_FREE.length)) {
-            return Colors.DEFAULT_PROJECT_COLOR;
+                || (isPremium && color > COLORS_PREMIUM.length - 1) || (!isPremium && color > COLORS_FREE.length)) {
+            return DEFAULT_COLOR;
         } else {
             return color;
         }
