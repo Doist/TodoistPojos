@@ -52,10 +52,17 @@ public class BaseProject extends TodoistObjectWithId {
     }
 
     /**
-     * Returns the color index of {@link #COLORS_FREE} / {@link #COLORS_PREMIUM}, which depends on {@code isPremium}.
-     * If not within the available bounds, it falls back to the default color.
+     * Returns the color index in {@link #COLORS_FREE} / {@link #COLORS_PREMIUM}.
      */
-    public int getColor(boolean isPremium) {
+    public int getColor() {
+        return color;
+    }
+
+    /**
+     * Returns the color index in {@link #COLORS_FREE} / {@link #COLORS_PREMIUM} within the available bounds, which
+     * depend on {@code isPremium}. If outside those bounds, the default color index is returned.
+     */
+    public int getColorWithinBounds(boolean isPremium) {
         if (color < 0
                 || (isPremium && color > Colors.PROJECT_COLORS_PREMIUM.length - 1)
                 || (!isPremium && color > Colors.PROJECT_COLORS_FREE.length)) {

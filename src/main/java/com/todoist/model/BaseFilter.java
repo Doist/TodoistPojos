@@ -30,10 +30,17 @@ public class BaseFilter extends TodoistObjectWithId {
     }
 
     /**
-     * Returns the color index of {@link #COLORS}.
-     * If not within the available bounds, it falls back to the default color.
+     * Returns the color index in {@link #COLORS}.
      */
     public int getColor() {
+        return color;
+    }
+
+    /**
+     * Returns the color index of {@link #COLORS} within the available bounds. If outside those bounds, the default
+     * color index is returned.
+     */
+    public int getColorWithinBounds() {
         if(color < 0 || color > Colors.FILTER_COLORS.length - 1) {
             return Colors.DEFAULT_FILTER_COLOR;
         } else {

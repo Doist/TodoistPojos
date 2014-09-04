@@ -26,10 +26,17 @@ public class BaseLabel extends TodoistObjectWithId implements Comparable<BaseLab
     }
 
     /**
-     * Returns the color index of {@link #COLORS}.
-     * If not within the available bounds, it falls back to the default color.
+     * Returns the color index in {@link #COLORS}.
      */
     public int getColor() {
+        return color;
+    }
+
+    /**
+     * Returns the color index in {@link #COLORS} within the available bounds. If outside those bounds, the default
+     * color index is returned.
+     */
+    public int getColorWithinBounds() {
         if(color < 0 || color > Colors.LABEL_COLORS.length - 1) {
             return Colors.DEFAULT_LABEL_COLOR;
         } else {
