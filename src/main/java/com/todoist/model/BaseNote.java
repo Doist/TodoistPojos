@@ -87,6 +87,10 @@ public class BaseNote extends TodoistObjectWithId {
         return itemId;
     }
 
+    public void setItemId(long itemId) {
+        this.itemId = itemId;
+    }
+
     public boolean isArchived() {
         return archived;
     }
