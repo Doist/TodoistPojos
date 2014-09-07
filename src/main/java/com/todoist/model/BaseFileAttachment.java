@@ -28,68 +28,68 @@ public class BaseFileAttachment {
      */
     public static final String UPLOAD_STATE_CANCELED = "canceled";
 
-    private String url;
-    private String name;
-    private String type;
-    private String underlyingType;
-    private Long size;
+    private String fileUrl;
+    private String fileName;
+    private String fileType;
+    private String fileUnderlyingType;
+    private Long fileSize;
     private String uploadState;
     private BaseThumbnail thumbnailSmall;
     private BaseThumbnail thumbnailMedium;
     private BaseThumbnail thumbnailLarge;
 
-    public BaseFileAttachment(String url, String name, String type, String underlyingType, Long size,
+    public BaseFileAttachment(String fileUrl, String fileName, String fileType, String fileUnderlyingType, Long fileSize,
                               String uploadState, BaseThumbnail thumbnailSmall,
                               BaseThumbnail thumbnailMedium, BaseThumbnail thumbnailLarge) {
-        this.url = url;
-        this.name = name;
-        this.type = type;
-        this.underlyingType = underlyingType;
-        this.size = size;
+        this.fileUrl = fileUrl;
+        this.fileName = fileName;
+        this.fileType = fileType;
+        this.fileUnderlyingType = fileUnderlyingType;
+        this.fileSize = fileSize;
         this.uploadState = uploadState;
         this.thumbnailSmall = thumbnailSmall;
         this.thumbnailMedium = thumbnailMedium;
         this.thumbnailLarge = thumbnailLarge;
     }
 
-    public String getUrl() {
-        return url;
+    public String getFileUrl() {
+        return fileUrl;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setFileUrl(String fileUrl) {
+        this.fileUrl = fileUrl;
     }
 
-    public String getName() {
-        return name;
+    public String getFileName() {
+        return fileName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
     }
 
-    public String getType() {
-        return type;
+    public String getFileType() {
+        return fileType;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setFileType(String fileType) {
+        this.fileType = fileType;
     }
 
-    public String getUnderlyingType() {
-        return underlyingType;
+    public String getFileUnderlyingType() {
+        return fileUnderlyingType;
     }
 
-    public void setUnderlyingType(String underlyingType) {
-        this.underlyingType = underlyingType;
+    public void setFileUnderlyingType(String fileUnderlyingType) {
+        this.fileUnderlyingType = fileUnderlyingType;
     }
 
-    public Long getSize() {
-        return size;
+    public Long getFileSize() {
+        return fileSize;
     }
 
-    public void setSize(Long size) {
-        this.size = size;
+    public void setFileSize(Long fileSize) {
+        this.fileSize = fileSize;
     }
 
     public String getUploadState() {
