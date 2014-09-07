@@ -50,4 +50,25 @@ class Colors {
 
     static final String[] FILTER_COLORS = LABEL_COLORS;
     static final int DEFAULT_FILTER_COLOR = 6;
+
+    static final String[] COLLABORATOR_AVATAR_COLORS = {
+            "#FCC652",
+            "#E9952C",
+            "#E16B2D",
+            "#D84B40",
+            "#E8435A",
+            "#E5198A",
+            "#AD3889",
+            "#86389C",
+            "#A8A8A8",
+            "#98BE2F",
+            "#5D9D50",
+            "#5F9F85",
+            "#5BBCB6",
+            "#32A3BF",
+            "#2BAFEB",
+            "#2D88C3",
+            "#3863CC",
+            "#5E5E5E"
+    };
 }

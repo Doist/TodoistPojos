@@ -39,6 +39,11 @@ public class BaseProject extends TodoistObjectWithId {
         this.archived = archived;
     }
 
+    public BaseProject(long id, String name, int color, int indent, int itemOrder, boolean collapsed,
+                       boolean inbox, boolean teamInbox, boolean shared) {
+        this(id, name, color, indent, itemOrder, collapsed, inbox, teamInbox, shared, false, false);
+    }
+
     public BaseProject(long id, String name, int color, int indent, int itemOrder) {
         this(id, name, color, indent, itemOrder, false, false, false, false, false, false);
     }

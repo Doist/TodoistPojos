@@ -13,6 +13,10 @@ public class BaseLabel extends TodoistObjectWithId implements Comparable<BaseLab
         this.color = color;
     }
 
+    public BaseLabel(long id, String name, int color) {
+        this(id, name, color, false);
+    }
+
     public BaseLabel(long id, String name) {
         this(id, name, Colors.DEFAULT_LABEL_COLOR, false);
     }

@@ -26,6 +26,11 @@ public class BaseNote extends TodoistObjectWithId {
         this.archived = archived;
     }
 
+    public BaseNote(long id, String content, long posted, long postedUid, Collection<Long> uidsToNotify,
+                    BaseFileAttachment fileAttachment, long itemId) {
+        this(id, content, posted, postedUid, uidsToNotify, fileAttachment, itemId, false, false);
+    }
+
     public BaseNote(long id, String content, long postedUid, Collection<Long> uidsToNotify,
                     BaseFileAttachment fileAttachment, long itemId) {
         this(id, content, System.currentTimeMillis(), postedUid, uidsToNotify, fileAttachment, itemId, false, false);

@@ -17,6 +17,10 @@ public class BaseFilter extends TodoistObjectWithId {
         this.itemOrder = itemOrder;
     }
 
+    public BaseFilter(long id, String name, int color, String query, int itemOrder) {
+        this(id, name, color, query, itemOrder, false);
+    }
+
     public BaseFilter(long id, String name, String query, int itemOrder) {
         this(id, name, Colors.DEFAULT_FILTER_COLOR, query, itemOrder, false);
     }

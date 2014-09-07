@@ -22,13 +22,13 @@ public class BaseItem extends TodoistObjectWithId {
     private Long assignedByUid;
     private Long responsibleUid;
     private boolean inHistory;
-    private boolean archived;
     private Collection<Long> labels = new TreeSet<>();
+    private boolean archived;
 
     public BaseItem(long id, String content, long projectId, int indent, int priority, String dateString, Long dueDate,
                     int itemOrder, int dayOrder, boolean checked, boolean collapsed,
-                    Long assignedByUid, Long responsibleUid, boolean inHistory, boolean archived,
-                    Collection<Long> labels, boolean deleted) {
+                    Long assignedByUid, Long responsibleUid, boolean inHistory, Collection<Long> labels,
+                    boolean archived, boolean deleted) {
         super(id, deleted);
         this.content = content;
         this.projectId = projectId;
@@ -50,9 +50,16 @@ public class BaseItem extends TodoistObjectWithId {
     }
 
     public BaseItem(long id, String content, long projectId, int indent, int priority, String dateString, Long dueDate,
-                    int itemOrder, Long assignedByUid, Long responsibleUid, Collection<Long> labels, boolean deleted) {
+                    int itemOrder, int dayOrder, boolean checked, boolean collapsed, Long assignedByUid,
+                    Long responsibleUid, boolean inHistory, Collection<Long> labels) {
+        this(id, content, projectId, indent, priority, dateString, dueDate, itemOrder, dayOrder, checked, collapsed,
+             assignedByUid, responsibleUid, inHistory, labels, false, false);
+    }
+
+    public BaseItem(long id, String content, long projectId, int indent, int priority, String dateString, Long dueDate,
+                    int itemOrder, Long assignedByUid, Long responsibleUid, Collection<Long> labels) {
         this(id, content, projectId, indent, priority, dateString, dueDate, itemOrder, -1, false, false,
-             assignedByUid, responsibleUid, false, false, labels, false);
+             assignedByUid, responsibleUid, false, labels, false, false);
     }
 
     public String getContent() {
