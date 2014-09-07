@@ -2,8 +2,12 @@ package com.todoist.model;
 
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.regex.Pattern;
 
 public class BaseCollaborator extends TodoistObjectWithId {
+    /* Matches leading and trailing spaces and special characters commonly found in name fields. */
+    private static final Pattern ESCAPE_PATTERN = Pattern.compile("^\\s+|\\s+$|[\\(\\)\\.,\\-_\\[\\]'\"]");
+
     public static final String STATE_ACTIVE = "active";
     public static final String STATE_INVITED = "invited";
     public static final String STATE_DELETED = "deleted";
@@ -11,6 +15,8 @@ public class BaseCollaborator extends TodoistObjectWithId {
     public static final int AVATAR_BIG_SIZE = 195;
     public static final int AVATAR_MEDIUM_SIZE = 60;
     public static final int AVATAR_SMALL_SIZE = 35;
+
+    public static final String[] AVATAR_COLORS = Colors.COLLABORATOR_AVATAR_COLORS;
 
     private String fullName;
     private String email;
@@ -92,6 +98,16 @@ public class BaseCollaborator extends TodoistObjectWithId {
         return projectsActive;
     }
 
+    public String getProjectState(long projectId) {
+        if (projectsActive.contains(projectId)) {
+            return STATE_ACTIVE;
+        }
+        if (projectsInvited.contains(projectId)) {
+            return STATE_INVITED;
+        }
+        return STATE_DELETED;
+    }
+
     /**
      * Sets the state for a specific project id.
      */
@@ -145,5 +161,52 @@ public class BaseCollaborator extends TodoistObjectWithId {
         if (projectsInvited != null) {
             this.projectsInvited.addAll(projectsInvited);
         }
+    }
+
+    public String getDefaultAvatarColor() {
+        return getDefaultAvatarColor(email);
+    }
+
+    public String getDefaultAvatarText() {
+        return getDefaultAvatarText(fullName);
+    }
+
+    public static String getDefaultAvatarColor(String email) {
+        if (email != null) {
+            int atIndex = email.indexOf("@");
+            if (atIndex > 0) {
+                return AVATAR_COLORS[(email.charAt(0) + email.charAt(atIndex + 1)) & AVATAR_COLORS.length];
+            }
+        }
+
+        return "#000000";
+    }
+
+    public static String getDefaultAvatarText(String fullName) {
+        if (fullName != null) {
+            String[] names = ESCAPE_PATTERN.matcher(fullName).replaceAll("").split("\\s+");
+
+            if (names.length > 0) {
+                StringBuilder initials = new StringBuilder(2);
+
+                String firstName = names[0];
+                if (firstName.length() > 0) {
+                    initials.append(Character.toUpperCase(firstName.charAt(0)));
+                }
+
+                if (names.length > 1) {
+                    String lastName = names[names.length - 1];
+                    if (lastName.length() > 0) {
+                        initials.append(Character.toUpperCase(lastName.charAt(0)));
+                    }
+                }
+
+                if (initials.length() > 0) {
+                    return initials.toString();
+                }
+            }
+        }
+
+        return "?";
     }
 }
