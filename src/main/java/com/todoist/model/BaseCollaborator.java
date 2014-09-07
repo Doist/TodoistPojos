@@ -44,7 +44,7 @@ public class BaseCollaborator extends TodoistObjectWithId {
     }
 
     public BaseCollaborator(long id, String email) {
-        super(id, true);
+        super(id, false);
         this.email = email;
     }
 
