@@ -26,6 +26,10 @@ public class BaseLabel extends TodoistObjectWithId implements Comparable<BaseLab
     }
 
     public void setName(String name) {
+        if (name != null) {
+            name = name.trim().replaceAll("\\s+", "_");
+        }
+
         this.name = name;
     }
 
