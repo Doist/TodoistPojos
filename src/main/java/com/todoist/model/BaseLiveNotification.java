@@ -42,14 +42,13 @@ public class BaseLiveNotification extends TodoistObject {
     private String noteContent;
     private Long removedUid;
     private BaseCollaborator fromUser;
-    private Long fromUserId;
     private String accountName;
 
     public BaseLiveNotification(String notificationKey, String notificationType, long seqNo, long created,
                                 Long fromUid, Long projectId, String projectName, Long invitationId,
                                 String invitationSecret, String state, Long itemId, String itemContent,
                                 Long responsibleUid, Long noteId, String noteContent, Long removedUid,
-                                BaseCollaborator fromUser, Long fromUserId, String accountName, boolean deleted) {
+                                BaseCollaborator fromUser, String accountName, boolean deleted) {
         super(deleted);
         this.notificationKey = notificationKey;
         this.notificationType = notificationType;
@@ -68,7 +67,6 @@ public class BaseLiveNotification extends TodoistObject {
         this.noteContent = noteContent;
         this.removedUid = removedUid;
         this.fromUser = fromUser;
-        this.fromUserId = fromUserId;
         this.accountName = accountName;
     }
 
@@ -215,17 +213,6 @@ public class BaseLiveNotification extends TodoistObject {
 
     public void setFromUser(BaseCollaborator fromUser) {
         this.fromUser = fromUser;
-        if (fromUser != null) {
-            this.fromUserId = fromUser.getId();
-        }
-    }
-
-    public Long getFromUserId() {
-        return fromUserId;
-    }
-
-    public void setFromUserId(Long fromUserId) {
-        this.fromUserId = fromUserId;
     }
 
     public String getAccountName() {
