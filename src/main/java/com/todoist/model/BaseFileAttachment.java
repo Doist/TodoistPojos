@@ -135,4 +135,8 @@ public class BaseFileAttachment {
     public void setThumbnailLarge(BaseThumbnail thumbnailLarge) {
         this.thumbnailLarge = thumbnailLarge;
     }
+
+    public boolean hasThumbnail() {
+        return thumbnailSmall != null || thumbnailMedium != null || thumbnailLarge != null;
+    }
 }
