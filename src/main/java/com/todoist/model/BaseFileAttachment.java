@@ -34,22 +34,22 @@ public class BaseFileAttachment {
     private String fileUnderlyingType;
     private Long fileSize;
     private String uploadState;
-    private BaseThumbnail thumbnailSmall;
-    private BaseThumbnail thumbnailMedium;
-    private BaseThumbnail thumbnailLarge;
+    private BaseThumbnail tnS;
+    private BaseThumbnail tnM;
+    private BaseThumbnail tnL;
 
     public BaseFileAttachment(String fileUrl, String fileName, String fileType, String fileUnderlyingType, Long fileSize,
-                              String uploadState, BaseThumbnail thumbnailSmall,
-                              BaseThumbnail thumbnailMedium, BaseThumbnail thumbnailLarge) {
+                              String uploadState, BaseThumbnail tnS,
+                              BaseThumbnail tnM, BaseThumbnail tnL) {
         this.fileUrl = fileUrl;
         this.fileName = fileName;
         this.fileType = fileType;
         this.fileUnderlyingType = fileUnderlyingType;
         this.fileSize = fileSize;
         this.uploadState = uploadState;
-        this.thumbnailSmall = thumbnailSmall;
-        this.thumbnailMedium = thumbnailMedium;
-        this.thumbnailLarge = thumbnailLarge;
+        this.tnS = tnS;
+        this.tnM = tnM;
+        this.tnL = tnL;
     }
 
     public String getFileUrl() {
@@ -112,31 +112,31 @@ public class BaseFileAttachment {
         this.uploadState = uploadState;
     }
 
-    public BaseThumbnail getThumbnailSmall() {
-        return thumbnailSmall;
+    public BaseThumbnail getTnS() {
+        return tnS;
     }
 
-    public void setThumbnailSmall(BaseThumbnail thumbnailSmall) {
-        this.thumbnailSmall = thumbnailSmall;
+    public void setTnS(BaseThumbnail tnS) {
+        this.tnS = tnS;
     }
 
-    public BaseThumbnail getThumbnailMedium() {
-        return thumbnailMedium;
+    public BaseThumbnail getTnM() {
+        return tnM;
     }
 
-    public void setThumbnailMedium(BaseThumbnail thumbnailMedium) {
-        this.thumbnailMedium = thumbnailMedium;
+    public void setTnM(BaseThumbnail tnM) {
+        this.tnM = tnM;
     }
 
-    public BaseThumbnail getThumbnailLarge() {
-        return thumbnailLarge;
+    public BaseThumbnail getTnL() {
+        return tnL;
     }
 
-    public void setThumbnailLarge(BaseThumbnail thumbnailLarge) {
-        this.thumbnailLarge = thumbnailLarge;
+    public void setTnL(BaseThumbnail tnL) {
+        this.tnL = tnL;
     }
 
     public boolean hasThumbnail() {
-        return thumbnailSmall != null || thumbnailMedium != null || thumbnailLarge != null;
+        return tnS != null || tnM != null || tnL != null;
     }
 }
