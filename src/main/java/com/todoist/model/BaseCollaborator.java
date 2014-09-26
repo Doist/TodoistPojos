@@ -175,7 +175,7 @@ public class BaseCollaborator extends TodoistObjectWithId {
         if (email != null) {
             int atIndex = email.indexOf("@");
             if (atIndex > 0) {
-                return AVATAR_COLORS[(email.charAt(0) + email.charAt(atIndex - 1)) & AVATAR_COLORS.length];
+                return AVATAR_COLORS[(email.charAt(0) + email.charAt(atIndex - 1)) % AVATAR_COLORS.length];
             }
         }
 
