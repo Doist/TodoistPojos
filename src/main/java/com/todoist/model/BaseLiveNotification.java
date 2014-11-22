@@ -10,6 +10,7 @@ public class BaseLiveNotification extends TodoistObject {
     public static final String TYPE_ITEM_ASSIGNED = "item_assigned";
     public static final String TYPE_ITEM_COMPLETED = "item_completed";
     public static final String TYPE_ITEM_UNCOMPLETED = "item_uncompleted";
+    public static final String TYPE_KARMA_LEVEL = "karma_level";
 
     public static final String TYPE_BIZ_POLICY_DISALLOWED_INVITATION = "biz_policy_disallowed_invitation";
     public static final String TYPE_BIZ_POLICY_REJECTED_INVITATION = "biz_policy_rejected_invitation";
@@ -44,11 +45,22 @@ public class BaseLiveNotification extends TodoistObject {
     private BaseCollaborator fromUser;
     private String accountName;
 
+    // Optional fields used in Karma notifications (which are set depends on the karma level).
+    private Integer karmaLevel;
+    private Integer completedTasks;
+    private Integer completedInDays;
+    private Integer completedLastMonth;
+    private Double topProcent;
+    private Long dateReached;
+    private String promoImg;
+
     public BaseLiveNotification(String notificationKey, String notificationType, long seqNo, long created,
                                 Long fromUid, Long projectId, String projectName, Long invitationId,
                                 String invitationSecret, String state, Long itemId, String itemContent,
                                 Long responsibleUid, Long noteId, String noteContent, Long removedUid,
-                                BaseCollaborator fromUser, String accountName, boolean deleted) {
+                                BaseCollaborator fromUser, String accountName, Integer karmaLevel,
+                                Integer completedTasks, Integer completedInDays, Integer completedLastMonth,
+                                Double topProcent, Long dateReached, String promoImg, boolean deleted) {
         super(deleted);
         this.notificationKey = notificationKey;
         this.notificationType = notificationType;
@@ -68,6 +80,13 @@ public class BaseLiveNotification extends TodoistObject {
         this.removedUid = removedUid;
         this.fromUser = fromUser;
         this.accountName = accountName;
+        this.karmaLevel = karmaLevel;
+        this.completedTasks = completedTasks;
+        this.completedInDays = completedInDays;
+        this.completedLastMonth = completedLastMonth;
+        this.topProcent = topProcent;
+        this.dateReached = dateReached;
+        this.promoImg = promoImg;
     }
 
     public String getNotificationKey() {
@@ -221,6 +240,62 @@ public class BaseLiveNotification extends TodoistObject {
 
     public void setAccountName(String accountName) {
         this.accountName = accountName;
+    }
+
+    public Integer getKarmaLevel() {
+        return karmaLevel;
+    }
+
+    public void setKarmaLevel(Integer karmaLevel) {
+        this.karmaLevel = karmaLevel;
+    }
+
+    public Integer getCompletedTasks() {
+        return completedTasks;
+    }
+
+    public void setCompletedTasks(Integer completedTasks) {
+        this.completedTasks = completedTasks;
+    }
+
+    public Integer getCompletedInDays() {
+        return completedInDays;
+    }
+
+    public void setCompletedInDays(Integer completedInDays) {
+        this.completedInDays = completedInDays;
+    }
+
+    public Integer getCompletedLastMonth() {
+        return completedLastMonth;
+    }
+
+    public void setCompletedLastMonth(Integer completedLastMonth) {
+        this.completedLastMonth = completedLastMonth;
+    }
+
+    public Double getTopProcent() {
+        return topProcent;
+    }
+
+    public void setTopProcent(Double topProcent) {
+        this.topProcent = topProcent;
+    }
+
+    public Long getDateReached() {
+        return dateReached;
+    }
+
+    public void setDateReached(Long dateReached) {
+        this.dateReached = dateReached;
+    }
+
+    public String getPromoImg() {
+        return promoImg;
+    }
+
+    public void setPromoImg(String promoImg) {
+        this.promoImg = promoImg;
     }
 
     @Override

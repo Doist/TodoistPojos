@@ -12,29 +12,20 @@ public class BaseCollaborator extends TodoistObjectWithId {
     public static final String STATE_INVITED = "invited";
     public static final String STATE_DELETED = "deleted";
 
-    public static final int AVATAR_BIG_SIZE = 195;
-    public static final int AVATAR_MEDIUM_SIZE = 60;
-    public static final int AVATAR_SMALL_SIZE = 35;
-
     public static final String[] AVATAR_COLORS = Colors.COLLABORATOR_AVATAR_COLORS;
 
     private String fullName;
     private String email;
-    private String avatarBig;
-    private String avatarMedium;
-    private String avatarSmall;
+    private String imageId;
     private Collection<Long> projectsActive = new HashSet<>();
     private Collection<Long> projectsInvited = new HashSet<>();
 
-    public BaseCollaborator(long id, String fullName, String email, String avatarBig,
-                            String avatarMedium, String avatarSmall, Collection<Long> projectsActive,
-                            Collection<Long> projectsInvited, boolean deleted) {
+    public BaseCollaborator(long id, String fullName, String email, String imageId,
+                            Collection<Long> projectsActive, Collection<Long> projectsInvited, boolean deleted) {
         super(id, deleted);
         this.fullName = fullName;
         this.email = email;
-        this.avatarBig = avatarBig;
-        this.avatarMedium = avatarMedium;
-        this.avatarSmall = avatarSmall;
+        this.imageId = imageId;
         if (projectsActive != null) {
             this.projectsActive.addAll(projectsActive);
         }
@@ -70,28 +61,12 @@ public class BaseCollaborator extends TodoistObjectWithId {
         this.email = email;
     }
 
-    public String getAvatarBig() {
-        return avatarBig;
+    public String getImageId() {
+        return imageId;
     }
 
-    public void setAvatarBig(String avatarBig) {
-        this.avatarBig = avatarBig;
-    }
-
-    public String getAvatarMedium() {
-        return avatarMedium;
-    }
-
-    public void setAvatarMedium(String avatarMedium) {
-        this.avatarMedium = avatarMedium;
-    }
-
-    public String getAvatarSmall() {
-        return avatarSmall;
-    }
-
-    public void setAvatarSmall(String avatarSmall) {
-        this.avatarSmall = avatarSmall;
+    public void setImageId(String imageId) {
+        this.imageId = imageId;
     }
 
     public Collection<Long> getProjectsActive() {
