@@ -21,6 +21,7 @@ public class BaseLiveNotification extends TodoistObject {
     public static final String TYPE_BIZ_INVITATION_ACCEPTED = "biz_invitation_accepted";
     public static final String TYPE_BIZ_INVITATION_REJECTED = "biz_invitation_rejected";
 
+    public static final String STATE_INVITED = "invited";
     public static final String STATE_ACCEPTED = "accepted";
     public static final String STATE_REJECTED = "rejected";
 
