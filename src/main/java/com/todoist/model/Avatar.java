@@ -5,7 +5,7 @@ public enum Avatar {
     SMALL(35, "small"),
     MEDIUM(60, "medium"),
     BIG(195, "big"),
-    HUGE(480, "huge");
+    HUGE(640, "s640");
 
     private final int size;
     private final String arg;
