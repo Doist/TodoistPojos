@@ -189,10 +189,6 @@ public class BaseItem extends TodoistObjectWithId {
         }
     }
 
-    public void addLabel(Long label) {
-        labels.add(label);
-    }
-
     public boolean isInHistory() {
         return inHistory;
     }
