@@ -18,6 +18,8 @@ public class BaseReminder extends TodoistObjectWithId {
     /** Exclusive to reminders of type {@link #TYPE_ABSOLUTE}. */
     private String dateString;
     /** Exclusive to reminders of type {@link #TYPE_ABSOLUTE}. */
+    private String dateLang;
+    /** Exclusive to reminders of type {@link #TYPE_ABSOLUTE}. */
     private Long dueDate;
     /** Exclusive to reminders of type {@link #TYPE_RELATIVE}. */
     private Integer minuteOffset;
@@ -36,13 +38,14 @@ public class BaseReminder extends TodoistObjectWithId {
     private long itemId;
 
     public BaseReminder(long id, String type,
-                        String dateString, Long dueDate,
+                        String dateString, String dateLang, Long dueDate,
                         Integer minuteOffset,
                         String name, Double locLat, Double locLong, Integer radius, String locTrigger,
                         String service, Long notifyUid, long itemId, boolean deleted) {
         super(id, deleted);
         this.type = type;
         this.dateString = dateString;
+        this.dateLang = dateLang;
         this.dueDate = dueDate;
         this.minuteOffset = minuteOffset;
         this.name = name;
@@ -56,12 +59,12 @@ public class BaseReminder extends TodoistObjectWithId {
     }
 
     public BaseReminder(long id, String type,
-                        String dateString, Long dueDate,
+                        String dateString, String dateLang, Long dueDate,
                         Integer minuteOffset,
                         String name, Double locLat, Double locLong, Integer radius, String locTrigger,
                         String service, Long notifyUid, long itemId) {
-        this(id, type, dateString, dueDate, minuteOffset, name, locLat, locLong, radius, locTrigger, service, notifyUid,
-             itemId, false);
+        this(id, type, dateString, dateLang, dueDate, minuteOffset, name, locLat, locLong, radius, locTrigger, service,
+             notifyUid, itemId, false);
     }
 
     public String getType() {
@@ -90,6 +93,14 @@ public class BaseReminder extends TodoistObjectWithId {
 
     public void setDateString(String dateString) {
         this.dateString = dateString;
+    }
+
+    public String getDateLang() {
+        return dateLang;
+    }
+
+    public void setDateLang(String dateLang) {
+        this.dateLang = dateLang;
     }
 
     public Long getDueDate() {

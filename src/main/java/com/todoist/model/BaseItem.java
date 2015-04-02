@@ -14,6 +14,7 @@ public class BaseItem extends TodoistObjectWithId {
     private int indent;
     private int priority;
     private String dateString;
+    private String dateLang;
     private Long dueDate;
     private int itemOrder;
     private int dayOrder;
@@ -25,8 +26,8 @@ public class BaseItem extends TodoistObjectWithId {
     private Collection<Long> labels = new TreeSet<>();
     private boolean archived;
 
-    public BaseItem(long id, String content, long projectId, int indent, int priority, String dateString, Long dueDate,
-                    int itemOrder, int dayOrder, boolean checked, boolean collapsed,
+    public BaseItem(long id, String content, long projectId, int indent, int priority, String dateString,
+                    String dateLang, Long dueDate, int itemOrder, int dayOrder, boolean checked, boolean collapsed,
                     Long assignedByUid, Long responsibleUid, Collection<Long> labels, boolean inHistory,
                     boolean archived, boolean deleted) {
         super(id, deleted);
@@ -36,6 +37,7 @@ public class BaseItem extends TodoistObjectWithId {
         this.priority = priority;
         this.dateString = dateString;
         this.dueDate = dueDate;
+        this.dateLang = dateLang;
         this.itemOrder = itemOrder;
         this.dayOrder = dayOrder;
         this.checked = checked;
@@ -49,16 +51,17 @@ public class BaseItem extends TodoistObjectWithId {
         this.archived = archived;
     }
 
-    public BaseItem(long id, String content, long projectId, int indent, int priority, String dateString, Long dueDate,
-                    int itemOrder, int dayOrder, boolean checked, boolean collapsed, Long assignedByUid,
-                    Long responsibleUid, Collection<Long> labels, boolean inHistory) {
-        this(id, content, projectId, indent, priority, dateString, dueDate, itemOrder, dayOrder, checked, collapsed,
-             assignedByUid, responsibleUid, labels, inHistory, false, false);
+    public BaseItem(long id, String content, long projectId, int indent, int priority, String dateString,
+                    String dateLang, Long dueDate, int itemOrder, int dayOrder, boolean checked, boolean collapsed,
+                    Long assignedByUid, Long responsibleUid, Collection<Long> labels, boolean inHistory) {
+        this(id, content, projectId, indent, priority, dateString, dateLang, dueDate, itemOrder, dayOrder, checked,
+             collapsed, assignedByUid, responsibleUid, labels, inHistory, false, false);
     }
 
-    public BaseItem(long id, String content, long projectId, int indent, int priority, String dateString, Long dueDate,
-                    int itemOrder, Long assignedByUid, Long responsibleUid, Collection<Long> labels) {
-        this(id, content, projectId, indent, priority, dateString, dueDate, itemOrder, -1, false, false,
+    public BaseItem(long id, String content, long projectId, int indent, int priority, String dateString,
+                    String dateLang, Long dueDate, int itemOrder, Long assignedByUid, Long responsibleUid,
+                    Collection<Long> labels) {
+        this(id, content, projectId, indent, priority, dateString, dateLang, dueDate, itemOrder, -1, false, false,
              assignedByUid, responsibleUid, labels, false, false, false);
     }
 
@@ -110,6 +113,14 @@ public class BaseItem extends TodoistObjectWithId {
 
     public void setDateString(String dateString) {
         this.dateString = dateString;
+    }
+
+    public String getDateLang() {
+        return dateLang;
+    }
+
+    public void setDateLang(String dateLang) {
+        this.dateLang = dateLang;
     }
 
     public Long getDueDate() {
