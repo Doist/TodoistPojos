@@ -1,24 +1,30 @@
 package com.todoist.model;
 
-public class BaseLabel extends TodoistObjectWithId implements Comparable<BaseLabel> {
+import java.util.regex.Pattern;
+
+public class BaseLabel extends TodoistObjectWithId {
     public static final String[] COLORS = Colors.LABEL_COLORS;
     public static final int DEFAULT_COLOR = Colors.DEFAULT_LABEL_COLOR;
 
+    private static final Pattern spacesPattern = Pattern.compile("\\s+");
+
     private String name;
     private int color;
+    private int itemOrder;
 
-    public BaseLabel(long id, String name, int color, boolean deleted) {
+    public BaseLabel(long id, String name, int color, int itemOrder, boolean deleted) {
         super(id, deleted);
         this.name = name;
         this.color = color;
+        this.itemOrder = itemOrder;
     }
 
-    public BaseLabel(long id, String name, int color) {
-        this(id, name, color, false);
+    public BaseLabel(long id, String name, int color, int itemOrder) {
+        this(id, name, color, itemOrder, false);
     }
 
-    public BaseLabel(long id, String name) {
-        this(id, name, Colors.DEFAULT_LABEL_COLOR, false);
+    public BaseLabel(long id, String name, int itemOrder) {
+        this(id, name, Colors.DEFAULT_LABEL_COLOR, itemOrder, false);
     }
 
     public String getName() {
@@ -27,7 +33,7 @@ public class BaseLabel extends TodoistObjectWithId implements Comparable<BaseLab
 
     public void setName(String name) {
         if (name != null) {
-            name = name.trim().replaceAll("\\s+", "_");
+            name = spacesPattern.matcher(name.trim()).replaceAll("_");
         }
 
         this.name = name;
@@ -56,8 +62,11 @@ public class BaseLabel extends TodoistObjectWithId implements Comparable<BaseLab
         this.color = color;
     }
 
-    @Override
-    public int compareTo(BaseLabel other) {
-        return getId() < other.getId() ? -1 : (getId() == other.getId() ? 0 : 1);
+    public int getItemOrder() {
+        return itemOrder;
+    }
+
+    public void setItemOrder(int itemOrder) {
+        this.itemOrder = itemOrder;
     }
 }
