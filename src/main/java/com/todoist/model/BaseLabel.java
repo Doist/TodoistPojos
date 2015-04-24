@@ -1,12 +1,8 @@
 package com.todoist.model;
 
-import java.util.regex.Pattern;
-
 public class BaseLabel extends TodoistObjectWithId {
     public static final String[] COLORS = Colors.LABEL_COLORS;
     public static final int DEFAULT_COLOR = Colors.DEFAULT_LABEL_COLOR;
-
-    private static final Pattern spacesPattern = Pattern.compile("\\s+");
 
     private String name;
     private int color;
@@ -14,7 +10,7 @@ public class BaseLabel extends TodoistObjectWithId {
 
     public BaseLabel(long id, String name, int color, int itemOrder, boolean deleted) {
         super(id, deleted);
-        this.name = name;
+        this.name = sanitize(name);
         this.color = color;
         this.itemOrder = itemOrder;
     }
@@ -32,11 +28,7 @@ public class BaseLabel extends TodoistObjectWithId {
     }
 
     public void setName(String name) {
-        if (name != null) {
-            name = spacesPattern.matcher(name.trim()).replaceAll("_");
-        }
-
-        this.name = name;
+        this.name = sanitize(name);
     }
 
     /**
@@ -68,5 +60,12 @@ public class BaseLabel extends TodoistObjectWithId {
 
     public void setItemOrder(int itemOrder) {
         this.itemOrder = itemOrder;
+    }
+
+    private String sanitize(String name) {
+        if (name != null) {
+            name = Sanitizers.LABEL_NAME.matcher(name.trim()).replaceAll("_");
+        }
+        return name;
     }
 }
