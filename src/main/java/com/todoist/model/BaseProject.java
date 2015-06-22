@@ -28,7 +28,7 @@ public class BaseProject extends TodoistObjectWithId {
     public BaseProject(long id, String name, int color, int indent, int itemOrder, boolean collapsed,
                        boolean inbox, boolean teamInbox, boolean shared, boolean archived, boolean deleted) {
         super(id, deleted);
-        this.name = sanitize(name);
+        this.name = sanitizeName(name);
         this.color = color;
         this.indent = indent;
         this.itemOrder = itemOrder;
@@ -53,7 +53,7 @@ public class BaseProject extends TodoistObjectWithId {
     }
 
     public void setName(String name) {
-        this.name = sanitize(name);
+        this.name = sanitizeName(name);
     }
 
     /**
@@ -139,7 +139,7 @@ public class BaseProject extends TodoistObjectWithId {
         this.archived = archived;
     }
 
-    private String sanitize(String name) {
+    public static String sanitizeName(String name) {
         if (name != null) {
             name = Sanitizers.PROJECT_NAME_INVALID_PATTERN.matcher(name.trim()).replaceAll("_");
         }

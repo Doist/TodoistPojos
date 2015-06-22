@@ -10,7 +10,7 @@ public class BaseLabel extends TodoistObjectWithId {
 
     public BaseLabel(long id, String name, int color, int itemOrder, boolean deleted) {
         super(id, deleted);
-        this.name = sanitize(name);
+        this.name = sanitizeName(name);
         this.color = color;
         this.itemOrder = itemOrder;
     }
@@ -28,7 +28,7 @@ public class BaseLabel extends TodoistObjectWithId {
     }
 
     public void setName(String name) {
-        this.name = sanitize(name);
+        this.name = sanitizeName(name);
     }
 
     /**
@@ -62,7 +62,7 @@ public class BaseLabel extends TodoistObjectWithId {
         this.itemOrder = itemOrder;
     }
 
-    private String sanitize(String name) {
+    public static String sanitizeName(String name) {
         if (name != null) {
             name = Sanitizers.LABEL_NAME_INVALID_PATTERN.matcher(name.trim()).replaceAll("_");
         }
