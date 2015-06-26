@@ -28,13 +28,12 @@ public enum Avatar {
      */
     public static Avatar getForSize(int size) {
         Avatar[] avatars = values();
-        for (int i = 0; i < avatars.length; i++) {
-            Avatar avatar = avatars[i];
-            if (avatar.size >= size || i == avatars.length - 1) {
+        for (Avatar avatar : avatars) {
+            if (avatar.size >= size) {
                 return avatar;
             }
         }
-        return null; // Should never return this.
+        return avatars[avatars.length - 1];
     }
 
     /**
