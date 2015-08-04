@@ -103,8 +103,10 @@ public class BaseItem extends TodoistObjectWithId {
      * Sets the priority, with the side effect of resetting the day order to its default value of -1.
      */
     public void setPriority(int priority) {
-        this.priority = priority;
-        this.dayOrder = -1;
+        if (priority != this.priority) {
+            this.priority = priority;
+            this.dayOrder = -1;
+        }
     }
 
     public String getDateString() {
@@ -131,8 +133,10 @@ public class BaseItem extends TodoistObjectWithId {
      * Sets the due date, with the side effect of resetting the day order to its default value of -1.
      */
     public void setDueDate(Long dueDate) {
-        this.dueDate = dueDate;
-        this.dayOrder = -1;
+        if (dueDate != this.dueDate && (dueDate == null || !dueDate.equals(this.dueDate))) {
+            this.dueDate = dueDate;
+            this.dayOrder = -1;
+        }
     }
 
     public int getItemOrder() {
