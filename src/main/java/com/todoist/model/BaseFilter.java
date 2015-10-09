@@ -66,6 +66,13 @@ public class BaseFilter extends TodoistObjectWithId {
         }
     }
 
+    /**
+     * Returns the color value of the bounded color {@link #getColorWithinBounds() index}.
+     */
+    public int getColorInt() {
+        return COLORS[getColorWithinBounds()];
+    }
+
     public void setColor(int color) {
         this.color = color;
     }

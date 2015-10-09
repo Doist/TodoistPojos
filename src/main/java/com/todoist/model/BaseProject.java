@@ -102,6 +102,14 @@ public class BaseProject extends TodoistObjectWithId {
         }
     }
 
+    /**
+     * Returns the color value of the bounded color {@link #getColorWithinBounds(boolean) index}.
+     */
+    public int getColorInt(boolean isPremium) {
+        int color = getColorWithinBounds(isPremium);
+        return isPremium ? COLORS_PREMIUM[color] : COLORS_FREE[color];
+    }
+
     public void setColor(int color) {
         this.color = color;
     }
