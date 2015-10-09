@@ -12,7 +12,26 @@ public class BaseCollaborator extends TodoistObjectWithId {
     public static final String STATE_INVITED = "invited";
     public static final String STATE_DELETED = "deleted";
 
-    public static final String[] AVATAR_COLORS = Colors.COLLABORATOR_AVATAR_COLORS;
+    public static final int[] AVATAR_COLORS = {
+            0xFFFCC652,
+            0xFFE9952C,
+            0xFFE16B2D,
+            0xFFD84B40,
+            0xFFE8435A,
+            0xFFE5198A,
+            0xFFAD3889,
+            0xFF86389C,
+            0xFFA8A8A8,
+            0xFF98BE2F,
+            0xFF5D9D50,
+            0xFF5F9F85,
+            0xFF5BBCB6,
+            0xFF32A3BF,
+            0xFF2BAFEB,
+            0xFF2D88C3,
+            0xFF3863CC,
+            0xFF5E5E5E
+    };
 
     private String fullName;
     private String email;
@@ -138,15 +157,15 @@ public class BaseCollaborator extends TodoistObjectWithId {
         }
     }
 
-    public String getDefaultAvatarColor() {
-        return getDefaultAvatarColor(email);
+    public int getDefaultAvatarColorInt() {
+        return getDefaultAvatarColorInt(email);
     }
 
     public String getDefaultAvatarText() {
         return getDefaultAvatarText(fullName);
     }
 
-    public static String getDefaultAvatarColor(String email) {
+    public static int getDefaultAvatarColorInt(String email) {
         if (email != null) {
             int atIndex = email.indexOf("@");
             if (atIndex > 0) {
@@ -154,7 +173,7 @@ public class BaseCollaborator extends TodoistObjectWithId {
             }
         }
 
-        return "#000000";
+        return 0xFF000000;
     }
 
     public static String getDefaultAvatarText(String fullName) {

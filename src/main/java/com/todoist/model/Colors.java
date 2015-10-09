@@ -1,74 +1,40 @@
 package com.todoist.model;
 
+/**
+ * Available colors, as ARGB ints.
+ */
 class Colors {
-    static final String[] PROJECT_COLORS_PREMIUM = {
-            "#95EF63",
-            "#FF8581",
-            "#FFC471",
-            "#F9EC75",
-            "#A8C8E4",
-            "#D2B8A3",
-            "#E2A8E4",
-            "#CCCCCC",
-            "#FB886E",
-            "#FFCC00",
-            "#74E8D3",
-            "#3BD5FB",
-            "#DC4FAD",
-            "#AC193D",
-            "#D24726",
-            "#82BA00",
-            "#03B3B2",
-            "#008299",
-            "#5DB2FF",
-            "#0072C6",
-            "#000000",
-            "#777777"
-    };
-    static final String[] PROJECT_COLORS_FREE = new String[12]; // First 12 colors are free.
-    static {
-        System.arraycopy(PROJECT_COLORS_PREMIUM, 0, PROJECT_COLORS_FREE, 0, PROJECT_COLORS_FREE.length);
-    }
-    static final int DEFAULT_PROJECT_COLOR = 7;
-
-    static final String[] LABEL_COLORS = {
-            "#019412",
-            "#A39D01",
-            "#E73D02",
-            "#E702A4",
-            "#9902E7",
-            "#1D02E7",
-            "#0082C5",
-            "#555555",
-            "#008299",
-            "#03B3B2",
-            "#AC193D",
-            "#82BA00",
-            "#111111"
-    };
-    static final int DEFAULT_LABEL_COLOR = 0;
-
-    static final String[] FILTER_COLORS = LABEL_COLORS;
-    static final int DEFAULT_FILTER_COLOR = 6;
-
-    static final String[] COLLABORATOR_AVATAR_COLORS = {
-            "#FCC652",
-            "#E9952C",
-            "#E16B2D",
-            "#D84B40",
-            "#E8435A",
-            "#E5198A",
-            "#AD3889",
-            "#86389C",
-            "#A8A8A8",
-            "#98BE2F",
-            "#5D9D50",
-            "#5F9F85",
-            "#5BBCB6",
-            "#32A3BF",
-            "#2BAFEB",
-            "#2D88C3",
-            "#3863CC",
-            "#5E5E5E"
-    };
+    public static final int LIME = 0xFF98ED6B;
+    public static final int SALMON = 0xFFFD8683;
+    public static final int PEACH = 0xFFFEC377;
+    public static final int CANARY = 0xFFF8EB7D;
+    public static final int SLATE = 0xFFA9C8E3;
+    public static final int CAFE = 0xFFD1B8A4;
+    public static final int ORCHID = 0xFFE1AAE3;
+    public static final int SILVER = 0xFFCCCCCC;
+    public static final int CORAL = 0xFFF98872;
+    public static final int AMBER = 0xFFFECB2F;
+    public static final int TURQUOISE = 0xFF79E7D3;
+    public static final int AQUA = 0xFF46D5F9;
+    public static final int RASPBERRY = 0xFFDA53AC;
+    public static final int CHERRY = 0xFFAA1D3F;
+    public static final int RUBY = 0xFFD0482E;
+    public static final int PISTACHIO = 0xFF83B822;
+    public static final int TEAL = 0xFF1DB3B1;
+    public static final int LAGOON = 0xFF128298;
+    public static final int SKY = 0xFF61B3FC;
+    public static final int SAPPHIRE = 0xFF1174C3;
+    public static final int ONYX = 0xFF000000;
+    public static final int STEEL = 0xFF777777;
+    public static final int FOREST = 0xFF149320;
+    public static final int OLIVE = 0xFFA39C1F;
+    public static final int TOMATO = 0xFFE53E1B;
+    public static final int MAGENTA = 0xFFE51AA3;
+    public static final int GRAPE = 0xFF9822E3;
+    public static final int PEACOCK = 0xFF2020E3;
+    public static final int SEA = 0xFF1483C3;
+    public static final int CHARCOAL = 0xFF555555;
+    public static final int CRIMSON = 0xFFAA1D3F;
+    public static final int EMERALD = 0xFF83B822;
+    public static final int NIGHT = 0xFF111111;
 }

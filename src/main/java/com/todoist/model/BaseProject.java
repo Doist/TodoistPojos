@@ -4,9 +4,36 @@ public class BaseProject extends TodoistObjectWithId {
     public static final int MIN_INDENT = 1;
     public static final int MAX_INDENT = 4;
 
-    public static final String[] COLORS_FREE = Colors.PROJECT_COLORS_FREE;
-    public static final String[] COLORS_PREMIUM = Colors.PROJECT_COLORS_PREMIUM;
-    public static final int DEFAULT_COLOR = Colors.DEFAULT_PROJECT_COLOR;
+    public static final int[] COLORS_PREMIUM = {
+            Colors.LIME,
+            Colors.SALMON,
+            Colors.PEACH,
+            Colors.CANARY,
+            Colors.SLATE,
+            Colors.CAFE,
+            Colors.ORCHID,
+            Colors.SILVER,
+            Colors.CORAL,
+            Colors.AMBER,
+            Colors.TURQUOISE,
+            Colors.AQUA,
+            Colors.RASPBERRY,
+            Colors.CHERRY,
+            Colors.RUBY,
+            Colors.PISTACHIO,
+            Colors.TEAL,
+            Colors.LAGOON,
+            Colors.SKY,
+            Colors.SAPPHIRE,
+            Colors.ONYX,
+            Colors.STEEL,
+    };
+    public static final int[] COLORS_FREE = new int[12]; // First 12 colors are free.
+    static {
+        System.arraycopy(COLORS_PREMIUM, 0, COLORS_FREE, 0, COLORS_FREE.length);
+    }
+
+    public static final int DEFAULT_COLOR = 7;
 
     public static final int MAX_COUNT_FREE = 80;
     public static final int MAX_COUNT_PREMIUM = 200;
@@ -145,4 +172,4 @@ public class BaseProject extends TodoistObjectWithId {
         }
         return name;
     }
- }
+}

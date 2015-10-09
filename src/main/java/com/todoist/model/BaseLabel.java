@@ -1,8 +1,22 @@
 package com.todoist.model;
 
 public class BaseLabel extends TodoistObjectWithId {
-    public static final String[] COLORS = Colors.LABEL_COLORS;
-    public static final int DEFAULT_COLOR = Colors.DEFAULT_LABEL_COLOR;
+    public static final int[] COLORS = {
+            Colors.FOREST,
+            Colors.OLIVE,
+            Colors.TOMATO,
+            Colors.MAGENTA,
+            Colors.GRAPE,
+            Colors.PEACOCK,
+            Colors.SEA,
+            Colors.CHARCOAL,
+            Colors.LAGOON,
+            Colors.TEAL,
+            Colors.CRIMSON,
+            Colors.EMERALD,
+            Colors.NIGHT,
+    };
+    public static final int DEFAULT_COLOR = 0;
 
     private String name;
     private int color;
@@ -20,7 +34,7 @@ public class BaseLabel extends TodoistObjectWithId {
     }
 
     public BaseLabel(long id, String name, int itemOrder) {
-        this(id, name, Colors.DEFAULT_LABEL_COLOR, itemOrder, false);
+        this(id, name, DEFAULT_COLOR, itemOrder, false);
     }
 
     public String getName() {

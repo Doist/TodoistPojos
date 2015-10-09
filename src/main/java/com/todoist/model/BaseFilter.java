@@ -1,8 +1,22 @@
 package com.todoist.model;
 
 public class BaseFilter extends TodoistObjectWithId {
-    public static final String[] COLORS = Colors.FILTER_COLORS;
-    public static final int DEFAULT_COLOR = Colors.DEFAULT_FILTER_COLOR;
+    public static final int[] COLORS = {
+            Colors.FOREST,
+            Colors.OLIVE,
+            Colors.TOMATO,
+            Colors.MAGENTA,
+            Colors.GRAPE,
+            Colors.PEACOCK,
+            Colors.SEA,
+            Colors.CHARCOAL,
+            Colors.LAGOON,
+            Colors.TEAL,
+            Colors.CRIMSON,
+            Colors.EMERALD,
+            Colors.NIGHT,
+    };
+    public static final int DEFAULT_COLOR = 6;
 
     private String name;
     private int color;
@@ -22,7 +36,7 @@ public class BaseFilter extends TodoistObjectWithId {
     }
 
     public BaseFilter(long id, String name, String query, int itemOrder) {
-        this(id, name, Colors.DEFAULT_FILTER_COLOR, query, itemOrder, false);
+        this(id, name, DEFAULT_COLOR, query, itemOrder, false);
     }
 
     public String getName() {
