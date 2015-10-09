@@ -95,11 +95,10 @@ public class BaseProject extends TodoistObjectWithId {
      * depend on {@code isPremium}. If outside those bounds, the default color index is returned.
      */
     public int getColorWithinBounds(boolean isPremium) {
-        if (color < 0
-                || (isPremium && color > COLORS_PREMIUM.length - 1) || (!isPremium && color > COLORS_FREE.length - 1)) {
-            return DEFAULT_COLOR;
-        } else {
+        if (color >= 0 && color < (isPremium ? COLORS_PREMIUM.length : COLORS_FREE.length)) {
             return color;
+        } else {
+            return DEFAULT_COLOR;
         }
     }
 
