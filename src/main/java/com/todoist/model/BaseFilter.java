@@ -25,7 +25,7 @@ public class BaseFilter extends TodoistObjectWithId {
 
     public BaseFilter(long id, String name, int color, String query, int itemOrder, boolean deleted) {
         super(id, deleted);
-        this.name = name;
+        this.name = sanitizeName(name);
         this.color = color;
         this.query = query;
         this.itemOrder = itemOrder;
@@ -91,5 +91,13 @@ public class BaseFilter extends TodoistObjectWithId {
 
     public void setItemOrder(int itemOrder) {
         this.itemOrder = itemOrder;
+    }
+
+    public static String sanitizeName(String name) {
+        if (name != null) {
+            name = Sanitizers.FILTER_NAME_INVALID_PATTERN.matcher(name.trim())
+                                                        .replaceAll(Sanitizers.FILTER_NAME_INVALID_REPLACEMENT);
+        }
+        return name;
     }
 }
