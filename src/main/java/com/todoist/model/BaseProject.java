@@ -175,8 +175,7 @@ public class BaseProject extends TodoistObjectWithId {
 
     public static String sanitizeName(String name) {
         if (name != null) {
-            name = Sanitizers.PROJECT_NAME_INVALID_PATTERN.matcher(name.trim())
-                                                          .replaceAll(Sanitizers.PROJECT_NAME_INVALID_REPLACEMENT);
+            name = Sanitizers.PROJECT_NAME_INVALID_PATTERN.matcher(name.trim()).replaceAll(Sanitizers.REPLACEMENT);
         }
         return name;
     }

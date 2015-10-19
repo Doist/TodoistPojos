@@ -85,8 +85,7 @@ public class BaseLabel extends TodoistObjectWithId {
 
     public static String sanitizeName(String name) {
         if (name != null) {
-            name = Sanitizers.LABEL_NAME_INVALID_PATTERN.matcher(name.trim())
-                                                        .replaceAll(Sanitizers.LABEL_NAME_INVALID_REPLACEMENT);
+            name = Sanitizers.LABEL_NAME_INVALID_PATTERN.matcher(name.trim()).replaceAll(Sanitizers.REPLACEMENT);
         }
         return name;
     }

@@ -7,7 +7,5 @@ public class Sanitizers {
     static final Pattern LABEL_NAME_INVALID_PATTERN = Pattern.compile("[<>\"=#+\\s%!?~:]+");
     static final Pattern FILTER_NAME_INVALID_PATTERN = Pattern.compile("[<>\"=#+]+");
 
-    static final String PROJECT_NAME_INVALID_REPLACEMENT = " ";
-    static final String LABEL_NAME_INVALID_REPLACEMENT = "_";
-    static final String FILTER_NAME_INVALID_REPLACEMENT = " ";
+    static final String REPLACEMENT = "_";
 }

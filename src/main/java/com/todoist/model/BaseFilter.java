@@ -95,8 +95,7 @@ public class BaseFilter extends TodoistObjectWithId {
 
     public static String sanitizeName(String name) {
         if (name != null) {
-            name = Sanitizers.FILTER_NAME_INVALID_PATTERN.matcher(name.trim())
-                                                        .replaceAll(Sanitizers.FILTER_NAME_INVALID_REPLACEMENT);
+            name = Sanitizers.FILTER_NAME_INVALID_PATTERN.matcher(name.trim()).replaceAll(Sanitizers.REPLACEMENT);
         }
         return name;
     }
