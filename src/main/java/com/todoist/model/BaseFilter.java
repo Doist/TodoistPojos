@@ -16,7 +16,7 @@ public class BaseFilter extends TodoistObjectWithId {
             Colors.EMERALD,
             Colors.NIGHT,
     };
-    public static final int DEFAULT_COLOR = 6;
+    public static final int DEFAULT_COLOR = 12;
 
     private String name;
     private int color;
