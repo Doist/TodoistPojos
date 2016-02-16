@@ -16,7 +16,7 @@ public class BaseLabel extends TodoistObjectWithId {
             Colors.EMERALD,
             Colors.NIGHT,
     };
-    public static final int DEFAULT_COLOR = 0;
+    public static final int DEFAULT_COLOR = 7;
 
     private String name;
     private int color;
