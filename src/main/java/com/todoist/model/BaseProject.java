@@ -75,6 +75,10 @@ public class BaseProject extends TodoistObjectWithId {
         this(id, name, color, indent, itemOrder, false, false, false, false, false, false);
     }
 
+    public BaseProject(long id, String name, int itemOrder) {
+        this(id, name, DEFAULT_COLOR, MIN_INDENT, itemOrder, false, false, false, false, false, false);
+    }
+
     public String getName() {
         return name;
     }
