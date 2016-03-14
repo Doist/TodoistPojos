@@ -85,7 +85,7 @@ public class BaseItem extends TodoistObjectWithId {
      * Returns the indent within the bounds defined by {@link #MIN_INDENT} and {@link #MAX_INDENT}.
      */
     public int getIndent() {
-        return Utils.clamp(indent, MIN_INDENT, MAX_INDENT);
+        return clampIndent(indent);
     }
 
     public void setIndent(int indent) {
@@ -218,6 +218,13 @@ public class BaseItem extends TodoistObjectWithId {
 
     public void setArchived(boolean archived) {
         this.archived = archived;
+    }
+
+    /**
+     * Returns {@code indent} within the bounds defined by {@link #MIN_INDENT} and {@link #MAX_INDENT}.
+     */
+    public static int clampIndent(int indent) {
+        return Utils.clamp(indent, MIN_INDENT, MAX_INDENT);
     }
 
     /**
