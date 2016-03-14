@@ -96,7 +96,7 @@ public class BaseItem extends TodoistObjectWithId {
      * Returns the priority within the bounds defined by {@link #MIN_PRIORITY} and {@link #MAX_PRIORITY}.
      */
     public int getPriority() {
-        return Utils.clamp(priority, MIN_PRIORITY, MAX_PRIORITY);
+        return clampPriority(priority);
     }
 
     /**
@@ -218,5 +218,12 @@ public class BaseItem extends TodoistObjectWithId {
 
     public void setArchived(boolean archived) {
         this.archived = archived;
+    }
+
+    /**
+     * Returns {@code priority} within the bounds defined by {@link #MIN_PRIORITY} and {@link #MAX_PRIORITY}.
+     */
+    public static int clampPriority(int priority) {
+        return Utils.clamp(priority, MIN_PRIORITY, MAX_PRIORITY);
     }
 }
