@@ -85,7 +85,7 @@ public class BaseItem extends TodoistObjectWithId {
      * Returns the indent within the bounds defined by {@link #MIN_INDENT} and {@link #MAX_INDENT}.
      */
     public int getIndent() {
-        return Utils.trim(indent, MIN_INDENT, MAX_INDENT);
+        return Utils.clamp(indent, MIN_INDENT, MAX_INDENT);
     }
 
     public void setIndent(int indent) {
@@ -96,7 +96,7 @@ public class BaseItem extends TodoistObjectWithId {
      * Returns the priority within the bounds defined by {@link #MIN_PRIORITY} and {@link #MAX_PRIORITY}.
      */
     public int getPriority() {
-        return Utils.trim(priority, MIN_PRIORITY, MAX_PRIORITY);
+        return Utils.clamp(priority, MIN_PRIORITY, MAX_PRIORITY);
     }
 
     /**

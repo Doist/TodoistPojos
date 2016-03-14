@@ -5,7 +5,7 @@ class Utils {
         return a == b || (a != null && a.equals(b));
     }
 
-    static int trim(int val, int min, int max) {
+    static int clamp(int val, int min, int max) {
         return Math.max(min, Math.min(max, val));
     }
 }

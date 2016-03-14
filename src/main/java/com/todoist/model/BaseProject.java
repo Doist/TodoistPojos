@@ -122,7 +122,7 @@ public class BaseProject extends TodoistObjectWithId {
      * Returns the indent within the bounds defined by {@link #MIN_INDENT} and {@link #MAX_INDENT}.
      */
     public int getIndent() {
-        return Utils.trim(indent, MIN_INDENT, MAX_INDENT);
+        return Utils.clamp(indent, MIN_INDENT, MAX_INDENT);
     }
 
     public void setIndent(int indent) {
