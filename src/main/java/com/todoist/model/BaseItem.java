@@ -11,12 +11,12 @@ public class BaseItem extends TodoistObjectWithId {
 
     private String content;
     private long projectId;
-    private int indent;
     private int priority;
     private String dateString;
     private String dateLang;
     private Long dueDate;
     private int itemOrder;
+    private int indent;
     private int dayOrder;
     private boolean checked;
     private boolean collapsed;
@@ -26,19 +26,19 @@ public class BaseItem extends TodoistObjectWithId {
     private Collection<Long> labels = new TreeSet<>();
     private boolean archived;
 
-    public BaseItem(long id, String content, long projectId, int indent, int priority, String dateString,
-                    String dateLang, Long dueDate, int itemOrder, int dayOrder, boolean checked, boolean collapsed,
+    public BaseItem(long id, String content, long projectId, int priority, String dateString, String dateLang,
+                    Long dueDate, int itemOrder, int indent, int dayOrder, boolean checked, boolean collapsed,
                     Long assignedByUid, Long responsibleUid, Collection<Long> labels, boolean inHistory,
                     boolean archived, boolean deleted) {
         super(id, deleted);
         this.content = content;
         this.projectId = projectId;
-        this.indent = indent;
         this.priority = priority;
         this.dateString = dateString;
         this.dueDate = dueDate;
         this.dateLang = dateLang;
         this.itemOrder = itemOrder;
+        this.indent = indent;
         this.dayOrder = dayOrder;
         this.checked = checked;
         this.collapsed = collapsed;
@@ -51,17 +51,17 @@ public class BaseItem extends TodoistObjectWithId {
         this.archived = archived;
     }
 
-    public BaseItem(long id, String content, long projectId, int indent, int priority, String dateString,
-                    String dateLang, Long dueDate, int itemOrder, int dayOrder, boolean checked, boolean collapsed,
+    public BaseItem(long id, String content, long projectId, int priority, String dateString, String dateLang,
+                    Long dueDate, int itemOrder, int indent, int dayOrder, boolean checked, boolean collapsed,
                     Long assignedByUid, Long responsibleUid, Collection<Long> labels, boolean inHistory) {
-        this(id, content, projectId, indent, priority, dateString, dateLang, dueDate, itemOrder, dayOrder, checked,
+        this(id, content, projectId, priority, dateString, dateLang, dueDate, itemOrder, indent, dayOrder, checked,
              collapsed, assignedByUid, responsibleUid, labels, inHistory, false, false);
     }
 
-    public BaseItem(long id, String content, long projectId, int indent, int priority, String dateString,
-                    String dateLang, Long dueDate, int itemOrder, Long assignedByUid, Long responsibleUid,
+    public BaseItem(long id, String content, long projectId, int priority, String dateString, String dateLang,
+                    Long dueDate, int itemOrder, int indent, Long assignedByUid, Long responsibleUid,
                     Collection<Long> labels) {
-        this(id, content, projectId, indent, priority, dateString, dateLang, dueDate, itemOrder, -1, false, false,
+        this(id, content, projectId, priority, dateString, dateLang, dueDate, itemOrder, indent, -1, false, false,
              assignedByUid, responsibleUid, labels, false, false, false);
     }
 
@@ -79,17 +79,6 @@ public class BaseItem extends TodoistObjectWithId {
 
     public void setProjectId(long projectId) {
         this.projectId = projectId;
-    }
-
-    /**
-     * Returns the indent within the bounds defined by {@link #MIN_INDENT} and {@link #MAX_INDENT}.
-     */
-    public int getIndent() {
-        return clampIndent(indent);
-    }
-
-    public void setIndent(int indent) {
-        this.indent = indent;
     }
 
     /**
@@ -145,6 +134,17 @@ public class BaseItem extends TodoistObjectWithId {
 
     public void setItemOrder(int itemOrder) {
         this.itemOrder = itemOrder;
+    }
+
+    /**
+     * Returns the indent within the bounds defined by {@link #MIN_INDENT} and {@link #MAX_INDENT}.
+     */
+    public int getIndent() {
+        return clampIndent(indent);
+    }
+
+    public void setIndent(int indent) {
+        this.indent = indent;
     }
 
     public int getDayOrder() {
@@ -221,16 +221,16 @@ public class BaseItem extends TodoistObjectWithId {
     }
 
     /**
-     * Returns {@code indent} within the bounds defined by {@link #MIN_INDENT} and {@link #MAX_INDENT}.
-     */
-    public static int clampIndent(int indent) {
-        return Utils.clamp(indent, MIN_INDENT, MAX_INDENT);
-    }
-
-    /**
      * Returns {@code priority} within the bounds defined by {@link #MIN_PRIORITY} and {@link #MAX_PRIORITY}.
      */
     public static int clampPriority(int priority) {
         return Utils.clamp(priority, MIN_PRIORITY, MAX_PRIORITY);
+    }
+
+    /**
+     * Returns {@code indent} within the bounds defined by {@link #MIN_INDENT} and {@link #MAX_INDENT}.
+     */
+    public static int clampIndent(int indent) {
+        return Utils.clamp(indent, MIN_INDENT, MAX_INDENT);
     }
 }
