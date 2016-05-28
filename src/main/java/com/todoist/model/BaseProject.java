@@ -39,8 +39,8 @@ public class BaseProject extends TodoistObjectWithId {
     public static final int MAX_COUNT_PREMIUM = 200;
     public static final int MAX_ITEM_COUNT_FREE = 150;
     public static final int MAX_ITEM_COUNT_PREMIUM = 200;
-    public static final int MAX_COLLABORATOR_COUNT_FREE = 6; // User + 5.
-    public static final int MAX_COLLABORATORS_COUNT_PREMIUM = 26; // User + 25.
+    public static final int MAX_COLLABORATOR_COUNT_FREE = 5;
+    public static final int MAX_COLLABORATORS_COUNT_PREMIUM = 25;
 
     private String name;
     private int color;
