@@ -32,7 +32,6 @@ public class BaseProject extends TodoistObjectWithId {
     static {
         System.arraycopy(COLORS_PREMIUM, 0, COLORS_FREE, 0, COLORS_FREE.length);
     }
-
     public static final int DEFAULT_COLOR = 7;
 
     public static final int MAX_COUNT_FREE = 80;

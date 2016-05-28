@@ -18,6 +18,8 @@ public class BaseLabel extends TodoistObjectWithId {
     };
     public static final int DEFAULT_COLOR = 7;
 
+    public static final int MAX_COUNT = 500;
+
     private String name;
     private int color;
     private int itemOrder;

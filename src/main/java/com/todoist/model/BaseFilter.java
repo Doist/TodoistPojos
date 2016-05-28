@@ -18,6 +18,8 @@ public class BaseFilter extends TodoistObjectWithId {
     };
     public static final int DEFAULT_COLOR = 12;
 
+    public static final int MAX_COUNT = 150;
+
     private String name;
     private int color;
     private String query;
