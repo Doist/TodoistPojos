@@ -1,6 +1,6 @@
 package com.todoist.model;
 
-public class BaseLiveNotification extends TodoistObject {
+public class BaseLiveNotification extends TodoistObjectWithId {
     public static final String TYPE_SHARE_INVITATION_SENT = "share_invitation_sent";
     public static final String TYPE_SHARE_INVITATION_ACCEPTED = "share_invitation_accepted";
     public static final String TYPE_SHARE_INVITATION_REJECTED = "share_invitation_rejected";
@@ -25,9 +25,7 @@ public class BaseLiveNotification extends TodoistObject {
     public static final String STATE_ACCEPTED = "accepted";
     public static final String STATE_REJECTED = "rejected";
 
-    private String notificationKey;
     private String notificationType;
-    private long seqNo;
     private long created;
 
     // Optional fields, not set in all types.
@@ -55,17 +53,14 @@ public class BaseLiveNotification extends TodoistObject {
     private Long dateReached;
     private String promoImg;
 
-    public BaseLiveNotification(String notificationKey, String notificationType, long seqNo, long created,
-                                Long fromUid, Long projectId, String projectName, Long invitationId,
-                                String invitationSecret, String state, Long itemId, String itemContent,
-                                Long responsibleUid, Long noteId, String noteContent, Long removedUid,
-                                BaseCollaborator fromUser, String accountName, Integer karmaLevel,
+    public BaseLiveNotification(long id, String notificationType, long created, Long fromUid, Long projectId,
+                                String projectName, Long invitationId, String invitationSecret, String state,
+                                Long itemId, String itemContent, Long responsibleUid, Long noteId, String noteContent,
+                                Long removedUid, BaseCollaborator fromUser, String accountName, Integer karmaLevel,
                                 Integer completedTasks, Integer completedInDays, Integer completedLastMonth,
                                 Double topProcent, Long dateReached, String promoImg, boolean deleted) {
-        super(deleted);
-        this.notificationKey = notificationKey;
+        super(id, deleted);
         this.notificationType = notificationType;
-        this.seqNo = seqNo;
         this.created = created;
         this.fromUid = fromUid;
         this.projectId = projectId;
@@ -90,17 +85,9 @@ public class BaseLiveNotification extends TodoistObject {
         this.promoImg = promoImg;
     }
 
-    public String getNotificationKey() {
-        return notificationKey;
-    }
-
     public boolean isInvitation() {
         return Utils.equals(notificationType, TYPE_SHARE_INVITATION_SENT) ||
                Utils.equals(notificationType, TYPE_BIZ_INVITATION_CREATED);
-    }
-
-    public void setNotificationKey(String notificationKey) {
-        this.notificationKey = notificationKey;
     }
 
     public String getNotificationType() {
@@ -109,14 +96,6 @@ public class BaseLiveNotification extends TodoistObject {
 
     public void setNotificationType(String notificationType) {
         this.notificationType = notificationType;
-    }
-
-    public long getSeqNo() {
-        return seqNo;
-    }
-
-    public void setSeqNo(long seqNo) {
-        this.seqNo = seqNo;
     }
 
     public long getCreated() {
@@ -297,28 +276,5 @@ public class BaseLiveNotification extends TodoistObject {
 
     public void setPromoImg(String promoImg) {
         this.promoImg = promoImg;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-
-        BaseLiveNotification that = (BaseLiveNotification) o;
-
-        if (!notificationKey.equals(that.notificationKey)) {
-            return false;
-        }
-
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        return notificationKey.hashCode();
     }
 }
