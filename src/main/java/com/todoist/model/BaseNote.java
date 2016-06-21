@@ -9,11 +9,12 @@ public class BaseNote extends TodoistObjectWithId {
     private long postedUid;
     private Collection<Long> uidsToNotify = new HashSet<>();
     private BaseFileAttachment fileAttachment;
+    private long projectId;
     private long itemId;
     private boolean archived;
 
     public BaseNote(long id, String content, long posted, long postedUid, Collection<Long> uidsToNotify,
-                    BaseFileAttachment fileAttachment, long itemId, boolean archived, boolean deleted) {
+                    BaseFileAttachment fileAttachment, long projectId, long itemId, boolean archived, boolean deleted) {
         super(id, deleted);
         this.content = content;
         this.posted = posted;
@@ -22,18 +23,20 @@ public class BaseNote extends TodoistObjectWithId {
             this.uidsToNotify.addAll(uidsToNotify);
         }
         this.fileAttachment = fileAttachment;
+        this.projectId = projectId;
         this.itemId = itemId;
         this.archived = archived;
     }
 
     public BaseNote(long id, String content, long posted, long postedUid, Collection<Long> uidsToNotify,
-                    BaseFileAttachment fileAttachment, long itemId) {
-        this(id, content, posted, postedUid, uidsToNotify, fileAttachment, itemId, false, false);
+                    BaseFileAttachment fileAttachment, long projectId, long itemId) {
+        this(id, content, posted, postedUid, uidsToNotify, fileAttachment, projectId, itemId, false, false);
     }
 
     public BaseNote(long id, String content, long postedUid, Collection<Long> uidsToNotify,
-                    BaseFileAttachment fileAttachment, long itemId) {
-        this(id, content, System.currentTimeMillis(), postedUid, uidsToNotify, fileAttachment, itemId, false, false);
+                    BaseFileAttachment fileAttachment, long projectId, long itemId) {
+        this(id, content, System.currentTimeMillis(), postedUid, uidsToNotify, fileAttachment, projectId, itemId, false,
+             false);
     }
 
     public String getContent() {
@@ -81,6 +84,14 @@ public class BaseNote extends TodoistObjectWithId {
 
     public void setFileAttachment(BaseFileAttachment fileAttachment) {
         this.fileAttachment = fileAttachment;
+    }
+
+    public long getProjectId() {
+        return projectId;
+    }
+
+    public void setProjectId(long projectId) {
+        this.projectId = projectId;
     }
 
     public long getItemId() {
