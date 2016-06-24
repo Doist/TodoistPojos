@@ -1,6 +1,6 @@
 package com.todoist.model;
 
-public class BaseFilter extends TodoistObjectWithId {
+public class BaseFilter extends TodoistObject {
     public static final int[] COLORS = {
             Colors.FOREST,
             Colors.OLIVE,

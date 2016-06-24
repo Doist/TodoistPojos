@@ -3,7 +3,7 @@ package com.todoist.model;
 import java.util.Collection;
 import java.util.HashSet;
 
-public class BaseNote extends TodoistObjectWithId {
+public class BaseNote extends TodoistObject {
     private String content;
     private long posted;
     private long postedUid;

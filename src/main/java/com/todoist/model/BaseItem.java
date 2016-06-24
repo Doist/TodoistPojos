@@ -3,7 +3,7 @@ package com.todoist.model;
 import java.util.Collection;
 import java.util.TreeSet;
 
-public class BaseItem extends TodoistObjectWithId {
+public class BaseItem extends TodoistObject {
     public static final int MIN_INDENT = 1;
     public static final int MAX_INDENT = 5;
     public static final int MIN_PRIORITY = 1;

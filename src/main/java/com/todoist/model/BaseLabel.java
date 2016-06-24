@@ -1,6 +1,6 @@
 package com.todoist.model;
 
-public class BaseLabel extends TodoistObjectWithId {
+public class BaseLabel extends TodoistObject {
     public static final int[] COLORS = {
             Colors.FOREST,
             Colors.OLIVE,

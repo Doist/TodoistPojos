@@ -1,6 +1,6 @@
 package com.todoist.model;
 
-public class BaseLiveNotification extends TodoistObjectWithId {
+public class BaseLiveNotification extends TodoistObject {
     public static final String TYPE_SHARE_INVITATION_SENT = "share_invitation_sent";
     public static final String TYPE_SHARE_INVITATION_ACCEPTED = "share_invitation_accepted";
     public static final String TYPE_SHARE_INVITATION_REJECTED = "share_invitation_rejected";
