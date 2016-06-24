@@ -1,6 +1,6 @@
 package com.todoist.model;
 
-public class BaseProject extends TodoistObjectWithId {
+public class BaseProject extends TodoistObject {
     public static final int MIN_INDENT = 1;
     public static final int MAX_INDENT = 4;
 

@@ -1,18 +1,11 @@
 package com.todoist.model;
 
 public class BaseFileAttachment {
-    /**
-     * Merely indicative. There's no guarantee the actual small thumbnail will have this size.
-     * */
-    public static final int THUMBNAIL_SMALL_SIZE = 96;
-    /**
-     * Merely indicative. There's no guarantee the actual medium thumbnail will have this size.
-     * */
-    public static final int THUMBNAIL_MEDIUM_SIZE = 288;
-    /**
-     * Merely indicative. There's no guarantee the actual large thumbnail will have this size.
-     * */
-    public static final int THUMBNAIL_LARGE_SIZE = 528;
+    public static final String RESOURCE_TYPE_FILE = "file";
+    public static final String RESOURCE_TYPE_IMAGE = "image";
+    public static final String RESOURCE_TYPE_VIDEO = "video";
+    public static final String RESOURCE_TYPE_AUDIO = "audio";
+    public static final String RESOURCE_TYPE_WEBSITE = "website";
 
     /**
      * The upload is currently pending, meaning it's waiting for upload, currently being uploaded, or the upload failed
@@ -21,7 +14,7 @@ public class BaseFileAttachment {
     public static final String UPLOAD_STATE_PENDING = "pending";
     /**
      * The upload has been successfully completed.
-     * */
+     */
     public static final String UPLOAD_STATE_COMPLETED = "completed";
     /**
      * The upload has failed and the user chose to cancel it.
@@ -31,25 +24,33 @@ public class BaseFileAttachment {
     private String fileUrl;
     private String fileName;
     private String fileType;
-    private String fileUnderlyingType;
-    private Long fileSize;
+    private String resourceType;
     private String uploadState;
-    private BaseThumbnail tnS;
-    private BaseThumbnail tnM;
-    private BaseThumbnail tnL;
+    private Long fileSize;
+    private Long fileDuration;
+    private String image;
+    private Integer imageWidth;
+    private Integer imageHeight;
+    private String url;
+    private String title;
+    private String description;
 
-    public BaseFileAttachment(String fileUrl, String fileName, String fileType, String fileUnderlyingType, Long fileSize,
-                              String uploadState, BaseThumbnail tnS,
-                              BaseThumbnail tnM, BaseThumbnail tnL) {
+    public BaseFileAttachment(String resourceType, String fileUrl, String fileName, String fileType, String uploadState,
+                              Long fileSize, Long fileDuration, String image, Integer imageWidth, Integer imageHeight,
+                              String url, String title, String description) {
+        this.resourceType = resourceType;
         this.fileUrl = fileUrl;
         this.fileName = fileName;
         this.fileType = fileType;
-        this.fileUnderlyingType = fileUnderlyingType;
-        this.fileSize = fileSize;
         this.uploadState = uploadState;
-        this.tnS = tnS;
-        this.tnM = tnM;
-        this.tnL = tnL;
+        this.fileSize = fileSize;
+        this.fileDuration = fileDuration;
+        this.image = image;
+        this.imageWidth = imageWidth;
+        this.imageHeight = imageHeight;
+        this.url = url;
+        this.title = title;
+        this.description = description;
     }
 
     public String getFileUrl() {
@@ -76,20 +77,12 @@ public class BaseFileAttachment {
         this.fileType = fileType;
     }
 
-    public String getFileUnderlyingType() {
-        return fileUnderlyingType;
+    public String getResourceType() {
+        return resourceType;
     }
 
-    public void setFileUnderlyingType(String fileUnderlyingType) {
-        this.fileUnderlyingType = fileUnderlyingType;
-    }
-
-    public Long getFileSize() {
-        return fileSize;
-    }
-
-    public void setFileSize(Long fileSize) {
-        this.fileSize = fileSize;
+    public void setResourceType(String resourceType) {
+        this.resourceType = resourceType;
     }
 
     public String getUploadState() {
@@ -112,31 +105,67 @@ public class BaseFileAttachment {
         this.uploadState = uploadState;
     }
 
-    public BaseThumbnail getTnS() {
-        return tnS;
+    public Long getFileSize() {
+        return fileSize;
     }
 
-    public void setTnS(BaseThumbnail tnS) {
-        this.tnS = tnS;
+    public void setFileSize(Long fileSize) {
+        this.fileSize = fileSize;
     }
 
-    public BaseThumbnail getTnM() {
-        return tnM;
+    public Long getFileDuration() {
+        return fileDuration;
     }
 
-    public void setTnM(BaseThumbnail tnM) {
-        this.tnM = tnM;
+    public void setFileDuration(Long fileDuration) {
+        this.fileDuration = fileDuration;
     }
 
-    public BaseThumbnail getTnL() {
-        return tnL;
+    public String getImage() {
+        return image;
     }
 
-    public void setTnL(BaseThumbnail tnL) {
-        this.tnL = tnL;
+    public void setImage(String image) {
+        this.image = image;
     }
 
-    public boolean hasThumbnail() {
-        return tnS != null || tnM != null || tnL != null;
+    public Integer getImageWidth() {
+        return imageWidth;
+    }
+
+    public void setImageWidth(Integer imageWidth) {
+        this.imageWidth = imageWidth;
+    }
+
+    public Integer getImageHeight() {
+        return imageHeight;
+    }
+
+    public void setImageHeight(Integer imageHeight) {
+        this.imageHeight = imageHeight;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

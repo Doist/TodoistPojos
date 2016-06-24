@@ -4,7 +4,7 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.regex.Pattern;
 
-public class BaseCollaborator extends TodoistObjectWithId {
+public class BaseCollaborator extends TodoistObject {
     /* Matches leading and trailing spaces and special characters commonly found in name fields. */
     private static final Pattern ESCAPE_PATTERN = Pattern.compile("^\\s+|\\s+$|[\\(\\)\\.,\\-_\\[\\]'\"]");
 

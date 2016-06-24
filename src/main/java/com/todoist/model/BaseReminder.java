@@ -1,6 +1,6 @@
 package com.todoist.model;
 
-public class BaseReminder extends TodoistObjectWithId {
+public class BaseReminder extends TodoistObject {
     public static final String TYPE_ABSOLUTE = "absolute";
     public static final String TYPE_RELATIVE = "relative";
     public static final String TYPE_LOCATION = "location";
