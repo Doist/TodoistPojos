@@ -58,9 +58,9 @@ public class BaseItem extends TodoistObject {
     public BaseItem(long id, String content, long projectId, int priority, String dateString, String dateLang,
                     Long dueDate, int itemOrder, int indent, int dayOrder, boolean checked, boolean collapsed,
                     Long assignedByUid, Long responsibleUid, Collection<Long> labels, boolean inHistory,
-                    long dateAdded) {
+                    long dateAdded, boolean hasMoreNotes) {
         this(id, content, projectId, priority, dateString, dateLang, dueDate, itemOrder, indent, dayOrder, checked,
-             collapsed, assignedByUid, responsibleUid, labels, inHistory, false, false, dateAdded, false);
+             collapsed, assignedByUid, responsibleUid, labels, inHistory, false, false, dateAdded, hasMoreNotes);
     }
 
     public BaseItem(long id, String content, long projectId, int priority, String dateString, String dateLang,

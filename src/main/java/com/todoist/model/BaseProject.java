@@ -68,8 +68,8 @@ public class BaseProject extends TodoistObject {
     }
 
     public BaseProject(long id, String name, int color, int itemOrder, int indent, boolean collapsed,
-                       boolean inbox, boolean teamInbox, boolean shared) {
-        this(id, name, color, itemOrder, indent, collapsed, inbox, teamInbox, shared, false, false, false);
+                       boolean inbox, boolean teamInbox, boolean shared, boolean hasMoreNotes) {
+        this(id, name, color, itemOrder, indent, collapsed, inbox, teamInbox, shared, false, false, hasMoreNotes);
     }
 
     public BaseProject(long id, String name, int color, int itemOrder, int indent) {
