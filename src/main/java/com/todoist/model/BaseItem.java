@@ -233,11 +233,11 @@ public class BaseItem extends TodoistObject {
         this.dateAdded = dateAdded;
     }
 
-    public boolean hasMoreNotes(){
+    public boolean hasMoreNotes() {
         return hasMoreNotes;
     }
 
-    public void setHasMoreNotes(boolean hasMoreNotes){
+    public void setHasMoreNotes(boolean hasMoreNotes) {
         this.hasMoreNotes = hasMoreNotes;
     }
     /**
