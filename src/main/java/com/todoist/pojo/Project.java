@@ -48,12 +48,12 @@ public class Project extends TodoistObject {
     private boolean collapsed;
     private boolean inbox;
     private boolean teamInbox;
+    private boolean hasMoreNotes;
     private boolean shared;
     private boolean archived;
-    private boolean hasMoreNotes;
 
     public Project(long id, String name, int color, int itemOrder, int indent, boolean collapsed, boolean inbox,
-                   boolean teamInbox, boolean shared, boolean archived, boolean hasMoreNotes, boolean deleted) {
+                   boolean teamInbox, boolean hasMoreNotes, boolean shared, boolean archived, boolean deleted) {
         super(id, deleted);
         this.name = sanitizeName(name);
         this.color = color;
@@ -62,14 +62,14 @@ public class Project extends TodoistObject {
         this.collapsed = collapsed;
         this.inbox = inbox;
         this.teamInbox = teamInbox;
+        this.hasMoreNotes = hasMoreNotes;
         this.shared = shared;
         this.archived = archived;
-        this.hasMoreNotes = hasMoreNotes;
     }
 
     public Project(long id, String name, int color, int itemOrder, int indent, boolean collapsed,
-                   boolean inbox, boolean teamInbox, boolean shared, boolean hasMoreNotes) {
-        this(id, name, color, itemOrder, indent, collapsed, inbox, teamInbox, shared, false, hasMoreNotes, false);
+                   boolean inbox, boolean teamInbox, boolean hasMoreNotes, boolean shared) {
+        this(id, name, color, itemOrder, indent, collapsed, inbox, teamInbox, hasMoreNotes, shared, false, false);
     }
 
     public Project(long id, String name, int color, int itemOrder, int indent) {
@@ -162,6 +162,14 @@ public class Project extends TodoistObject {
         this.teamInbox = teamInbox;
     }
 
+    public boolean hasMoreNotes() {
+        return hasMoreNotes;
+    }
+
+    public void setHasMoreNotes(boolean hasMoreNotes) {
+        this.hasMoreNotes = hasMoreNotes;
+    }
+
     public boolean isShared() {
         return shared;
     }
@@ -176,14 +184,6 @@ public class Project extends TodoistObject {
 
     public void setArchived(boolean archived) {
         this.archived = archived;
-    }
-
-    public boolean hasMoreNotes() {
-        return hasMoreNotes;
-    }
-
-    public void setHasMoreNotes(boolean hasMoreNotes) {
-        this.hasMoreNotes = hasMoreNotes;
     }
 
     public static String sanitizeName(String name) {
