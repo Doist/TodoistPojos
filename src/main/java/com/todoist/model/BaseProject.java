@@ -50,9 +50,10 @@ public class BaseProject extends TodoistObject {
     private boolean teamInbox;
     private boolean shared;
     private boolean archived;
+    private boolean hasMoreNotes;
 
-    public BaseProject(long id, String name, int color, int itemOrder, int indent, boolean collapsed,
-                       boolean inbox, boolean teamInbox, boolean shared, boolean archived, boolean deleted) {
+    public BaseProject(long id, String name, int color, int itemOrder, int indent, boolean collapsed, boolean inbox,
+                       boolean teamInbox, boolean shared, boolean archived, boolean deleted, boolean hasMoreNotes) {
         super(id, deleted);
         this.name = sanitizeName(name);
         this.color = color;
@@ -63,19 +64,20 @@ public class BaseProject extends TodoistObject {
         this.teamInbox = teamInbox;
         this.shared = shared;
         this.archived = archived;
+        this.hasMoreNotes = hasMoreNotes;
     }
 
     public BaseProject(long id, String name, int color, int itemOrder, int indent, boolean collapsed,
-                       boolean inbox, boolean teamInbox, boolean shared) {
-        this(id, name, color, itemOrder, indent, collapsed, inbox, teamInbox, shared, false, false);
+                       boolean inbox, boolean teamInbox, boolean shared, boolean hasMoreNotes) {
+        this(id, name, color, itemOrder, indent, collapsed, inbox, teamInbox, shared, false, false, hasMoreNotes);
     }
 
     public BaseProject(long id, String name, int color, int itemOrder, int indent) {
-        this(id, name, color, itemOrder, indent, false, false, false, false, false, false);
+        this(id, name, color, itemOrder, indent, false, false, false, false, false, false, false);
     }
 
     public BaseProject(long id, String name, int itemOrder) {
-        this(id, name, DEFAULT_COLOR, itemOrder, MIN_INDENT, false, false, false, false, false, false);
+        this(id, name, DEFAULT_COLOR, itemOrder, MIN_INDENT, false, false, false, false, false, false, false);
     }
 
     public String getName() {
@@ -174,6 +176,14 @@ public class BaseProject extends TodoistObject {
 
     public void setArchived(boolean archived) {
         this.archived = archived;
+    }
+
+    public boolean hasMoreNotes() {
+        return hasMoreNotes;
+    }
+
+    public void setHasMoreNotes(boolean hasMoreNotes) {
+        this.hasMoreNotes = hasMoreNotes;
     }
 
     public static String sanitizeName(String name) {
