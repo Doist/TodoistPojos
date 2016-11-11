@@ -1,4 +1,4 @@
-package com.todoist.model;
+package com.todoist.pojo;
 
 public class BaseUser extends Person {
     private String apiToken;

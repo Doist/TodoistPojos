@@ -1,4 +1,4 @@
-package com.todoist.model;
+package com.todoist.pojo;
 
 public class BaseFileAttachment {
     public static final String RESOURCE_TYPE_FILE = "file";

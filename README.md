@@ -1,6 +1,6 @@
-# TodoistModels
+# TodoistPojos
 
-TodoistModels is a Java project which provides the base models for most [Todoist API](https://todoist.com/API/) objects.
+TodoistPojos is a Java project which provides the base POJOs for most [Todoist API](https://todoist.com/API/) objects.
 
 The naming follows the same as the API, both for classes, variables and methods, with very few helper methods added.
 
@@ -36,7 +36,7 @@ public static synchronized long getNextTempId(Context context) {
 
 ## License
 
-    Copyright (c) 2014 Doist
+    Copyright (c) 2016 Doist
 
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the

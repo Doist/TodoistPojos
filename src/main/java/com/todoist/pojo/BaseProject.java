@@ -1,4 +1,4 @@
-package com.todoist.model;
+package com.todoist.pojo;
 
 public class BaseProject extends TodoistObject {
     public static final int MIN_INDENT = 1;

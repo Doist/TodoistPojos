@@ -1,4 +1,4 @@
-package com.todoist.model;
+package com.todoist.pojo;
 
 /**
  * Available colors, as ARGB ints.

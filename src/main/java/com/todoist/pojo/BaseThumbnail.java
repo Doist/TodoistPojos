@@ -1,4 +1,4 @@
-package com.todoist.model;
+package com.todoist.pojo;
 
 public class BaseThumbnail {
     private String url;

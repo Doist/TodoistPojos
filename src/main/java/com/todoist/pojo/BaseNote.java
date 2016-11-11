@@ -1,4 +1,4 @@
-package com.todoist.model;
+package com.todoist.pojo;
 
 import java.util.Collection;
 import java.util.HashSet;

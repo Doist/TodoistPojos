@@ -1,4 +1,4 @@
-package com.todoist.model;
+package com.todoist.pojo;
 
 public class BaseFilter extends TodoistObject {
     public static final int[] COLORS = {

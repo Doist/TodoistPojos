@@ -1,4 +1,4 @@
-package com.todoist.model;
+package com.todoist.pojo;
 
 public class BaseReminder extends TodoistObject {
     public static final String TYPE_ABSOLUTE = "absolute";

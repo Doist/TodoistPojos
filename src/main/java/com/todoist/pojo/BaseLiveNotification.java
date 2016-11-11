@@ -1,4 +1,4 @@
-package com.todoist.model;
+package com.todoist.pojo;
 
 public class BaseLiveNotification extends TodoistObject {
     public static final String TYPE_SHARE_INVITATION_SENT = "share_invitation_sent";
