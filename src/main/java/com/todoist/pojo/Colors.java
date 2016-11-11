@@ -3,7 +3,7 @@ package com.todoist.pojo;
 /**
  * Available colors, as ARGB ints.
  */
-class Colors {
+public class Colors {
     public static final int LIME = 0xFF98ED6B;
     public static final int SALMON = 0xFFFD8683;
     public static final int PEACH = 0xFFFEC377;
