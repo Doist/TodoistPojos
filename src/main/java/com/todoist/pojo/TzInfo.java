@@ -1,6 +1,6 @@
 package com.todoist.pojo;
 
-public class BaseTzInfo {
+public class TzInfo {
     private String text;
     private String timezone;
     private int minutes;
@@ -8,7 +8,7 @@ public class BaseTzInfo {
     private boolean isDst;
     private String gmtString;
 
-    public BaseTzInfo(String text, String timezone, int minutes, int hours, boolean isDst, String gmtString) {
+    public TzInfo(String text, String timezone, int minutes, int hours, boolean isDst, String gmtString) {
         this.text = text;
         this.timezone = timezone;
         this.minutes = minutes;

@@ -1,8 +1,8 @@
 package com.todoist.pojo;
 
-public class BaseUser extends Person {
+public class User extends Person {
     private String apiToken;
-    private BaseTzInfo tzInfo;
+    private TzInfo tzInfo;
     private boolean isPremium;
     private Long premiumUntil;
     private Long freeTrialExpires;
@@ -19,13 +19,13 @@ public class BaseUser extends Person {
     private Integer completedToday;
     private Integer autoReminder;
     private Integer theme;
-    private BaseFeatures features;
+    private Features features;
 
-    public BaseUser(long id, String email, String fullName, String imageId, String apiToken, BaseTzInfo tzInfo,
-                    boolean isPremium, Long premiumUntil, Long freeTrialExpires, String startPage, Integer startDay,
-                    Integer nextWeek, String defaultReminder, Long teamInbox, Integer shareLimit, Long karma,
-                    String karmaTrend, boolean karmaDisabled, Integer completedCount, Integer completedToday,
-                    Integer autoReminder, Integer theme, BaseFeatures features) {
+    public User(long id, String email, String fullName, String imageId, String apiToken, TzInfo tzInfo,
+                boolean isPremium, Long premiumUntil, Long freeTrialExpires, String startPage, Integer startDay,
+                Integer nextWeek, String defaultReminder, Long teamInbox, Integer shareLimit, Long karma,
+                String karmaTrend, boolean karmaDisabled, Integer completedCount, Integer completedToday,
+                Integer autoReminder, Integer theme, Features features) {
         super(id, email, fullName, imageId, false);
         this.apiToken = apiToken;
         this.tzInfo = tzInfo;
@@ -56,11 +56,11 @@ public class BaseUser extends Person {
         this.apiToken = apiToken;
     }
 
-    public BaseTzInfo getTzInfo() {
+    public TzInfo getTzInfo() {
         return tzInfo;
     }
 
-    public void setTzInfo(BaseTzInfo tzInfo) {
+    public void setTzInfo(TzInfo tzInfo) {
         this.tzInfo = tzInfo;
     }
 
@@ -192,11 +192,11 @@ public class BaseUser extends Person {
         this.theme = theme;
     }
 
-    public BaseFeatures getFeatures() {
+    public Features getFeatures() {
         return features;
     }
 
-    public void setFeatures(BaseFeatures features) {
+    public void setFeatures(Features features) {
         this.features = features;
     }
 }

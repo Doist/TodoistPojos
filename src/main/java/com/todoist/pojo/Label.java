@@ -1,6 +1,6 @@
 package com.todoist.pojo;
 
-public class BaseFilter extends TodoistObject {
+public class Label extends TodoistObject {
     public static final int[] COLORS = {
             Colors.FOREST,
             Colors.OLIVE,
@@ -16,29 +16,27 @@ public class BaseFilter extends TodoistObject {
             Colors.EMERALD,
             Colors.NIGHT,
     };
-    public static final int DEFAULT_COLOR = 12;
+    public static final int DEFAULT_COLOR = 7;
 
-    public static final int MAX_COUNT = 150;
+    public static final int MAX_COUNT = 500;
 
     private String name;
     private int color;
-    private String query;
     private int itemOrder;
 
-    public BaseFilter(long id, String name, int color, String query, int itemOrder, boolean deleted) {
+    public Label(long id, String name, int color, int itemOrder, boolean deleted) {
         super(id, deleted);
         this.name = sanitizeName(name);
         this.color = color;
-        this.query = query;
         this.itemOrder = itemOrder;
     }
 
-    public BaseFilter(long id, String name, int color, String query, int itemOrder) {
-        this(id, name, color, query, itemOrder, false);
+    public Label(long id, String name, int color, int itemOrder) {
+        this(id, name, color, itemOrder, false);
     }
 
-    public BaseFilter(long id, String name, String query, int itemOrder) {
-        this(id, name, DEFAULT_COLOR, query, itemOrder, false);
+    public Label(long id, String name, int itemOrder) {
+        this(id, name, DEFAULT_COLOR, itemOrder, false);
     }
 
     public String getName() {
@@ -46,7 +44,7 @@ public class BaseFilter extends TodoistObject {
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.name = sanitizeName(name);
     }
 
     /**
@@ -57,7 +55,7 @@ public class BaseFilter extends TodoistObject {
     }
 
     /**
-     * Returns the color index of {@link #COLORS} within the available bounds. If outside those bounds, the default
+     * Returns the color index in {@link #COLORS} within the available bounds. If outside those bounds, the default
      * color index is returned.
      */
     public int getColorWithinBounds() {
@@ -79,14 +77,6 @@ public class BaseFilter extends TodoistObject {
         this.color = color;
     }
 
-    public String getQuery() {
-        return query;
-    }
-
-    public void setQuery(String query) {
-        this.query = query;
-    }
-
     public int getItemOrder() {
         return itemOrder;
     }
@@ -97,7 +87,7 @@ public class BaseFilter extends TodoistObject {
 
     public static String sanitizeName(String name) {
         if (name != null) {
-            name = Sanitizers.FILTER_NAME_INVALID_PATTERN.matcher(name.trim()).replaceAll(Sanitizers.REPLACEMENT);
+            name = Sanitizers.LABEL_NAME_INVALID_PATTERN.matcher(name.trim()).replaceAll(Sanitizers.REPLACEMENT);
         }
         return name;
     }

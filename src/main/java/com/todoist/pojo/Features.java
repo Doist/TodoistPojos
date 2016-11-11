@@ -1,14 +1,14 @@
 package com.todoist.pojo;
 
-public class BaseFeatures {
+public class Features {
     private String text;
     private int restriction;
     private boolean dateistInlineDisabled;
     private boolean goldTheme;
     private boolean autoAcceptInvitesDisabled;
 
-    public BaseFeatures(String text, int restriction, boolean dateistInlineDisabled, boolean goldTheme,
-                        boolean autoAcceptInvitesDisabled) {
+    public Features(String text, int restriction, boolean dateistInlineDisabled, boolean goldTheme,
+                    boolean autoAcceptInvitesDisabled) {
         this.text = text;
         this.restriction = restriction;
         this.dateistInlineDisabled = dateistInlineDisabled;

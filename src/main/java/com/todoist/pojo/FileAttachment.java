@@ -1,6 +1,6 @@
 package com.todoist.pojo;
 
-public class BaseFileAttachment {
+public class FileAttachment {
     public static final String RESOURCE_TYPE_FILE = "file";
     public static final String RESOURCE_TYPE_IMAGE = "image";
     public static final String RESOURCE_TYPE_VIDEO = "video";
@@ -35,9 +35,9 @@ public class BaseFileAttachment {
     private String title;
     private String description;
 
-    public BaseFileAttachment(String resourceType, String fileUrl, String fileName, String fileType, String uploadState,
-                              Long fileSize, Long fileDuration, String image, Integer imageWidth, Integer imageHeight,
-                              String url, String title, String description) {
+    public FileAttachment(String resourceType, String fileUrl, String fileName, String fileType, String uploadState,
+                          Long fileSize, Long fileDuration, String image, Integer imageWidth, Integer imageHeight,
+                          String url, String title, String description) {
         this.resourceType = resourceType;
         this.fileUrl = fileUrl;
         this.fileName = fileName;

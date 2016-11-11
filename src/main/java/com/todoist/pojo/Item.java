@@ -3,7 +3,7 @@ package com.todoist.pojo;
 import java.util.Collection;
 import java.util.TreeSet;
 
-public class BaseItem extends TodoistObject {
+public class Item extends TodoistObject {
     public static final int MIN_INDENT = 1;
     public static final int MAX_INDENT = 5;
     public static final int MIN_PRIORITY = 1;
@@ -28,10 +28,10 @@ public class BaseItem extends TodoistObject {
     private long dateAdded;
     private boolean hasMoreNotes;
 
-    public BaseItem(long id, String content, long projectId, int priority, String dateString, String dateLang,
-                    Long dueDate, int itemOrder, int indent, int dayOrder, boolean checked, boolean collapsed,
-                    Long assignedByUid, Long responsibleUid, Collection<Long> labels, boolean inHistory,
-                    boolean archived, boolean deleted, long dateAdded, boolean hasMoreNotes) {
+    public Item(long id, String content, long projectId, int priority, String dateString, String dateLang,
+                Long dueDate, int itemOrder, int indent, int dayOrder, boolean checked, boolean collapsed,
+                Long assignedByUid, Long responsibleUid, Collection<Long> labels, boolean inHistory,
+                boolean archived, boolean deleted, long dateAdded, boolean hasMoreNotes) {
         super(id, deleted);
         this.content = content;
         this.projectId = projectId;
@@ -55,17 +55,17 @@ public class BaseItem extends TodoistObject {
         this.hasMoreNotes = hasMoreNotes;
     }
 
-    public BaseItem(long id, String content, long projectId, int priority, String dateString, String dateLang,
-                    Long dueDate, int itemOrder, int indent, int dayOrder, boolean checked, boolean collapsed,
-                    Long assignedByUid, Long responsibleUid, Collection<Long> labels, boolean inHistory,
-                    long dateAdded, boolean hasMoreNotes) {
+    public Item(long id, String content, long projectId, int priority, String dateString, String dateLang,
+                Long dueDate, int itemOrder, int indent, int dayOrder, boolean checked, boolean collapsed,
+                Long assignedByUid, Long responsibleUid, Collection<Long> labels, boolean inHistory,
+                long dateAdded, boolean hasMoreNotes) {
         this(id, content, projectId, priority, dateString, dateLang, dueDate, itemOrder, indent, dayOrder, checked,
              collapsed, assignedByUid, responsibleUid, labels, inHistory, false, false, dateAdded, hasMoreNotes);
     }
 
-    public BaseItem(long id, String content, long projectId, int priority, String dateString, String dateLang,
-                    Long dueDate, int itemOrder, int indent, Long assignedByUid, Long responsibleUid,
-                    Collection<Long> labels, long dateAdded) {
+    public Item(long id, String content, long projectId, int priority, String dateString, String dateLang,
+                Long dueDate, int itemOrder, int indent, Long assignedByUid, Long responsibleUid,
+                Collection<Long> labels, long dateAdded) {
         this(id, content, projectId, priority, dateString, dateLang, dueDate, itemOrder, indent, -1, false, false,
              assignedByUid, responsibleUid, labels, false, false, false, dateAdded, false);
     }

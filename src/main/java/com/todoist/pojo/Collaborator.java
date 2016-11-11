@@ -3,7 +3,7 @@ package com.todoist.pojo;
 import java.util.Collection;
 import java.util.HashSet;
 
-public class BaseCollaborator extends Person {
+public class Collaborator extends Person {
     public static final String STATE_ACTIVE = "active";
     public static final String STATE_INVITED = "invited";
     public static final String STATE_DELETED = "deleted";
@@ -11,8 +11,8 @@ public class BaseCollaborator extends Person {
     private Collection<Long> projectsActive = new HashSet<>();
     private Collection<Long> projectsInvited = new HashSet<>();
 
-    public BaseCollaborator(long id, String email, String fullName, String imageId,
-                            Collection<Long> projectsActive, Collection<Long> projectsInvited, boolean deleted) {
+    public Collaborator(long id, String email, String fullName, String imageId,
+                        Collection<Long> projectsActive, Collection<Long> projectsInvited, boolean deleted) {
         super(id, email, fullName, imageId, deleted);
         if (projectsActive != null) {
             this.projectsActive.addAll(projectsActive);
@@ -22,11 +22,11 @@ public class BaseCollaborator extends Person {
         }
     }
 
-    public BaseCollaborator(long id, String email, String fullName) {
+    public Collaborator(long id, String email, String fullName) {
         super(id, email, fullName, null, false);
     }
 
-    public BaseCollaborator(long id, String email) {
+    public Collaborator(long id, String email) {
         super(id, email, null, null, false);
     }
 

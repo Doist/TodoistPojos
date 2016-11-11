@@ -1,6 +1,6 @@
 package com.todoist.pojo;
 
-public class BaseProject extends TodoistObject {
+public class Project extends TodoistObject {
     public static final int MIN_INDENT = 1;
     public static final int MAX_INDENT = 4;
 
@@ -52,8 +52,8 @@ public class BaseProject extends TodoistObject {
     private boolean archived;
     private boolean hasMoreNotes;
 
-    public BaseProject(long id, String name, int color, int itemOrder, int indent, boolean collapsed, boolean inbox,
-                       boolean teamInbox, boolean shared, boolean archived, boolean deleted, boolean hasMoreNotes) {
+    public Project(long id, String name, int color, int itemOrder, int indent, boolean collapsed, boolean inbox,
+                   boolean teamInbox, boolean shared, boolean archived, boolean deleted, boolean hasMoreNotes) {
         super(id, deleted);
         this.name = sanitizeName(name);
         this.color = color;
@@ -67,16 +67,16 @@ public class BaseProject extends TodoistObject {
         this.hasMoreNotes = hasMoreNotes;
     }
 
-    public BaseProject(long id, String name, int color, int itemOrder, int indent, boolean collapsed,
-                       boolean inbox, boolean teamInbox, boolean shared, boolean hasMoreNotes) {
+    public Project(long id, String name, int color, int itemOrder, int indent, boolean collapsed,
+                   boolean inbox, boolean teamInbox, boolean shared, boolean hasMoreNotes) {
         this(id, name, color, itemOrder, indent, collapsed, inbox, teamInbox, shared, false, false, hasMoreNotes);
     }
 
-    public BaseProject(long id, String name, int color, int itemOrder, int indent) {
+    public Project(long id, String name, int color, int itemOrder, int indent) {
         this(id, name, color, itemOrder, indent, false, false, false, false, false, false, false);
     }
 
-    public BaseProject(long id, String name, int itemOrder) {
+    public Project(long id, String name, int itemOrder) {
         this(id, name, DEFAULT_COLOR, itemOrder, MIN_INDENT, false, false, false, false, false, false, false);
     }
 
