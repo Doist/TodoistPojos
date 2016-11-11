@@ -31,7 +31,7 @@ public class Item extends TodoistObject {
     public Item(long id, String content, long projectId, int priority, String dateString, String dateLang,
                 Long dueDate, int itemOrder, int indent, int dayOrder, boolean checked, boolean collapsed,
                 Long assignedByUid, Long responsibleUid, Collection<Long> labels, boolean inHistory,
-                boolean archived, boolean deleted, long dateAdded, boolean hasMoreNotes) {
+                boolean archived, long dateAdded, boolean hasMoreNotes, boolean deleted) {
         super(id, deleted);
         this.content = content;
         this.projectId = projectId;
@@ -60,14 +60,14 @@ public class Item extends TodoistObject {
                 Long assignedByUid, Long responsibleUid, Collection<Long> labels, boolean inHistory,
                 long dateAdded, boolean hasMoreNotes) {
         this(id, content, projectId, priority, dateString, dateLang, dueDate, itemOrder, indent, dayOrder, checked,
-             collapsed, assignedByUid, responsibleUid, labels, inHistory, false, false, dateAdded, hasMoreNotes);
+             collapsed, assignedByUid, responsibleUid, labels, inHistory, false, dateAdded, hasMoreNotes, false);
     }
 
     public Item(long id, String content, long projectId, int priority, String dateString, String dateLang,
                 Long dueDate, int itemOrder, int indent, Long assignedByUid, Long responsibleUid,
                 Collection<Long> labels, long dateAdded) {
         this(id, content, projectId, priority, dateString, dateLang, dueDate, itemOrder, indent, -1, false, false,
-             assignedByUid, responsibleUid, labels, false, false, false, dateAdded, false);
+             assignedByUid, responsibleUid, labels, false, false, dateAdded, false, false);
     }
 
     public String getContent() {

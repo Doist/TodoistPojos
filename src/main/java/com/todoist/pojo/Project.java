@@ -53,7 +53,7 @@ public class Project extends TodoistObject {
     private boolean hasMoreNotes;
 
     public Project(long id, String name, int color, int itemOrder, int indent, boolean collapsed, boolean inbox,
-                   boolean teamInbox, boolean shared, boolean archived, boolean deleted, boolean hasMoreNotes) {
+                   boolean teamInbox, boolean shared, boolean archived, boolean hasMoreNotes, boolean deleted) {
         super(id, deleted);
         this.name = sanitizeName(name);
         this.color = color;
@@ -69,7 +69,7 @@ public class Project extends TodoistObject {
 
     public Project(long id, String name, int color, int itemOrder, int indent, boolean collapsed,
                    boolean inbox, boolean teamInbox, boolean shared, boolean hasMoreNotes) {
-        this(id, name, color, itemOrder, indent, collapsed, inbox, teamInbox, shared, false, false, hasMoreNotes);
+        this(id, name, color, itemOrder, indent, collapsed, inbox, teamInbox, shared, false, hasMoreNotes, false);
     }
 
     public Project(long id, String name, int color, int itemOrder, int indent) {
