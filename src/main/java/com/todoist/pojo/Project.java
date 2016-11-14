@@ -1,6 +1,6 @@
-package com.todoist.model;
+package com.todoist.pojo;
 
-public class BaseProject extends TodoistObject {
+public class Project extends TodoistObject {
     public static final int MIN_INDENT = 1;
     public static final int MAX_INDENT = 4;
 
@@ -48,12 +48,12 @@ public class BaseProject extends TodoistObject {
     private boolean collapsed;
     private boolean inbox;
     private boolean teamInbox;
+    private boolean hasMoreNotes;
     private boolean shared;
     private boolean archived;
-    private boolean hasMoreNotes;
 
-    public BaseProject(long id, String name, int color, int itemOrder, int indent, boolean collapsed, boolean inbox,
-                       boolean teamInbox, boolean shared, boolean archived, boolean deleted, boolean hasMoreNotes) {
+    public Project(long id, String name, int color, int itemOrder, int indent, boolean collapsed, boolean inbox,
+                   boolean teamInbox, boolean hasMoreNotes, boolean shared, boolean archived, boolean deleted) {
         super(id, deleted);
         this.name = sanitizeName(name);
         this.color = color;
@@ -62,21 +62,21 @@ public class BaseProject extends TodoistObject {
         this.collapsed = collapsed;
         this.inbox = inbox;
         this.teamInbox = teamInbox;
+        this.hasMoreNotes = hasMoreNotes;
         this.shared = shared;
         this.archived = archived;
-        this.hasMoreNotes = hasMoreNotes;
     }
 
-    public BaseProject(long id, String name, int color, int itemOrder, int indent, boolean collapsed,
-                       boolean inbox, boolean teamInbox, boolean shared, boolean hasMoreNotes) {
-        this(id, name, color, itemOrder, indent, collapsed, inbox, teamInbox, shared, false, false, hasMoreNotes);
+    public Project(long id, String name, int color, int itemOrder, int indent, boolean collapsed,
+                   boolean inbox, boolean teamInbox, boolean hasMoreNotes, boolean shared) {
+        this(id, name, color, itemOrder, indent, collapsed, inbox, teamInbox, hasMoreNotes, shared, false, false);
     }
 
-    public BaseProject(long id, String name, int color, int itemOrder, int indent) {
+    public Project(long id, String name, int color, int itemOrder, int indent) {
         this(id, name, color, itemOrder, indent, false, false, false, false, false, false, false);
     }
 
-    public BaseProject(long id, String name, int itemOrder) {
+    public Project(long id, String name, int itemOrder) {
         this(id, name, DEFAULT_COLOR, itemOrder, MIN_INDENT, false, false, false, false, false, false, false);
     }
 
@@ -162,6 +162,14 @@ public class BaseProject extends TodoistObject {
         this.teamInbox = teamInbox;
     }
 
+    public boolean hasMoreNotes() {
+        return hasMoreNotes;
+    }
+
+    public void setHasMoreNotes(boolean hasMoreNotes) {
+        this.hasMoreNotes = hasMoreNotes;
+    }
+
     public boolean isShared() {
         return shared;
     }
@@ -176,14 +184,6 @@ public class BaseProject extends TodoistObject {
 
     public void setArchived(boolean archived) {
         this.archived = archived;
-    }
-
-    public boolean hasMoreNotes() {
-        return hasMoreNotes;
-    }
-
-    public void setHasMoreNotes(boolean hasMoreNotes) {
-        this.hasMoreNotes = hasMoreNotes;
     }
 
     public static String sanitizeName(String name) {

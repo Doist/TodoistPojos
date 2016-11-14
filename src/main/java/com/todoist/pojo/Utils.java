@@ -1,4 +1,4 @@
-package com.todoist.model;
+package com.todoist.pojo;
 
 class Utils {
     static boolean equals(Object a, Object b) {

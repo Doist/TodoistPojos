@@ -1,4 +1,4 @@
-package com.todoist.model;
+package com.todoist.pojo;
 
 public enum Avatar {
     // In ascending order of size.

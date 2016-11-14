@@ -1,6 +1,6 @@
-package com.todoist.model;
+package com.todoist.pojo;
 
-public class BaseLiveNotification extends TodoistObject {
+public class LiveNotification extends TodoistObject {
     public static final String TYPE_SHARE_INVITATION_SENT = "share_invitation_sent";
     public static final String TYPE_SHARE_INVITATION_ACCEPTED = "share_invitation_accepted";
     public static final String TYPE_SHARE_INVITATION_REJECTED = "share_invitation_rejected";
@@ -41,7 +41,7 @@ public class BaseLiveNotification extends TodoistObject {
     private Long noteId;
     private String noteContent;
     private Long removedUid;
-    private BaseCollaborator fromUser;
+    private Collaborator fromUser;
     private String accountName;
 
     // Optional fields used in Karma notifications (which are set depends on the karma level).
@@ -53,12 +53,12 @@ public class BaseLiveNotification extends TodoistObject {
     private Long dateReached;
     private String promoImg;
 
-    public BaseLiveNotification(long id, String notificationType, long created, Long fromUid, Long projectId,
-                                String projectName, Long invitationId, String invitationSecret, String state,
-                                Long itemId, String itemContent, Long responsibleUid, Long noteId, String noteContent,
-                                Long removedUid, BaseCollaborator fromUser, String accountName, Integer karmaLevel,
-                                Integer completedTasks, Integer completedInDays, Integer completedLastMonth,
-                                Double topProcent, Long dateReached, String promoImg, boolean deleted) {
+    public LiveNotification(long id, String notificationType, long created, Long fromUid, Long projectId,
+                            String projectName, Long invitationId, String invitationSecret, String state,
+                            Long itemId, String itemContent, Long responsibleUid, Long noteId, String noteContent,
+                            Long removedUid, Collaborator fromUser, String accountName, Integer karmaLevel,
+                            Integer completedTasks, Integer completedInDays, Integer completedLastMonth,
+                            Double topProcent, Long dateReached, String promoImg, boolean deleted) {
         super(id, deleted);
         this.notificationType = notificationType;
         this.created = created;
@@ -206,11 +206,11 @@ public class BaseLiveNotification extends TodoistObject {
         this.removedUid = removedUid;
     }
 
-    public BaseCollaborator getFromUser() {
+    public Collaborator getFromUser() {
         return fromUser;
     }
 
-    public void setFromUser(BaseCollaborator fromUser) {
+    public void setFromUser(Collaborator fromUser) {
         this.fromUser = fromUser;
     }
 

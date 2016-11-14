@@ -1,11 +1,11 @@
-package com.todoist.model;
+package com.todoist.pojo;
 
-public class BaseThumbnail {
+public class Thumbnail {
     private String url;
     private int width;
     private int height;
 
-    public BaseThumbnail(String url, int width, int height) {
+    public Thumbnail(String url, int width, int height) {
         this.url = url;
         this.width = width;
         this.height = height;

@@ -1,6 +1,6 @@
-package com.todoist.model;
+package com.todoist.pojo;
 
-public class BaseReminder extends TodoistObject {
+public class Reminder extends TodoistObject {
     public static final String TYPE_ABSOLUTE = "absolute";
     public static final String TYPE_RELATIVE = "relative";
     public static final String TYPE_LOCATION = "location";
@@ -37,11 +37,11 @@ public class BaseReminder extends TodoistObject {
     private Long notifyUid;
     private long itemId;
 
-    public BaseReminder(long id, String type,
-                        String dateString, String dateLang, Long dueDate,
-                        Integer minuteOffset,
-                        String name, Double locLat, Double locLong, Integer radius, String locTrigger,
-                        String service, Long notifyUid, long itemId, boolean deleted) {
+    public Reminder(long id, String type,
+                    String dateString, String dateLang, Long dueDate,
+                    Integer minuteOffset,
+                    String name, Double locLat, Double locLong, Integer radius, String locTrigger,
+                    String service, Long notifyUid, long itemId, boolean deleted) {
         super(id, deleted);
         this.type = type;
         this.dateString = dateString;
@@ -58,11 +58,11 @@ public class BaseReminder extends TodoistObject {
         this.itemId = itemId;
     }
 
-    public BaseReminder(long id, String type,
-                        String dateString, String dateLang, Long dueDate,
-                        Integer minuteOffset,
-                        String name, Double locLat, Double locLong, Integer radius, String locTrigger,
-                        String service, Long notifyUid, long itemId) {
+    public Reminder(long id, String type,
+                    String dateString, String dateLang, Long dueDate,
+                    Integer minuteOffset,
+                    String name, Double locLat, Double locLong, Integer radius, String locTrigger,
+                    String service, Long notifyUid, long itemId) {
         this(id, type, dateString, dateLang, dueDate, minuteOffset, name, locLat, locLong, radius, locTrigger, service,
              notifyUid, itemId, false);
     }
