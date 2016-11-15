@@ -15,6 +15,7 @@ public class User extends Person {
     private Long karma;
     private String karmaTrend;
     private boolean karmaDisabled;
+    private boolean karmaVacation;
     private Integer completedCount;
     private Integer completedToday;
     private Integer autoReminder;
@@ -24,8 +25,8 @@ public class User extends Person {
     public User(long id, String email, String fullName, String imageId, String apiToken, TzInfo tzInfo,
                 boolean isPremium, Long premiumUntil, Long freeTrialExpires, String startPage, Integer startDay,
                 Integer nextWeek, String defaultReminder, Long teamInbox, Integer shareLimit, Long karma,
-                String karmaTrend, boolean karmaDisabled, Integer completedCount, Integer completedToday,
-                Integer autoReminder, Integer theme, Features features) {
+                String karmaTrend, boolean karmaDisabled, boolean karmaVacation, Integer completedCount,
+                Integer completedToday, Integer autoReminder, Integer theme, Features features) {
         super(id, email, fullName, imageId, false);
         this.apiToken = apiToken;
         this.tzInfo = tzInfo;
@@ -41,6 +42,7 @@ public class User extends Person {
         this.karma = karma;
         this.karmaTrend = karmaTrend;
         this.karmaDisabled = karmaDisabled;
+        this.karmaVacation = karmaVacation;
         this.completedCount = completedCount;
         this.completedToday = completedToday;
         this.autoReminder = autoReminder;
@@ -158,6 +160,14 @@ public class User extends Person {
 
     public void setKarmaDisabled(boolean karmaDisabled) {
         this.karmaDisabled = karmaDisabled;
+    }
+
+    public boolean isKarmaVacation() {
+        return karmaVacation;
+    }
+
+    public void setKarmaVacation(boolean karmaVacation) {
+        this.karmaVacation = karmaVacation;
     }
 
     public Integer getCompletedCount() {
