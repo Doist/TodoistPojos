@@ -1,7 +1,7 @@
 package com.todoist.pojo;
 
 import java.util.Collection;
-import java.util.TreeSet;
+import java.util.HashSet;
 
 public class Item extends TodoistObject {
     public static final int MIN_INDENT = 1;
@@ -23,7 +23,7 @@ public class Item extends TodoistObject {
     private Long assignedByUid;
     private Long responsibleUid;
     private boolean inHistory;
-    private Collection<Long> labels = new TreeSet<>();
+    private Collection<Long> labels = new HashSet<>();
     private boolean archived;
     private long dateAdded;
     private boolean hasMoreNotes;
@@ -192,9 +192,6 @@ public class Item extends TodoistObject {
         this.responsibleUid = responsibleUid;
     }
 
-    /**
-     * Returns an ordered collection of label ids.
-     */
     public Collection<Long> getLabels() {
         return labels;
     }
@@ -240,6 +237,7 @@ public class Item extends TodoistObject {
     public void setHasMoreNotes(boolean hasMoreNotes) {
         this.hasMoreNotes = hasMoreNotes;
     }
+
     /**
      * Returns {@code priority} within the bounds defined by {@link #MIN_PRIORITY} and {@link #MAX_PRIORITY}.
      */
