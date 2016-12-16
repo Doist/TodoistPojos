@@ -127,7 +127,7 @@ public class Item extends TodoistObject {
      * Sets the due date, with the side effect of resetting the day order to its default value of -1.
      */
     public void setDueDate(Long dueDate) {
-        if (dueDate != this.dueDate && (dueDate == null || !dueDate.equals(this.dueDate))) {
+        if (!Utils.equals(dueDate, this.dueDate)) {
             this.dueDate = dueDate;
             this.dayOrder = -1;
         }
