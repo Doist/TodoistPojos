@@ -90,7 +90,7 @@ public class Item extends TodoistObject {
      * Returns the priority within the bounds defined by {@link #MIN_PRIORITY} and {@link #MAX_PRIORITY}.
      */
     public int getPriority() {
-        return clampPriority(priority);
+        return Utils.clamp(priority, MIN_PRIORITY, MAX_PRIORITY);
     }
 
     /**
@@ -145,7 +145,7 @@ public class Item extends TodoistObject {
      * Returns the indent within the bounds defined by {@link #MIN_INDENT} and {@link #MAX_INDENT}.
      */
     public int getIndent() {
-        return clampIndent(indent);
+        return Utils.clamp(indent, MIN_INDENT, MAX_INDENT);
     }
 
     public void setIndent(int indent) {
@@ -236,19 +236,5 @@ public class Item extends TodoistObject {
 
     public void setHasMoreNotes(boolean hasMoreNotes) {
         this.hasMoreNotes = hasMoreNotes;
-    }
-
-    /**
-     * Returns {@code priority} within the bounds defined by {@link #MIN_PRIORITY} and {@link #MAX_PRIORITY}.
-     */
-    public static int clampPriority(int priority) {
-        return Utils.clamp(priority, MIN_PRIORITY, MAX_PRIORITY);
-    }
-
-    /**
-     * Returns {@code indent} within the bounds defined by {@link #MIN_INDENT} and {@link #MAX_INDENT}.
-     */
-    public static int clampIndent(int indent) {
-        return Utils.clamp(indent, MIN_INDENT, MAX_INDENT);
     }
 }

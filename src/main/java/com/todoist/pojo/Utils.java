@@ -6,6 +6,6 @@ class Utils {
     }
 
     static int clamp(int val, int min, int max) {
-        return Math.max(min, Math.min(max, val));
+        return val < min ? min : (val > max ? max : val);
     }
 }

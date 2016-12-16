@@ -131,7 +131,7 @@ public class Project extends TodoistObject {
      * Returns the indent within the bounds defined by {@link #MIN_INDENT} and {@link #MAX_INDENT}.
      */
     public int getIndent() {
-        return clampIndent(indent);
+        return Utils.clamp(indent, MIN_INDENT, MAX_INDENT);
     }
 
     public void setIndent(int indent) {
@@ -191,12 +191,5 @@ public class Project extends TodoistObject {
             name = Sanitizers.PROJECT_NAME_INVALID_PATTERN.matcher(name.trim()).replaceAll(Sanitizers.REPLACEMENT);
         }
         return name;
-    }
-
-    /**
-     * Returns {@code indent} within the bounds defined by {@link #MIN_INDENT} and {@link #MAX_INDENT}.
-     */
-    public static int clampIndent(int indent) {
-        return Utils.clamp(indent, MIN_INDENT, MAX_INDENT);
     }
 }
