@@ -1,7 +1,7 @@
 package com.todoist.pojo;
 
 import java.util.Collection;
-import java.util.HashSet;
+import java.util.Set;
 
 public class Item extends TodoistObject {
     public static final int MIN_INDENT = 1;
@@ -23,7 +23,7 @@ public class Item extends TodoistObject {
     private Long assignedByUid;
     private Long responsibleUid;
     private boolean inHistory;
-    private Collection<Long> labels = new HashSet<>();
+    private Set<Long> labels;
     private boolean archived;
     private long dateAdded;
     private boolean hasMoreNotes;
@@ -46,9 +46,7 @@ public class Item extends TodoistObject {
         this.collapsed = collapsed;
         this.assignedByUid = assignedByUid;
         this.responsibleUid = responsibleUid;
-        if (labels != null) {
-            this.labels.addAll(labels);
-        }
+        this.labels = Utils.unmodifiableSet(labels);
         this.inHistory = inHistory;
         this.archived = archived;
         this.dateAdded = dateAdded;
@@ -192,18 +190,18 @@ public class Item extends TodoistObject {
         this.responsibleUid = responsibleUid;
     }
 
-    public Collection<Long> getLabels() {
+    /**
+     * @return Unmodifiable set of label ids.
+     */
+    public Set<Long> getLabels() {
         return labels;
     }
 
     /**
-     * Sets the label ids. The internal collection is cleared and copies the elements in {@code labels}, if any.
+     * Copies the label ids into an unmodifiable set.
      */
     public void setLabels(Collection<Long> labels) {
-        this.labels.clear();
-        if (labels != null) {
-            this.labels.addAll(labels);
-        }
+        this.labels = Utils.unmodifiableSet(labels);
     }
 
     public boolean isInHistory() {
