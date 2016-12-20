@@ -1,13 +1,13 @@
 package com.todoist.pojo;
 
 import java.util.Collection;
-import java.util.HashSet;
+import java.util.Set;
 
 public class Note extends TodoistObject {
     private String content;
     private long posted;
     private long postedUid;
-    private Collection<Long> uidsToNotify = new HashSet<>();
+    private Set<Long> uidsToNotify;
     private FileAttachment fileAttachment;
     private long projectId;
     private long itemId;
@@ -19,9 +19,7 @@ public class Note extends TodoistObject {
         this.content = content;
         this.posted = posted;
         this.postedUid = postedUid;
-        if (uidsToNotify != null) {
-            this.uidsToNotify.addAll(uidsToNotify);
-        }
+        this.uidsToNotify = Utils.unmodifiableSet(uidsToNotify);
         this.fileAttachment = fileAttachment;
         this.projectId = projectId;
         this.itemId = itemId;
@@ -63,19 +61,18 @@ public class Note extends TodoistObject {
         this.postedUid = postedUid;
     }
 
-    public Collection<Long> getUidsToNotify() {
+    /**
+     * @return Unmodifiable set of label ids.
+     */
+    public Set<Long> getUidsToNotify() {
         return uidsToNotify;
     }
 
     /**
-     * Sets the user ids to notify. The internal collection is cleared and copies the elements in {@code uidsToNotify},
-     * if any.
+     * Copies the user ids to notify into an unmodifiable set.
      */
     public void setUidsToNotify(Collection<Long> uidsToNotify) {
-        this.uidsToNotify.clear();
-        if (uidsToNotify != null) {
-            this.uidsToNotify.addAll(uidsToNotify);
-        }
+        this.uidsToNotify = Utils.unmodifiableSet(uidsToNotify);
     }
 
     public FileAttachment getFileAttachment() {
