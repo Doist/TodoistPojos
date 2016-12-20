@@ -14,10 +14,11 @@ class Utils {
         return val < min ? min : (val > max ? max : val);
     }
 
-    public static <T> Set<T> unmodifiableSet(Collection<? extends T> s) {
+    static <T> Set<T> unmodifiableSet(Collection<? extends T> s) {
         if (s != null) {
             return Collections.unmodifiableSet(new HashSet<T>(s));
         } else {
+            // The empty set is immutable.
             return Collections.emptySet();
         }
     }
