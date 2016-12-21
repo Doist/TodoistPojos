@@ -24,16 +24,26 @@ class Utils {
     }
 
     static <T> Set<T> unmodifiableSetWithElement(Set<? extends T> set, T el) {
-        HashSet<T> copy = new HashSet<>(set.size() + 1);
-        copy.addAll(set);
-        copy.add(el);
-        return Collections.unmodifiableSet(copy);
+        if (!set.isEmpty()) {
+            HashSet<T> copy = new HashSet<>(set.size() + 1);
+            copy.addAll(set);
+            copy.add(el);
+            return Collections.unmodifiableSet(copy);
+        } else {
+            // The singleton is immutable.
+            return Collections.singleton(el);
+        }
     }
 
     static <T> Set<T> unmodifiableSetWithoutElement(Set<? extends T> set, T el) {
-        HashSet<T> copy = new HashSet<>(set.size() - 1);
-        copy.addAll(set);
-        copy.remove(el);
-        return Collections.unmodifiableSet(copy);
+        if (!set.isEmpty()) {
+            HashSet<T> copy = new HashSet<>(set.size() - 1);
+            copy.addAll(set);
+            copy.remove(el);
+            return Collections.unmodifiableSet(copy);
+        } else {
+            // The empty set is immutable.
+            return Collections.emptySet();
+        }
     }
 }
