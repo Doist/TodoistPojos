@@ -21,12 +21,14 @@ public class User extends Person {
     private Integer autoReminder;
     private Integer theme;
     private Features features;
+    private Long businessAccountId;
 
     public User(long id, String email, String fullName, String imageId, String apiToken, TzInfo tzInfo,
                 boolean isPremium, Long premiumUntil, Long freeTrialExpires, String startPage, Integer startDay,
                 Integer nextWeek, String defaultReminder, Long teamInbox, Integer shareLimit, Long karma,
                 String karmaTrend, boolean karmaDisabled, boolean karmaVacation, Integer completedCount,
-                Integer completedToday, Integer autoReminder, Integer theme, Features features) {
+                Integer completedToday, Integer autoReminder, Integer theme, Features features,
+                Long businessAccountId) {
         super(id, email, fullName, imageId, false);
         this.apiToken = apiToken;
         this.tzInfo = tzInfo;
@@ -48,6 +50,7 @@ public class User extends Person {
         this.autoReminder = autoReminder;
         this.theme = theme;
         this.features = features;
+        this.businessAccountId = businessAccountId;
     }
 
     public String getApiToken() {
@@ -208,5 +211,13 @@ public class User extends Person {
 
     public void setFeatures(Features features) {
         this.features = features;
+    }
+
+    public Long getBusinessAccountId() {
+        return businessAccountId;
+    }
+
+    public void setBusinessAccountId(Long businessAccountId) {
+        this.businessAccountId = businessAccountId;
     }
 }
