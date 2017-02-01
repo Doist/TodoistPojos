@@ -22,13 +22,14 @@ public class User extends Person {
     private Integer theme;
     private Features features;
     private Long businessAccountId;
+    private boolean magicNumReached;
 
     public User(long id, String email, String fullName, String imageId, String apiToken, TzInfo tzInfo,
                 boolean isPremium, Long premiumUntil, Long freeTrialExpires, String startPage, Integer startDay,
                 Integer nextWeek, String defaultReminder, Long teamInbox, Integer shareLimit, Long karma,
                 String karmaTrend, boolean karmaDisabled, boolean karmaVacation, Integer completedCount,
                 Integer completedToday, Integer autoReminder, Integer theme, Features features,
-                Long businessAccountId) {
+                Long businessAccountId, boolean magicNumReached) {
         super(id, email, fullName, imageId, false);
         this.apiToken = apiToken;
         this.tzInfo = tzInfo;
@@ -51,6 +52,7 @@ public class User extends Person {
         this.theme = theme;
         this.features = features;
         this.businessAccountId = businessAccountId;
+        this.magicNumReached = magicNumReached;
     }
 
     public String getApiToken() {
@@ -219,5 +221,13 @@ public class User extends Person {
 
     public void setBusinessAccountId(Long businessAccountId) {
         this.businessAccountId = businessAccountId;
+    }
+
+    public boolean isMagicNumReached() {
+        return magicNumReached;
+    }
+
+    public void setMagicNumReached(boolean magicNumReached) {
+        this.magicNumReached = magicNumReached;
     }
 }
