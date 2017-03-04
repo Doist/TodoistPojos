@@ -11,6 +11,8 @@ public class Reminder extends TodoistObject {
     public static final String SERVICE_NO_DEFAULT = "no_default";
     public static final String SERVICE_OTHER = "other";
 
+    public static final int DEFAULT_MINUTE_OFFSET = 30;
+
     public static final String LOC_TRIGGER_ON_ENTER = "on_enter";
     public static final String LOC_TRIGGER_ON_LEAVE = "on_leave";
 
