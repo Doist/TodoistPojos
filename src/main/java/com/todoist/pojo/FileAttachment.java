@@ -5,6 +5,7 @@ public class FileAttachment {
     public static final String RESOURCE_TYPE_IMAGE = "image";
     public static final String RESOURCE_TYPE_VIDEO = "video";
     public static final String RESOURCE_TYPE_AUDIO = "audio";
+    public static final String RESOURCE_TYPE_WEBSITE = "website";
 
     /**
      * The upload is currently pending, meaning it's waiting for upload, currently being uploaded, or the upload failed
