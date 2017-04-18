@@ -27,6 +27,7 @@ public class LiveNotification extends TodoistObject {
 
     private String notificationType;
     private long created;
+    private boolean isUnread;
 
     // Optional fields, not set in all types.
     private Long fromUid;
@@ -53,15 +54,17 @@ public class LiveNotification extends TodoistObject {
     private Long dateReached;
     private String promoImg;
 
-    public LiveNotification(long id, String notificationType, long created, Long fromUid, Long projectId,
-                            String projectName, Long invitationId, String invitationSecret, String state,
-                            Long itemId, String itemContent, Long responsibleUid, Long noteId, String noteContent,
-                            Long removedUid, Collaborator fromUser, String accountName, Integer karmaLevel,
-                            Integer completedTasks, Integer completedInDays, Integer completedLastMonth,
-                            Double topProcent, Long dateReached, String promoImg, boolean deleted) {
+    public LiveNotification(long id, String notificationType, long created, boolean isUnread, Long fromUid,
+                            Long projectId, String projectName, Long invitationId, String invitationSecret,
+                            String state, Long itemId, String itemContent, Long responsibleUid, Long noteId,
+                            String noteContent, Long removedUid, Collaborator fromUser, String accountName,
+                            Integer karmaLevel, Integer completedTasks, Integer completedInDays,
+                            Integer completedLastMonth, Double topProcent, Long dateReached, String promoImg,
+                            boolean deleted) {
         super(id, deleted);
         this.notificationType = notificationType;
         this.created = created;
+        this.isUnread = isUnread;
         this.fromUid = fromUid;
         this.projectId = projectId;
         this.projectName = projectName;
@@ -104,6 +107,14 @@ public class LiveNotification extends TodoistObject {
 
     public void setCreated(long created) {
         this.created = created;
+    }
+
+    public boolean isUnread() {
+        return isUnread;
+    }
+
+    public void setUnread(boolean unread) {
+        isUnread = unread;
     }
 
     public Long getFromUid() {
