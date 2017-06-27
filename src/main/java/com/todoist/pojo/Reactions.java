@@ -6,18 +6,7 @@ import java.util.SortedMap;
 import java.util.TreeMap;
 
 public class Reactions {
-    public static final String[] ORDER = new String[]{
-            "👍",
-            "👎",
-            "❤️",
-            "😄",
-            "😂",
-            "😮",
-            "😢",
-            "😡",
-            "👏",
-            "🎉",
-            };
+    public static final String[] ORDER = {"👍", "👎", "❤️", "😄", "😂", "😮", "😢", "😡", "👏", "🎉"};
 
     private SortedMap<String, long[]> uids = new TreeMap<>(new ReactionsComparator());
 
