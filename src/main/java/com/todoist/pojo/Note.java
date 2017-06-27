@@ -1,7 +1,6 @@
 package com.todoist.pojo;
 
 import java.util.Collection;
-import java.util.Map;
 import java.util.Set;
 
 public class Note extends TodoistObject {
@@ -10,20 +9,20 @@ public class Note extends TodoistObject {
     private long postedUid;
     private Set<Long> uidsToNotify;
     private FileAttachment fileAttachment;
-    private Map<String, long[]> reactions;
+    private Reactions reactions;
     private long projectId;
     private long itemId;
     private boolean archived;
 
     public Note(long id, String content, long posted, long postedUid, Collection<Long> uidsToNotify,
-                FileAttachment fileAttachment, Map<String, long[]> reactions, long projectId, long itemId,
+                FileAttachment fileAttachment, Reactions reactions, long projectId, long itemId,
                 boolean archived, boolean deleted) {
         super(id, deleted);
         this.content = content;
         this.posted = posted;
         this.postedUid = postedUid;
         this.uidsToNotify = Utils.unmodifiableSet(uidsToNotify);
-        this.reactions = Utils.unmodifiableMap(reactions);
+        this.reactions = reactions;
         this.fileAttachment = fileAttachment;
         this.projectId = projectId;
         this.itemId = itemId;
@@ -87,12 +86,12 @@ public class Note extends TodoistObject {
         this.fileAttachment = fileAttachment;
     }
 
-    public Map<String, long[]> getReactions() {
+    public Reactions getReactions() {
         return reactions;
     }
 
-    public void setReactions(Map<String, long[]> reactions) {
-        this.reactions = Utils.unmodifiableMap(reactions);
+    public void setReactions(Reactions reactions) {
+        this.reactions = reactions;
     }
 
     public long getProjectId() {
