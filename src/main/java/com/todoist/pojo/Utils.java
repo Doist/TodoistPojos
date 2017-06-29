@@ -2,7 +2,9 @@ package com.todoist.pojo;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 class Utils {
@@ -14,12 +16,21 @@ class Utils {
         return val < min ? min : (val > max ? max : val);
     }
 
-    static <T> Set<T> unmodifiableSet(Collection<? extends T> s) {
-        if (s != null) {
-            return Collections.unmodifiableSet(new HashSet<T>(s));
+    static <T> Set<T> unmodifiableSet(Collection<? extends T> set) {
+        if (set != null) {
+            return Collections.unmodifiableSet(new HashSet<T>(set));
         } else {
             // The empty set is immutable.
             return Collections.emptySet();
+        }
+    }
+
+    static <K, V> Map<K, V> unmodifiableMap(Map<K, V> map) {
+        if (map != null) {
+            return Collections.unmodifiableMap(new HashMap<>(map));
+        } else {
+            // The empty map is immutable.
+            return Collections.emptyMap();
         }
     }
 
