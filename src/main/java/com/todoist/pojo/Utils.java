@@ -2,7 +2,9 @@ package com.todoist.pojo;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 class Utils {
@@ -20,6 +22,15 @@ class Utils {
         } else {
             // The empty set is immutable.
             return Collections.emptySet();
+        }
+    }
+
+    static <K, V> Map<K, V> unmodifiableMap(Map<K, V> m) {
+        if (m != null) {
+            return Collections.unmodifiableMap(new HashMap<>(m));
+        } else {
+            // The empty map is immutable.
+            return Collections.emptyMap();
         }
     }
 
