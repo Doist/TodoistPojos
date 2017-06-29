@@ -23,8 +23,8 @@ public class Note extends TodoistObject {
         this.posted = posted;
         this.postedUid = postedUid;
         this.uidsToNotify = Utils.unmodifiableSet(uidsToNotify);
-        this.reactions = Utils.unmodifiableMap(reactions);
         this.fileAttachment = fileAttachment;
+        this.reactions = Utils.unmodifiableMap(reactions);
         this.projectId = projectId;
         this.itemId = itemId;
         this.archived = archived;
