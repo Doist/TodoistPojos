@@ -57,44 +57,4 @@ class Utils {
             return Collections.emptySet();
         }
     }
-
-    static boolean contains(long[] array, long object) {
-        for (long elem : array) {
-            if (elem == object) {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    static long[] add(long[] array1, long object) {
-        long[] array = new long[array1.length + 1];
-
-        System.arraycopy(array1, 0, array, 0, array1.length);
-        array[array.length - 1] = object;
-
-        return array;
-    }
-
-    static long[] remove(long[] array1, long object) {
-        int index = -1;
-        for (int i = 0; i < array1.length; i++) {
-            if (array1[i] == object) {
-                index = i;
-                break;
-            }
-        }
-
-        if (index != -1) {
-            long[] array = new long[array1.length - 1];
-            System.arraycopy(array1, 0, array, 0, index);
-            if (index < array1.length - 1) {
-                System.arraycopy(array1, index + 1, array, index, array1.length - index - 1);
-            }
-            return array;
-        } else {
-            return array1;
-        }
-    }
 }
