@@ -16,6 +16,8 @@ public class Reminder extends TodoistObject {
     public static final String LOC_TRIGGER_ON_ENTER = "on_enter";
     public static final String LOC_TRIGGER_ON_LEAVE = "on_leave";
 
+    public static final int MAX_COUNT = 700;
+
     private String type;
     /** Exclusive to reminders of type {@link #TYPE_ABSOLUTE}. */
     private String dateString;
