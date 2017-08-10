@@ -4,14 +4,16 @@ public class Features {
     private String text;
     private int restriction;
     private boolean dateistInlineDisabled;
+    private String dateistLang;
     private boolean goldTheme;
     private boolean autoAcceptInvitesDisabled;
 
-    public Features(String text, int restriction, boolean dateistInlineDisabled, boolean goldTheme,
+    public Features(String text, int restriction, boolean dateistInlineDisabled, String dateistLang, boolean goldTheme,
                     boolean autoAcceptInvitesDisabled) {
         this.text = text;
         this.restriction = restriction;
         this.dateistInlineDisabled = dateistInlineDisabled;
+        this.dateistLang = dateistLang;
         this.goldTheme = goldTheme;
         this.autoAcceptInvitesDisabled = autoAcceptInvitesDisabled;
     }
@@ -38,6 +40,14 @@ public class Features {
 
     public void setDateistInlineDisabled(boolean dateistInlineDisabled) {
         this.dateistInlineDisabled = dateistInlineDisabled;
+    }
+
+    public String getDateistLang() {
+        return dateistLang;
+    }
+
+    public void setDateistLang(String dateistLang) {
+        this.dateistLang = dateistLang;
     }
 
     public boolean hasGoldTheme() {
