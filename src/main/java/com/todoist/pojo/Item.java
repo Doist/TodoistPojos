@@ -12,9 +12,7 @@ public class Item extends TodoistObject {
     private String content;
     private long projectId;
     private int priority;
-    private String dateString;
-    private String dateLang;
-    private Long dueDate;
+    private Due due;
     private int itemOrder;
     private int indent;
     private int dayOrder;
@@ -28,17 +26,14 @@ public class Item extends TodoistObject {
     private long dateAdded;
     private boolean hasMoreNotes;
 
-    public Item(long id, String content, long projectId, int priority, String dateString, String dateLang,
-                Long dueDate, int itemOrder, int indent, int dayOrder, boolean checked, boolean collapsed,
-                Long assignedByUid, Long responsibleUid, Collection<Long> labels, boolean inHistory,
-                boolean archived, long dateAdded, boolean hasMoreNotes, boolean deleted) {
+    public Item(long id, String content, long projectId, int priority, Due due, int itemOrder, int indent, int dayOrder,
+                boolean checked, boolean collapsed, Long assignedByUid, Long responsibleUid, Collection<Long> labels,
+                boolean inHistory, boolean archived, long dateAdded, boolean hasMoreNotes, boolean deleted) {
         super(id, deleted);
         this.content = content;
         this.projectId = projectId;
         this.priority = priority;
-        this.dateString = dateString;
-        this.dueDate = dueDate;
-        this.dateLang = dateLang;
+        this.due = due;
         this.itemOrder = itemOrder;
         this.indent = indent;
         this.dayOrder = dayOrder;
@@ -53,19 +48,17 @@ public class Item extends TodoistObject {
         this.hasMoreNotes = hasMoreNotes;
     }
 
-    public Item(long id, String content, long projectId, int priority, String dateString, String dateLang,
-                Long dueDate, int itemOrder, int indent, int dayOrder, boolean checked, boolean collapsed,
-                Long assignedByUid, Long responsibleUid, Collection<Long> labels, boolean inHistory,
-                long dateAdded, boolean hasMoreNotes) {
-        this(id, content, projectId, priority, dateString, dateLang, dueDate, itemOrder, indent, dayOrder, checked,
-             collapsed, assignedByUid, responsibleUid, labels, inHistory, false, dateAdded, hasMoreNotes, false);
+    public Item(long id, String content, long projectId, int priority, Due due, int itemOrder, int indent, int dayOrder,
+                boolean checked, boolean collapsed, Long assignedByUid, Long responsibleUid, Collection<Long> labels,
+                boolean inHistory, long dateAdded, boolean hasMoreNotes) {
+        this(id, content, projectId, priority, due, itemOrder, indent, dayOrder, checked, collapsed, assignedByUid,
+             responsibleUid, labels, inHistory, false, dateAdded, hasMoreNotes, false);
     }
 
-    public Item(long id, String content, long projectId, int priority, String dateString, String dateLang,
-                Long dueDate, int itemOrder, int indent, Long assignedByUid, Long responsibleUid,
-                Collection<Long> labels, long dateAdded) {
-        this(id, content, projectId, priority, dateString, dateLang, dueDate, itemOrder, indent, -1, false, false,
-             assignedByUid, responsibleUid, labels, false, false, dateAdded, false, false);
+    public Item(long id, String content, long projectId, int priority, Due due, int itemOrder, int indent,
+                Long assignedByUid, Long responsibleUid, Collection<Long> labels, long dateAdded) {
+        this(id, content, projectId, priority, due, itemOrder, indent, -1, false, false, assignedByUid, responsibleUid,
+             labels, false, false, dateAdded, false, false);
     }
 
     public String getContent() {
@@ -101,32 +94,16 @@ public class Item extends TodoistObject {
         }
     }
 
-    public String getDateString() {
-        return dateString;
-    }
-
-    public void setDateString(String dateString) {
-        this.dateString = dateString;
-    }
-
-    public String getDateLang() {
-        return dateLang;
-    }
-
-    public void setDateLang(String dateLang) {
-        this.dateLang = dateLang;
-    }
-
-    public Long getDueDate() {
-        return dueDate;
+    public Due getDue() {
+        return due;
     }
 
     /**
      * Sets the due date, with the side effect of resetting the day order to its default value of -1.
      */
-    public void setDueDate(Long dueDate) {
-        if (!Utils.equals(dueDate, this.dueDate)) {
-            this.dueDate = dueDate;
+    public void setDue(Due due) {
+        if (!Utils.equals(due, this.due)) {
+            this.due = due;
             this.dayOrder = -1;
         }
     }
