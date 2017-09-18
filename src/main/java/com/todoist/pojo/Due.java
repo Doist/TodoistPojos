@@ -1,11 +1,11 @@
 package com.todoist.pojo;
 
 public class Due {
-    private String date;
-    private String timezone;
-    private String string;
-    private String lang;
-    private boolean isRecurring;
+    private final String date;
+    private final String timezone;
+    private final String string;
+    private final String lang;
+    private final boolean isRecurring;
 
     public Due(String date, String timezone, String string, String lang, boolean isRecurring) {
         this.date = date;
