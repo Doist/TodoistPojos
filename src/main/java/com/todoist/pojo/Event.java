@@ -8,11 +8,11 @@ public class Event {
     private Long objectId;
     private Long initiatorId;
     private Long eventDate;
-    private ExtraData extraData;
+    private EventExtraData mEventExtraData;
     private long id;
 
     public Event(Long parentProjectId, Long parentItemId, String eventType, String objectType, Long objectId,
-                 Long initiatorId, Long eventDate, ExtraData extraData, long id) {
+                 Long initiatorId, Long eventDate, EventExtraData eventExtraData, long id) {
         this.parentProjectId = parentProjectId;
         this.parentItemId = parentItemId;
         this.eventType = eventType;
@@ -20,7 +20,7 @@ public class Event {
         this.objectId = objectId;
         this.initiatorId = initiatorId;
         this.eventDate = eventDate;
-        this.extraData = extraData;
+        this.mEventExtraData = eventExtraData;
         this.id = id;
     }
 
@@ -80,12 +80,12 @@ public class Event {
         this.eventDate = eventDate;
     }
 
-    public ExtraData getExtraData() {
-        return extraData;
+    public EventExtraData getEventExtraData() {
+        return mEventExtraData;
     }
 
-    public void setExtraData(ExtraData extraData) {
-        this.extraData = extraData;
+    public void setEventExtraData(EventExtraData eventExtraData) {
+        this.mEventExtraData = eventExtraData;
     }
 
     public long getId() {

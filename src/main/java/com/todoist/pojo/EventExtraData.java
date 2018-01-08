@@ -1,6 +1,6 @@
 package com.todoist.pojo;
 
-public class ExtraData {
+public class EventExtraData {
     private String content;
     private String lastContent;
     private Long dueDate;
@@ -14,9 +14,9 @@ public class ExtraData {
     private String parentItemContent;
     private int noteCount;
 
-    public ExtraData(String content, String lastContent, Long dueDate, Long lastDueDate, Long responsibleUid,
-                     Long lastResponsibleUid, String name, String lastName, String parentProjectName,
-                     Integer parentProjectColor, String parentItemContent, int noteCount) {
+    public EventExtraData(String content, String lastContent, Long dueDate, Long lastDueDate, Long responsibleUid,
+                          Long lastResponsibleUid, String name, String lastName, String parentProjectName,
+                          Integer parentProjectColor, String parentItemContent, int noteCount) {
         this.content = content;
         this.lastContent = lastContent;
         this.dueDate = dueDate;
