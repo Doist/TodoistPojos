@@ -24,21 +24,23 @@ public class Filter extends TodoistObject {
     private int color;
     private String query;
     private int itemOrder;
+    private boolean isFavorite;
 
-    public Filter(long id, String name, int color, String query, int itemOrder, boolean deleted) {
+    public Filter(long id, String name, int color, String query, int itemOrder, boolean favorite, boolean deleted) {
         super(id, deleted);
         this.name = sanitizeName(name);
         this.color = color;
         this.query = query;
         this.itemOrder = itemOrder;
+        this.isFavorite = favorite;
     }
 
-    public Filter(long id, String name, int color, String query, int itemOrder) {
-        this(id, name, color, query, itemOrder, false);
+    public Filter(long id, String name, int color, String query, int itemOrder, boolean favorite) {
+        this(id, name, color, query, itemOrder, favorite, false);
     }
 
-    public Filter(long id, String name, String query, int itemOrder) {
-        this(id, name, DEFAULT_COLOR, query, itemOrder, false);
+    public Filter(long id, String name, String query, int itemOrder, boolean favorite) {
+        this(id, name, DEFAULT_COLOR, query, itemOrder, favorite, false);
     }
 
     public String getName() {
@@ -93,6 +95,14 @@ public class Filter extends TodoistObject {
 
     public void setItemOrder(int itemOrder) {
         this.itemOrder = itemOrder;
+    }
+
+    public boolean isFavorite() {
+        return isFavorite;
+    }
+
+    public void setFavorite(boolean favorite) {
+        isFavorite = favorite;
     }
 
     public static String sanitizeName(String name) {

@@ -50,10 +50,12 @@ public class Project extends TodoistObject {
     private boolean teamInbox;
     private boolean hasMoreNotes;
     private boolean shared;
+    private boolean favorite;
     private boolean archived;
 
     public Project(long id, String name, int color, int itemOrder, int indent, boolean collapsed, boolean inbox,
-                   boolean teamInbox, boolean hasMoreNotes, boolean shared, boolean archived, boolean deleted) {
+                   boolean teamInbox, boolean hasMoreNotes, boolean shared, boolean favorite, boolean archived,
+                   boolean deleted) {
         super(id, deleted);
         this.name = sanitizeName(name);
         this.color = color;
@@ -64,20 +66,22 @@ public class Project extends TodoistObject {
         this.teamInbox = teamInbox;
         this.hasMoreNotes = hasMoreNotes;
         this.shared = shared;
+        this.favorite = favorite;
         this.archived = archived;
     }
 
     public Project(long id, String name, int color, int itemOrder, int indent, boolean collapsed,
-                   boolean inbox, boolean teamInbox, boolean hasMoreNotes, boolean shared) {
-        this(id, name, color, itemOrder, indent, collapsed, inbox, teamInbox, hasMoreNotes, shared, false, false);
+                   boolean inbox, boolean teamInbox, boolean hasMoreNotes, boolean shared, boolean favorite) {
+        this(id, name, color, itemOrder, indent, collapsed, inbox, teamInbox, hasMoreNotes, shared, favorite, false,
+             false);
     }
 
-    public Project(long id, String name, int color, int itemOrder, int indent) {
-        this(id, name, color, itemOrder, indent, false, false, false, false, false, false, false);
+    public Project(long id, String name, int color, int itemOrder, int indent, boolean favorite) {
+        this(id, name, color, itemOrder, indent, false, false, false, false, false, favorite, false, false);
     }
 
     public Project(long id, String name, int itemOrder) {
-        this(id, name, DEFAULT_COLOR, itemOrder, MIN_INDENT, false, false, false, false, false, false, false);
+        this(id, name, DEFAULT_COLOR, itemOrder, MIN_INDENT, false, false, false, false, false, false, false, false);
     }
 
     public String getName() {
@@ -176,6 +180,14 @@ public class Project extends TodoistObject {
 
     public void setShared(boolean shared) {
         this.shared = shared;
+    }
+
+    public boolean isFavorite() {
+        return favorite;
+    }
+
+    public void setFavorite(boolean favorite) {
+        this.favorite = favorite;
     }
 
     public boolean isArchived() {
