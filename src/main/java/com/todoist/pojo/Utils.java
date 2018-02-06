@@ -1,9 +1,11 @@
 package com.todoist.pojo;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -22,6 +24,15 @@ class Utils {
         } else {
             // The empty set is immutable.
             return Collections.emptySet();
+        }
+    }
+
+    static <T> List<T> unmodifiableList(Collection<? extends T> list) {
+        if (list != null) {
+            return Collections.unmodifiableList(new ArrayList<T>(list));
+        } else {
+            // The empty list is immutable.
+            return Collections.emptyList();
         }
     }
 
