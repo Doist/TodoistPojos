@@ -24,7 +24,7 @@ public class Filter extends TodoistObject {
     private int color;
     private String query;
     private int itemOrder;
-    private boolean isFavorite;
+    private boolean favorite;
 
     public Filter(long id, String name, int color, String query, int itemOrder, boolean favorite, boolean deleted) {
         super(id, deleted);
@@ -32,7 +32,7 @@ public class Filter extends TodoistObject {
         this.color = color;
         this.query = query;
         this.itemOrder = itemOrder;
-        this.isFavorite = favorite;
+        this.favorite = favorite;
     }
 
     public Filter(long id, String name, int color, String query, int itemOrder, boolean favorite) {
@@ -98,11 +98,11 @@ public class Filter extends TodoistObject {
     }
 
     public boolean isFavorite() {
-        return isFavorite;
+        return favorite;
     }
 
     public void setFavorite(boolean favorite) {
-        isFavorite = favorite;
+        this.favorite = favorite;
     }
 
     public static String sanitizeName(String name) {
