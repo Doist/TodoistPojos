@@ -23,20 +23,22 @@ public class Label extends TodoistObject {
     private String name;
     private int color;
     private int itemOrder;
+    private boolean favorite;
 
-    public Label(long id, String name, int color, int itemOrder, boolean deleted) {
+    public Label(long id, String name, int color, int itemOrder, boolean favorite, boolean deleted) {
         super(id, deleted);
         this.name = sanitizeName(name);
         this.color = color;
         this.itemOrder = itemOrder;
+        this.favorite = favorite;
     }
 
-    public Label(long id, String name, int color, int itemOrder) {
-        this(id, name, color, itemOrder, false);
+    public Label(long id, String name, int color, int itemOrder, boolean favorite) {
+        this(id, name, color, itemOrder, favorite, false);
     }
 
-    public Label(long id, String name, int itemOrder) {
-        this(id, name, DEFAULT_COLOR, itemOrder, false);
+    public Label(long id, String name, int itemOrder, boolean favorite) {
+        this(id, name, DEFAULT_COLOR, itemOrder, favorite, false);
     }
 
     public String getName() {
@@ -83,6 +85,14 @@ public class Label extends TodoistObject {
 
     public void setItemOrder(int itemOrder) {
         this.itemOrder = itemOrder;
+    }
+
+    public boolean isFavorite() {
+        return favorite;
+    }
+
+    public void setFavorite(boolean favorite) {
+        this.favorite = favorite;
     }
 
     public static String sanitizeName(String name) {
