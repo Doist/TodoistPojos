@@ -16,21 +16,20 @@ public class User extends Person {
     private String karmaTrend;
     private boolean karmaDisabled;
     private boolean karmaVacation;
-    private Integer completedCount;
-    private Integer completedToday;
     private Integer autoReminder;
     private Integer theme;
     private Features features;
     private Long businessAccountId;
     private boolean magicNumReached;
     private Integer dailyGoal;
+    private Integer weeklyGoal;
 
     public User(long id, String email, String fullName, String imageId, String apiToken, TzInfo tzInfo,
                 boolean isPremium, Long premiumUntil, Long freeTrialExpires, String startPage, Integer startDay,
                 Integer nextWeek, String defaultReminder, Long teamInbox, Integer shareLimit, Long karma,
-                String karmaTrend, boolean karmaDisabled, boolean karmaVacation, Integer completedCount,
-                Integer completedToday, Integer autoReminder, Integer theme, Features features,
-                Long businessAccountId, boolean magicNumReached, Integer dailyGoal) {
+                String karmaTrend, boolean karmaDisabled, boolean karmaVacation, Integer autoReminder, Integer theme,
+                Features features, Long businessAccountId, boolean magicNumReached, Integer dailyGoal,
+                Integer weeklyGoal) {
         super(id, email, fullName, imageId, false);
         this.apiToken = apiToken;
         this.tzInfo = tzInfo;
@@ -47,14 +46,13 @@ public class User extends Person {
         this.karmaTrend = karmaTrend;
         this.karmaDisabled = karmaDisabled;
         this.karmaVacation = karmaVacation;
-        this.completedCount = completedCount;
-        this.completedToday = completedToday;
         this.autoReminder = autoReminder;
         this.theme = theme;
         this.features = features;
         this.businessAccountId = businessAccountId;
         this.magicNumReached = magicNumReached;
         this.dailyGoal = dailyGoal;
+        this.weeklyGoal = weeklyGoal;
     }
 
     public String getApiToken() {
@@ -177,22 +175,6 @@ public class User extends Person {
         this.karmaVacation = karmaVacation;
     }
 
-    public Integer getCompletedCount() {
-        return completedCount;
-    }
-
-    public void setCompletedCount(Integer completedCount) {
-        this.completedCount = completedCount;
-    }
-
-    public Integer getCompletedToday() {
-        return completedToday;
-    }
-
-    public void setCompletedToday(Integer completedToday) {
-        this.completedToday = completedToday;
-    }
-
     public Integer getAutoReminder() {
         return autoReminder;
     }
@@ -239,5 +221,13 @@ public class User extends Person {
 
     public void setDailyGoal(Integer dailyGoal) {
         this.dailyGoal = dailyGoal;
+    }
+
+    public Integer getWeeklyGoal() {
+        return weeklyGoal;
+    }
+
+    public void setWeeklyGoal(Integer weeklyGoal) {
+        this.weeklyGoal = weeklyGoal;
     }
 }
