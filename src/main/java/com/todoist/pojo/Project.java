@@ -1,8 +1,7 @@
 package com.todoist.pojo;
 
 public class Project extends TodoistObject {
-    public static final int MIN_INDENT = 1;
-    public static final int MAX_INDENT = 4;
+    public static final int MAX_ANCESTORS = 3;
 
     public static final int[] COLORS_PREMIUM = {
             Colors.LIME,
@@ -27,11 +26,13 @@ public class Project extends TodoistObject {
             Colors.SAPPHIRE,
             Colors.ONYX,
             Colors.STEEL,
-    };
+            };
     public static final int[] COLORS_FREE = new int[12]; // First 12 colors are free.
+
     static {
         System.arraycopy(COLORS_PREMIUM, 0, COLORS_FREE, 0, COLORS_FREE.length);
     }
+
     public static final int DEFAULT_COLOR = 7;
 
     public static final int MAX_COUNT_FREE = 80;
@@ -43,8 +44,8 @@ public class Project extends TodoistObject {
 
     private String name;
     private int color;
-    private int itemOrder;
-    private int indent;
+    private Long parentId;
+    private int childOrder;
     private boolean collapsed;
     private boolean inbox;
     private boolean teamInbox;
@@ -53,14 +54,14 @@ public class Project extends TodoistObject {
     private boolean favorite;
     private boolean archived;
 
-    public Project(long id, String name, int color, int itemOrder, int indent, boolean collapsed, boolean inbox,
+    public Project(long id, String name, int color, Long parentId, int childOrder, boolean collapsed, boolean inbox,
                    boolean teamInbox, boolean hasMoreNotes, boolean shared, boolean favorite, boolean archived,
                    boolean deleted) {
         super(id, deleted);
         this.name = sanitizeName(name);
         this.color = color;
-        this.itemOrder = itemOrder;
-        this.indent = indent;
+        this.parentId = parentId;
+        this.childOrder = childOrder;
         this.collapsed = collapsed;
         this.inbox = inbox;
         this.teamInbox = teamInbox;
@@ -70,18 +71,18 @@ public class Project extends TodoistObject {
         this.archived = archived;
     }
 
-    public Project(long id, String name, int color, int itemOrder, int indent, boolean collapsed,
-                   boolean inbox, boolean teamInbox, boolean hasMoreNotes, boolean shared, boolean favorite) {
-        this(id, name, color, itemOrder, indent, collapsed, inbox, teamInbox, hasMoreNotes, shared, favorite, false,
+    public Project(long id, String name, int color, Long parentId, int childOrder, boolean collapsed, boolean inbox,
+                   boolean teamInbox, boolean hasMoreNotes, boolean shared, boolean favorite) {
+        this(id, name, color, parentId, childOrder, collapsed, inbox, teamInbox, hasMoreNotes, shared, favorite, false,
              false);
     }
 
-    public Project(long id, String name, int color, int itemOrder, int indent, boolean favorite) {
-        this(id, name, color, itemOrder, indent, false, false, false, false, false, favorite, false, false);
+    public Project(long id, String name, int color, Long parentId, int childOrder, boolean favorite) {
+        this(id, name, color, parentId, childOrder, false, false, false, false, false, favorite, false, false);
     }
 
-    public Project(long id, String name, int itemOrder) {
-        this(id, name, DEFAULT_COLOR, itemOrder, MIN_INDENT, false, false, false, false, false, false, false, false);
+    public Project(long id, String name, int childOrder) {
+        this(id, name, DEFAULT_COLOR, null, childOrder, false, false, false, false, false, false, false, false);
     }
 
     public String getName() {
@@ -123,23 +124,20 @@ public class Project extends TodoistObject {
         this.color = color;
     }
 
-    public int getItemOrder() {
-        return itemOrder;
+    public Long getParentId() {
+        return parentId;
     }
 
-    public void setItemOrder(int itemOrder) {
-        this.itemOrder = itemOrder;
+    public void setParentId(Long parentId) {
+        this.parentId = parentId;
     }
 
-    /**
-     * Returns the indent within the bounds defined by {@link #MIN_INDENT} and {@link #MAX_INDENT}.
-     */
-    public int getIndent() {
-        return Utils.clamp(indent, MIN_INDENT, MAX_INDENT);
+    public int getChildOrder() {
+        return childOrder;
     }
 
-    public void setIndent(int indent) {
-        this.indent = indent;
+    public void setChildOrder(int childOrder) {
+        this.childOrder = childOrder;
     }
 
     public boolean isCollapsed() {
