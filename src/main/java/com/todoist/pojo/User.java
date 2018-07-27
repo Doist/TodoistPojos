@@ -23,13 +23,14 @@ public class User extends Person {
     private boolean magicNumReached;
     private Integer dailyGoal;
     private Integer weeklyGoal;
+    private int[] daysOff;
 
     public User(long id, String email, String fullName, String imageId, String apiToken, TzInfo tzInfo,
                 boolean isPremium, Long premiumUntil, Long freeTrialExpires, String startPage, Integer startDay,
                 Integer nextWeek, String defaultReminder, Long teamInbox, Integer shareLimit, Long karma,
                 String karmaTrend, boolean karmaDisabled, boolean karmaVacation, Integer autoReminder, Integer theme,
                 Features features, Long businessAccountId, boolean magicNumReached, Integer dailyGoal,
-                Integer weeklyGoal) {
+                Integer weeklyGoal, int[] daysOff) {
         super(id, email, fullName, imageId, false);
         this.apiToken = apiToken;
         this.tzInfo = tzInfo;
@@ -53,6 +54,7 @@ public class User extends Person {
         this.magicNumReached = magicNumReached;
         this.dailyGoal = dailyGoal;
         this.weeklyGoal = weeklyGoal;
+        this.daysOff = daysOff;
     }
 
     public String getApiToken() {
@@ -229,5 +231,13 @@ public class User extends Person {
 
     public void setWeeklyGoal(Integer weeklyGoal) {
         this.weeklyGoal = weeklyGoal;
+    }
+
+    public int[] getDaysOff() {
+        return daysOff;
+    }
+
+    public void setDaysOff(int[] daysOff) {
+        this.daysOff = daysOff;
     }
 }
