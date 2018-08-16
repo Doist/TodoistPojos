@@ -1,23 +1,6 @@
 package com.todoist.pojo;
 
 public class Filter extends TodoistObject {
-    public static final int[] COLORS = {
-            Colors.FOREST,
-            Colors.OLIVE,
-            Colors.TOMATO,
-            Colors.MAGENTA,
-            Colors.GRAPE,
-            Colors.PEACOCK,
-            Colors.SEA,
-            Colors.CHARCOAL,
-            Colors.LAGOON,
-            Colors.TEAL,
-            Colors.CRIMSON,
-            Colors.EMERALD,
-            Colors.NIGHT,
-    };
-    public static final int DEFAULT_COLOR = 12;
-
     public static final int MAX_COUNT = 150;
 
     private String name;
@@ -40,7 +23,7 @@ public class Filter extends TodoistObject {
     }
 
     public Filter(long id, String name, String query, int itemOrder, boolean favorite) {
-        this(id, name, DEFAULT_COLOR, query, itemOrder, favorite, false);
+        this(id, name, Colors.DEFAULT_COLOR_ID, query, itemOrder, favorite, false);
     }
 
     public String getName() {
@@ -51,30 +34,12 @@ public class Filter extends TodoistObject {
         this.name = name;
     }
 
-    /**
-     * Returns the color index in {@link #COLORS}.
-     */
     public int getColor() {
         return color;
     }
 
-    /**
-     * Returns the color index of {@link #COLORS} within the available bounds. If outside those bounds, the default
-     * color index is returned.
-     */
-    public int getColorWithinBounds() {
-        if(color < 0 || color > COLORS.length - 1) {
-            return DEFAULT_COLOR;
-        } else {
-            return color;
-        }
-    }
-
-    /**
-     * Returns the color value of the bounded color {@link #getColorWithinBounds() index}.
-     */
     public int getColorInt() {
-        return COLORS[getColorWithinBounds()];
+        return Colors.getColorIntForId(color);
     }
 
     public void setColor(int color) {

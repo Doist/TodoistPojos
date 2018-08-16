@@ -4,36 +4,6 @@ public class Project extends TodoistObject {
     public static final int MIN_INDENT = 1;
     public static final int MAX_INDENT = 4;
 
-    public static final int[] COLORS_PREMIUM = {
-            Colors.LIME,
-            Colors.SALMON,
-            Colors.PEACH,
-            Colors.CANARY,
-            Colors.SLATE,
-            Colors.CAFE,
-            Colors.ORCHID,
-            Colors.SILVER,
-            Colors.CORAL,
-            Colors.AMBER,
-            Colors.TURQUOISE,
-            Colors.AQUA,
-            Colors.RASPBERRY,
-            Colors.CHERRY,
-            Colors.RUBY,
-            Colors.PISTACHIO,
-            Colors.TEAL,
-            Colors.LAGOON,
-            Colors.SKY,
-            Colors.SAPPHIRE,
-            Colors.ONYX,
-            Colors.STEEL,
-    };
-    public static final int[] COLORS_FREE = new int[12]; // First 12 colors are free.
-    static {
-        System.arraycopy(COLORS_PREMIUM, 0, COLORS_FREE, 0, COLORS_FREE.length);
-    }
-    public static final int DEFAULT_COLOR = 7;
-
     public static final int MAX_COUNT_FREE = 80;
     public static final int MAX_COUNT_PREMIUM = 200;
     public static final int MAX_ITEM_COUNT_FREE = 150;
@@ -81,7 +51,7 @@ public class Project extends TodoistObject {
     }
 
     public Project(long id, String name, int itemOrder) {
-        this(id, name, DEFAULT_COLOR, itemOrder, MIN_INDENT, false, false, false, false, false, false, false, false);
+        this(id, name, Colors.DEFAULT_COLOR_ID, itemOrder, MIN_INDENT, false, false, false, false, false, false, false, false);
     }
 
     public String getName() {
@@ -93,30 +63,17 @@ public class Project extends TodoistObject {
     }
 
     /**
-     * Returns the color index in {@link #COLORS_FREE} / {@link #COLORS_PREMIUM}.
+     * Returns the color id.
      */
     public int getColor() {
         return color;
     }
 
     /**
-     * Returns the color index in {@link #COLORS_FREE} / {@link #COLORS_PREMIUM} within the available bounds, which
-     * depend on {@code isPremium}. If outside those bounds, the default color index is returned.
+     * Returns the color value.
      */
-    public int getColorWithinBounds(boolean isPremium) {
-        if (color >= 0 && color < (isPremium ? COLORS_PREMIUM.length : COLORS_FREE.length)) {
-            return color;
-        } else {
-            return DEFAULT_COLOR;
-        }
-    }
-
-    /**
-     * Returns the color value of the bounded color {@link #getColorWithinBounds(boolean) index}.
-     */
-    public int getColorInt(boolean isPremium) {
-        int color = getColorWithinBounds(isPremium);
-        return isPremium ? COLORS_PREMIUM[color] : COLORS_FREE[color];
+    public int getColorInt() {
+        return Colors.getColorIntForId(color);
     }
 
     public void setColor(int color) {
