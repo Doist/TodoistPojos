@@ -37,7 +37,7 @@ public class Label extends TodoistObject {
     }
 
     public int getColorInt() {
-        return Colors.getColorIntForId(color);
+        return Colors.getColor(color);
     }
 
     public void setColor(int color) {

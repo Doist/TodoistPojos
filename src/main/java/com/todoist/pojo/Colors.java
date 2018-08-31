@@ -25,10 +25,9 @@ public class Colors {
     public static final int GRAY = 0xFFB8B8B8;
     public static final int TAUPE = 0xFFCCAC93;
 
-    public static final int DEFAULT_COLOR_INT = GRAY;
-    public static final int DEFAULT_COLOR_ID = 19;
+    public static final int DEFAULT_COLOR_ID = 48; // GRAY.
 
-    public static final int[] VALUES = new int[]{
+    private static final int[] COLORS = {
             BERRY_RED,
             RED,
             ORANGE,
@@ -48,38 +47,13 @@ public class Colors {
             SALMON,
             CHARCOAL,
             GRAY,
-            TAUPE,
-            };
-
-    public static final int[] COLOR_IDS = new int[]{
-            30,
-            31,
-            32,
-            33,
-            34,
-            35,
-            36,
-            37,
-            38,
-            39,
-            40,
-            41,
-            42,
-            43,
-            44,
-            45,
-            46,
-            47,
-            48,
-            49
+            TAUPE
     };
 
-    public static int getColorIntForId(int colorId) {
-        for (int i = 0; i < COLOR_IDS.length; i++) {
-            if (colorId == COLOR_IDS[i]) {
-                return VALUES[i];
-            }
-        }
-        return DEFAULT_COLOR_INT;
+    public static int getColor(int colorId) {
+        // Color IDs start at 30. To simplify, subtract that value and it can be mapped to the array's index.
+        colorId -= 30;
+
+        return colorId >= 0 && colorId < COLORS.length ? COLORS[colorId] : GRAY;
     }
 }

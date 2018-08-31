@@ -73,7 +73,7 @@ public class Project extends TodoistObject {
      * Returns the color value.
      */
     public int getColorInt() {
-        return Colors.getColorIntForId(color);
+        return Colors.getColor(color);
     }
 
     public void setColor(int color) {

@@ -78,10 +78,6 @@ public class Person extends TodoistObject {
         this.imageId = imageId;
     }
 
-    public int getDefaultAvatarColorInt() {
-        return getDefaultAvatarColorInt(email, true);
-    }
-
     public int getDefaultAvatarColorInt(boolean useLightColors) {
         return getDefaultAvatarColorInt(email, useLightColors);
     }
