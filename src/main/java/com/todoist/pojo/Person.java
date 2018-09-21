@@ -6,25 +6,41 @@ public class Person extends TodoistObject {
     /* Matches leading and trailing spaces and special characters commonly found in name fields. */
     private static final Pattern ESCAPE_PATTERN = Pattern.compile("^\\s+|\\s+$|[\\(\\)\\.,\\-_\\[\\]'\"]");
 
-    public static final int[] AVATAR_COLORS = {
-            0xFFFCC652,
-            0xFFE9952C,
-            0xFFE16B2D,
-            0xFFD84B40,
-            0xFFE8435A,
-            0xFFE5198A,
-            0xFFAD3889,
-            0xFF86389C,
-            0xFFA8A8A8,
-            0xFF98BE2F,
-            0xFF5D9D50,
-            0xFF5F9F85,
-            0xFF5BBCB6,
-            0xFF32A3BF,
-            0xFF2BAFEB,
-            0xFF2D88C3,
-            0xFF3863CC,
-            0xFF5E5E5E
+    private static final int[] LIGHT_AVATAR_COLORS = {
+            0XE9952C,
+            0XE16B2D,
+            0XD84B40,
+            0XE8435A,
+            0XE5198A,
+            0XAD3889,
+            0X86389C,
+            0X98BE2F,
+            0X5D9D50,
+            0X5F9F85,
+            0X5BBCB6,
+            0X32A3BF,
+            0X2BAFEB,
+            0X2D88C3,
+            0X3863CC,
+            0XF5E5E5E
+    };
+
+    private static final int[] DARK_AVATAR_COLORS = {
+            0XFCC652,
+            0XE9952C,
+            0XE16B2D,
+            0XD84B40,
+            0XE8435A,
+            0XE5198A,
+            0XAD3889,
+            0XA8A8A8,
+            0X98BE2F,
+            0X5D9D50,
+            0X5F9F85,
+            0X5BBCB6,
+            0X32A3BF,
+            0X2BAFEB,
+            0X2D88C3
     };
 
     private String email;
@@ -62,23 +78,28 @@ public class Person extends TodoistObject {
         this.imageId = imageId;
     }
 
-    public int getDefaultAvatarColorInt() {
-        return getDefaultAvatarColorInt(email);
+    public int getDefaultAvatarColorInt(boolean useLightColors) {
+        return getDefaultAvatarColorInt(email, useLightColors);
     }
 
     public String getDefaultAvatarText() {
         return getDefaultAvatarText(fullName);
     }
 
-    public static int getDefaultAvatarColorInt(String email) {
+    public static int getDefaultAvatarColorInt(String email, boolean useLightColors) {
         if (email != null) {
             int atIndex = email.indexOf("@");
             if (atIndex > 0) {
-                return AVATAR_COLORS[(email.charAt(0) + email.charAt(atIndex - 1)) % AVATAR_COLORS.length];
+                int[] colors = getAvatarColors(useLightColors);
+                return colors[(email.charAt(0) + email.charAt(atIndex - 1)) % colors.length];
             }
         }
 
         return 0xFF000000;
+    }
+
+    private static int[] getAvatarColors(boolean useLightColors) {
+        return useLightColors ? LIGHT_AVATAR_COLORS : DARK_AVATAR_COLORS;
     }
 
     public static String getDefaultAvatarText(String fullName) {
