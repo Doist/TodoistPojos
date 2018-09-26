@@ -7,40 +7,40 @@ public class Person extends TodoistObject {
     private static final Pattern ESCAPE_PATTERN = Pattern.compile("^\\s+|\\s+$|[\\(\\)\\.,\\-_\\[\\]'\"]");
 
     private static final int[] LIGHT_AVATAR_COLORS = {
-            0XE9952C,
-            0XE16B2D,
-            0XD84B40,
-            0XE8435A,
-            0XE5198A,
-            0XAD3889,
-            0X86389C,
-            0X98BE2F,
-            0X5D9D50,
-            0X5F9F85,
-            0X5BBCB6,
-            0X32A3BF,
-            0X2BAFEB,
-            0X2D88C3,
-            0X3863CC,
-            0XF5E5E5E
+            0XFFE9952C,
+            0XFFE16B2D,
+            0XFFD84B40,
+            0XFFE8435A,
+            0XFFE5198A,
+            0XFFAD3889,
+            0XFF86389C,
+            0XFF98BE2F,
+            0XFF5D9D50,
+            0XFF5F9F85,
+            0XFF5BBCB6,
+            0XFF32A3BF,
+            0XFF2BAFEB,
+            0XFF2D88C3,
+            0XFF3863CC,
+            0XFF5E5E5E
     };
 
     private static final int[] DARK_AVATAR_COLORS = {
-            0XFCC652,
-            0XE9952C,
-            0XE16B2D,
-            0XD84B40,
-            0XE8435A,
-            0XE5198A,
-            0XAD3889,
-            0XA8A8A8,
-            0X98BE2F,
-            0X5D9D50,
-            0X5F9F85,
-            0X5BBCB6,
-            0X32A3BF,
-            0X2BAFEB,
-            0X2D88C3
+            0XFFFCC652,
+            0XFFE9952C,
+            0XFFE16B2D,
+            0XFFD84B40,
+            0XFFE8435A,
+            0XFFE5198A,
+            0XFFAD3889,
+            0XFFA8A8A8,
+            0XFF98BE2F,
+            0XFF5D9D50,
+            0XFF5F9F85,
+            0XFF5BBCB6,
+            0XFF32A3BF,
+            0XFF2BAFEB,
+            0XFF2D88C3
     };
 
     private String email;
