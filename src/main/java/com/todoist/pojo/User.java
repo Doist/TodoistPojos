@@ -9,7 +9,6 @@ public class User extends Person {
     private String startPage;
     private Integer startDay;
     private Integer nextWeek;
-    private String defaultReminder;
     private Long teamInbox;
     private Integer shareLimit;
     private Long karma;
@@ -27,10 +26,9 @@ public class User extends Person {
 
     public User(long id, String email, String fullName, String imageId, String apiToken, TzInfo tzInfo,
                 boolean isPremium, Long premiumUntil, Long freeTrialExpires, String startPage, Integer startDay,
-                Integer nextWeek, String defaultReminder, Long teamInbox, Integer shareLimit, Long karma,
-                String karmaTrend, boolean karmaDisabled, boolean karmaVacation, Integer autoReminder, Integer theme,
-                Features features, Long businessAccountId, boolean magicNumReached, Integer dailyGoal,
-                Integer weeklyGoal, int[] daysOff) {
+                Integer nextWeek, Long teamInbox, Integer shareLimit, Long karma, String karmaTrend,
+                boolean karmaDisabled, boolean karmaVacation, Integer autoReminder, Integer theme, Features features,
+                Long businessAccountId, boolean magicNumReached, Integer dailyGoal, Integer weeklyGoal, int[] daysOff) {
         super(id, email, fullName, imageId, false);
         this.apiToken = apiToken;
         this.tzInfo = tzInfo;
@@ -40,7 +38,6 @@ public class User extends Person {
         this.startPage = startPage;
         this.startDay = startDay;
         this.nextWeek = nextWeek;
-        this.defaultReminder = defaultReminder;
         this.teamInbox = teamInbox;
         this.shareLimit = shareLimit;
         this.karma = karma;
@@ -119,14 +116,6 @@ public class User extends Person {
 
     public void setNextWeek(Integer nextWeek) {
         this.nextWeek = nextWeek;
-    }
-
-    public String getDefaultReminder() {
-        return defaultReminder;
-    }
-
-    public void setDefaultReminder(String defaultReminder) {
-        this.defaultReminder = defaultReminder;
     }
 
     public Long getTeamInbox() {
