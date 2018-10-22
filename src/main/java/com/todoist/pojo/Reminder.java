@@ -5,12 +5,6 @@ public class Reminder extends TodoistObject {
     public static final String TYPE_RELATIVE = "relative";
     public static final String TYPE_LOCATION = "location";
 
-    public static final String SERVICE_EMAIL = "email";
-    public static final String SERVICE_PUSH = "push";
-    public static final String SERVICE_MOBILE = "mobile";
-    public static final String SERVICE_NO_DEFAULT = "no_default";
-    public static final String SERVICE_OTHER = "other";
-
     public static final int DEFAULT_MINUTE_OFFSET = 30;
 
     public static final String LOC_TRIGGER_ON_ENTER = "on_enter";
@@ -33,7 +27,6 @@ public class Reminder extends TodoistObject {
     private Integer radius;
     /** Exclusive to reminders of type {@link #TYPE_LOCATION}. */
     private String locTrigger;
-    private String service;
     private Long notifyUid;
     private long itemId;
 
@@ -41,7 +34,7 @@ public class Reminder extends TodoistObject {
                     Due due,
                     Integer minuteOffset,
                     String name, Double locLat, Double locLong, Integer radius, String locTrigger,
-                    String service, Long notifyUid, long itemId, boolean deleted) {
+                    Long notifyUid, long itemId, boolean deleted) {
         super(id, deleted);
         this.type = type;
         this.due = due;
@@ -51,7 +44,6 @@ public class Reminder extends TodoistObject {
         this.locLong = locLong;
         this.radius = radius;
         this.locTrigger = locTrigger;
-        this.service = service;
         this.notifyUid = notifyUid;
         this.itemId = itemId;
     }
@@ -60,8 +52,8 @@ public class Reminder extends TodoistObject {
                     Due due,
                     Integer minuteOffset,
                     String name, Double locLat, Double locLong, Integer radius, String locTrigger,
-                    String service, Long notifyUid, long itemId) {
-        this(id, type, due, minuteOffset, name, locLat, locLong, radius, locTrigger, service, notifyUid, itemId, false);
+                    Long notifyUid, long itemId) {
+        this(id, type, due, minuteOffset, name, locLat, locLong, radius, locTrigger, notifyUid, itemId, false);
     }
 
     public String getType() {
@@ -138,14 +130,6 @@ public class Reminder extends TodoistObject {
 
     public void setLocTrigger(String locTrigger) {
         this.locTrigger = locTrigger;
-    }
-
-    public String getService() {
-        return service;
-    }
-
-    public void setService(String service) {
-        this.service = service;
     }
 
     public Long getNotifyUid() {
