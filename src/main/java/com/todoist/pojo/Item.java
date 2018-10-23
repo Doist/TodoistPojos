@@ -4,8 +4,7 @@ import java.util.Collection;
 import java.util.Set;
 
 public class Item extends TodoistObject {
-    public static final int MIN_INDENT = 1;
-    public static final int MAX_INDENT = 5;
+    public static final int MAX_ANCESTORS = 4;
     public static final int MIN_PRIORITY = 1;
     public static final int MAX_PRIORITY = 4;
 
@@ -13,8 +12,8 @@ public class Item extends TodoistObject {
     private long projectId;
     private int priority;
     private Due due;
-    private int itemOrder;
-    private int indent;
+    private Long parentId;
+    private int childOrder;
     private int dayOrder;
     private boolean checked;
     private boolean collapsed;
@@ -26,16 +25,17 @@ public class Item extends TodoistObject {
     private long dateAdded;
     private boolean hasMoreNotes;
 
-    public Item(long id, String content, long projectId, int priority, Due due, int itemOrder, int indent, int dayOrder,
-                boolean checked, boolean collapsed, Long assignedByUid, Long responsibleUid, Collection<Long> labels,
-                boolean inHistory, boolean archived, long dateAdded, boolean hasMoreNotes, boolean deleted) {
+    public Item(long id, String content, long projectId, int priority, Due due, Long parentId, int childOrder,
+                int dayOrder, boolean checked, boolean collapsed, Long assignedByUid, Long responsibleUid,
+                Collection<Long> labels, boolean inHistory, boolean archived, long dateAdded, boolean hasMoreNotes,
+                boolean deleted) {
         super(id, deleted);
         this.content = content;
         this.projectId = projectId;
         this.priority = priority;
         this.due = due;
-        this.itemOrder = itemOrder;
-        this.indent = indent;
+        this.parentId = parentId;
+        this.childOrder = childOrder;
         this.dayOrder = dayOrder;
         this.checked = checked;
         this.collapsed = collapsed;
@@ -48,16 +48,16 @@ public class Item extends TodoistObject {
         this.hasMoreNotes = hasMoreNotes;
     }
 
-    public Item(long id, String content, long projectId, int priority, Due due, int itemOrder, int indent, int dayOrder,
-                boolean checked, boolean collapsed, Long assignedByUid, Long responsibleUid, Collection<Long> labels,
-                boolean inHistory, long dateAdded, boolean hasMoreNotes) {
-        this(id, content, projectId, priority, due, itemOrder, indent, dayOrder, checked, collapsed, assignedByUid,
+    public Item(long id, String content, long projectId, int priority, Due due, Long parentId, int childOrder,
+                int dayOrder, boolean checked, boolean collapsed, Long assignedByUid, Long responsibleUid,
+                Collection<Long> labels, boolean inHistory, long dateAdded, boolean hasMoreNotes) {
+        this(id, content, projectId, priority, due, parentId, childOrder, dayOrder, checked, collapsed, assignedByUid,
              responsibleUid, labels, inHistory, false, dateAdded, hasMoreNotes, false);
     }
 
-    public Item(long id, String content, long projectId, int priority, Due due, int itemOrder, int indent,
+    public Item(long id, String content, long projectId, int priority, Due due, Long parentId, int childOrder,
                 Long assignedByUid, Long responsibleUid, Collection<Long> labels, long dateAdded) {
-        this(id, content, projectId, priority, due, itemOrder, indent, -1, false, false, assignedByUid, responsibleUid,
+        this(id, content, projectId, priority, due, parentId, childOrder, -1, false, false, assignedByUid, responsibleUid,
              labels, false, false, dateAdded, false, false);
     }
 
@@ -108,23 +108,20 @@ public class Item extends TodoistObject {
         }
     }
 
-    public int getItemOrder() {
-        return itemOrder;
+    public Long getParentId() {
+        return parentId;
     }
 
-    public void setItemOrder(int itemOrder) {
-        this.itemOrder = itemOrder;
+    public void setParentId(Long parentId) {
+        this.parentId = parentId;
     }
 
-    /**
-     * Returns the indent within the bounds defined by {@link #MIN_INDENT} and {@link #MAX_INDENT}.
-     */
-    public int getIndent() {
-        return Utils.clamp(indent, MIN_INDENT, MAX_INDENT);
+    public int getChildOrder() {
+        return childOrder;
     }
 
-    public void setIndent(int indent) {
-        this.indent = indent;
+    public void setChildOrder(int childOrder) {
+        this.childOrder = childOrder;
     }
 
     public int getDayOrder() {
