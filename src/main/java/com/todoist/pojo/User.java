@@ -23,12 +23,14 @@ public class User extends Person {
     private Integer dailyGoal;
     private Integer weeklyGoal;
     private int[] daysOff;
+    private Long uniquePrefix;
 
     public User(long id, String email, String fullName, String imageId, String apiToken, TzInfo tzInfo,
                 boolean isPremium, Long premiumUntil, Long freeTrialExpires, String startPage, Integer startDay,
                 Integer nextWeek, Long teamInbox, Integer shareLimit, Long karma, String karmaTrend,
                 boolean karmaDisabled, boolean karmaVacation, Integer autoReminder, Integer theme, Features features,
-                Long businessAccountId, boolean magicNumReached, Integer dailyGoal, Integer weeklyGoal, int[] daysOff) {
+                Long businessAccountId, boolean magicNumReached, Integer dailyGoal, Integer weeklyGoal, int[] daysOff,
+                Long uniquePrefix) {
         super(id, email, fullName, imageId, false);
         this.apiToken = apiToken;
         this.tzInfo = tzInfo;
@@ -52,6 +54,7 @@ public class User extends Person {
         this.dailyGoal = dailyGoal;
         this.weeklyGoal = weeklyGoal;
         this.daysOff = daysOff;
+        this.uniquePrefix = uniquePrefix;
     }
 
     public String getApiToken() {
@@ -228,5 +231,13 @@ public class User extends Person {
 
     public void setDaysOff(int[] daysOff) {
         this.daysOff = daysOff;
+    }
+
+    public Long getUniquePrefix() {
+        return uniquePrefix;
+    }
+
+    public void setUniquePrefix(Long uniquePrefix) {
+        this.uniquePrefix = uniquePrefix;
     }
 }
