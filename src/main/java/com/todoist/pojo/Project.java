@@ -5,11 +5,13 @@ public class Project extends TodoistObject {
     public static final int MAX_INDENT = 4;
 
     public static final int MAX_COUNT_FREE = 80;
-    public static final int MAX_COUNT_PREMIUM = 200;
+    public static final int MAX_COUNT_PREMIUM = 300;
+    public static final int MAX_COUNT_BUSINESS = 500;
     public static final int MAX_ITEM_COUNT_FREE = 150;
     public static final int MAX_ITEM_COUNT_PREMIUM = 200;
     public static final int MAX_COLLABORATOR_COUNT_FREE = 5;
     public static final int MAX_COLLABORATORS_COUNT_PREMIUM = 25;
+    public static final int MAX_COLLABORATORS_COUNT_BUSINESS = 50;
 
     private String name;
     private int color;
