@@ -4,7 +4,7 @@ import java.util.Collection;
 import java.util.Set;
 
 public class Item extends TodoistObject {
-    public static final int MAX_ANCESTORS = 4;
+    public static final int MAX_DEPTH = 4;
     public static final int MIN_PRIORITY = 1;
     public static final int MAX_PRIORITY = 4;
 
