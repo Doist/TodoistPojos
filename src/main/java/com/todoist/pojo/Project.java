@@ -1,7 +1,7 @@
 package com.todoist.pojo;
 
 public class Project extends TodoistObject {
-    public static final int MAX_ANCESTORS = 3;
+    public static final int MAX_DEPTH = 3;
 
     public static final int MAX_COUNT_FREE = 80;
     public static final int MAX_COUNT_PREMIUM = 300;
