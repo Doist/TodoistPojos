@@ -4,13 +4,11 @@ public class UserSettings {
     private final boolean reminderPush;
     private final boolean reminderDesktop;
     private final boolean reminderEmail;
-    private final boolean reminderSms;
 
-    public UserSettings(boolean reminderPush, boolean reminderDesktop, boolean reminderEmail, boolean reminderSms) {
+    public UserSettings(boolean reminderPush, boolean reminderDesktop, boolean reminderEmail) {
         this.reminderPush = reminderPush;
         this.reminderDesktop = reminderDesktop;
         this.reminderEmail = reminderEmail;
-        this.reminderSms = reminderSms;
     }
 
     public boolean getReminderPush() {
@@ -23,9 +21,5 @@ public class UserSettings {
 
     public boolean getReminderEmail() {
         return reminderEmail;
-    }
-
-    public boolean getReminderSms() {
-        return reminderSms;
     }
 }
