@@ -90,7 +90,7 @@ public class Item extends TodoistObject {
     public void setPriority(int priority) {
         if (priority != this.priority) {
             this.priority = priority;
-            this.dayOrder = -1;
+            setDayOrder(-1);
         }
     }
 
@@ -104,7 +104,7 @@ public class Item extends TodoistObject {
     public void setDue(Due due) {
         if (!Utils.equals(due, this.due)) {
             this.due = due;
-            this.dayOrder = -1;
+            setDayOrder(-1);
         }
     }
 
