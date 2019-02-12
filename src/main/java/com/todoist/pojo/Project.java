@@ -6,6 +6,7 @@ public class Project extends TodoistObject {
     public static final int MAX_COUNT_FREE = 80;
     public static final int MAX_COUNT_PREMIUM = 300;
     public static final int MAX_COUNT_BUSINESS = 500;
+    public static final int MAX_SECTION_COUNT = 10;
     public static final int MAX_ITEM_COUNT_FREE = 150;
     public static final int MAX_ITEM_COUNT_PREMIUM = 300;
     public static final int MAX_COLLABORATOR_COUNT_FREE = 5;
