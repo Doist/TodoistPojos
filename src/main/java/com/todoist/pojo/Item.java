@@ -12,6 +12,7 @@ public class Item extends TodoistObject {
     private long projectId;
     private int priority;
     private Due due;
+    private Long sectionId;
     private Long parentId;
     private int childOrder;
     private int dayOrder;
@@ -25,15 +26,16 @@ public class Item extends TodoistObject {
     private Long dateCompleted;
     private boolean hasMoreNotes;
 
-    public Item(long id, String content, long projectId, int priority, Due due, Long parentId, int childOrder,
-                int dayOrder, boolean checked, boolean collapsed, Long assignedByUid, Long responsibleUid,
-                Collection<Long> labels, boolean inHistory, long dateAdded, Long dateCompleted, boolean hasMoreNotes,
-                boolean deleted) {
+    public Item(long id, String content, long projectId, int priority, Due due, Long sectionId, Long parentId,
+                int childOrder, int dayOrder, boolean checked, boolean collapsed, Long assignedByUid,
+                Long responsibleUid, Collection<Long> labels, boolean inHistory, long dateAdded, Long dateCompleted,
+                boolean hasMoreNotes, boolean deleted) {
         super(id, deleted);
         this.content = content;
         this.projectId = projectId;
         this.priority = priority;
         this.due = due;
+        this.sectionId = sectionId;
         this.parentId = parentId;
         this.childOrder = childOrder;
         this.dayOrder = dayOrder;
@@ -48,16 +50,17 @@ public class Item extends TodoistObject {
         this.hasMoreNotes = hasMoreNotes;
     }
 
-    public Item(long id, String content, long projectId, int priority, Due due, Long parentId, int childOrder,
-                int dayOrder, boolean checked, boolean collapsed, Long assignedByUid, Long responsibleUid,
-                Collection<Long> labels, boolean inHistory, long dateAdded, Long dateCompleted, boolean hasMoreNotes) {
-        this(id, content, projectId, priority, due, parentId, childOrder, dayOrder, checked, collapsed, assignedByUid,
-             responsibleUid, labels, inHistory, dateAdded, dateCompleted, hasMoreNotes, false);
+    public Item(long id, String content, long projectId, int priority, Due due, Long sectionId, Long parentId,
+                int childOrder, int dayOrder, boolean checked, boolean collapsed, Long assignedByUid,
+                Long responsibleUid, Collection<Long> labels, boolean inHistory, long dateAdded, Long dateCompleted,
+                boolean hasMoreNotes) {
+        this(id, content, projectId, priority, due, sectionId, parentId, childOrder, dayOrder, checked, collapsed,
+             assignedByUid, responsibleUid, labels, inHistory, dateAdded, dateCompleted, hasMoreNotes, false);
     }
 
-    public Item(long id, String content, long projectId, int priority, Due due, Long parentId, int childOrder,
-                Long assignedByUid, Long responsibleUid, Collection<Long> labels, long dateAdded) {
-        this(id, content, projectId, priority, due, parentId, childOrder, -1, false, false, assignedByUid,
+    public Item(long id, String content, long projectId, int priority, Due due, Long sectionId, Long parentId,
+                int childOrder, Long assignedByUid, Long responsibleUid, Collection<Long> labels, long dateAdded) {
+        this(id, content, projectId, priority, due, sectionId, parentId, childOrder, -1, false, false, assignedByUid,
              responsibleUid, labels, false, dateAdded, null, false, false);
     }
 
@@ -106,6 +109,14 @@ public class Item extends TodoistObject {
             this.due = due;
             setDayOrder(-1);
         }
+    }
+
+    public Long getSectionId() {
+        return sectionId;
+    }
+
+    public void setSectionId(Long sectionId) {
+        this.sectionId = sectionId;
     }
 
     public Long getParentId() {
