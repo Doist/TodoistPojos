@@ -35,7 +35,7 @@ open class LiveNotification<C : Collaborator>(
             notificationType == TYPE_SHARE_INVITATION_SENT || notificationType == TYPE_BIZ_INVITATION_CREATED
 
     open val isStatePending: Boolean
-        get() = !Utils.equals(state, STATE_ACCEPTED) && !Utils.equals(state, STATE_REJECTED)
+        get() = state != STATE_ACCEPTED && state!= STATE_REJECTED
 
     companion object {
         const val TYPE_SHARE_INVITATION_SENT = "share_invitation_sent"
@@ -47,7 +47,7 @@ open class LiveNotification<C : Collaborator>(
         const val TYPE_ITEM_ASSIGNED = "item_assigned"
         const val TYPE_ITEM_COMPLETED = "item_completed"
         const val TYPE_ITEM_UNCOMPLETED = "item_uncompleted"
-        @JvmField val TYPE_KARMA_LEVEL = "karma_level"
+        const val TYPE_KARMA_LEVEL = "karma_level"
 
         const val TYPE_BIZ_POLICY_DISALLOWED_INVITATION = "biz_policy_disallowed_invitation"
         const val TYPE_BIZ_POLICY_REJECTED_INVITATION = "biz_policy_rejected_invitation"
@@ -63,5 +63,3 @@ open class LiveNotification<C : Collaborator>(
         const val STATE_REJECTED = "rejected"
     }
 }
-
-const val TYPE_KARMA_LEVEL = "karma_level"
