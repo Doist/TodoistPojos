@@ -13,12 +13,12 @@ open class Collaborator @JvmOverloads constructor(
     /**
      * @return Unmodifiable set of active project ids.
      */
-    var projectsActive: Set<Long> = Utils.unmodifiableSet(projectsActive)
+    var projectsActive: Set<Long> = projectsActive.orEmpty().toSet()
         private set
     /**
      * @return Unmodifiable set of invited project ids.
      */
-    var projectsInvited: Set<Long> = Utils.unmodifiableSet(projectsInvited)
+    var projectsInvited: Set<Long> = projectsInvited.orEmpty().toSet()
         private set
 
     fun getProjectState(projectId: Long): String {
@@ -35,18 +35,18 @@ open class Collaborator @JvmOverloads constructor(
     open fun setProjectState(projectId: Long, state: String) {
         when (state) {
             STATE_ACTIVE -> {
-                projectsActive = Utils.unmodifiableSetWithElement(projectsActive, projectId)
-                projectsInvited = Utils.unmodifiableSetWithoutElement(projectsInvited, projectId)
+                projectsActive = projectsActive + projectId
+                projectsInvited = projectsInvited - projectId
             }
 
             STATE_INVITED -> {
-                projectsActive = Utils.unmodifiableSetWithoutElement(projectsActive, projectId)
-                projectsInvited = Utils.unmodifiableSetWithElement(projectsInvited, projectId)
+                projectsActive = projectsActive - projectId
+                projectsInvited = projectsInvited + projectId
             }
 
             STATE_DELETED -> {
-                projectsActive = Utils.unmodifiableSetWithoutElement(projectsActive, projectId)
-                projectsInvited = Utils.unmodifiableSetWithoutElement(projectsInvited, projectId)
+                projectsActive = projectsActive - projectId
+                projectsInvited = projectsInvited - projectId
             }
 
             else -> throw IllegalArgumentException("Unknown state.")
@@ -59,7 +59,7 @@ open class Collaborator @JvmOverloads constructor(
      * @see {@link .setProjectState
      */
     fun setProjectsActive(projectsActive: Collection<Long>) {
-        this.projectsActive = Utils.unmodifiableSet(projectsActive)
+        this.projectsActive = projectsActive.toSet()
     }
 
     /**
@@ -68,7 +68,7 @@ open class Collaborator @JvmOverloads constructor(
      * @see {@link .setProjectState
      */
     fun setProjectsInvited(projectsInvited: Collection<Long>) {
-        this.projectsInvited = Utils.unmodifiableSet(projectsInvited)
+        this.projectsInvited = projectsInvited.toSet()
     }
 
     companion object {

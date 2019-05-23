@@ -20,16 +20,14 @@ open class Item<D : Due> @JvmOverloads constructor(
         open var dateCompleted: Long? = null,
         deleted: Boolean = false
 ) : TodoistObject(id, deleted) {
-    open var labels: MutableCollection<Long>? = Utils.unmodifiableSet(labels)
-        set(value) {
-            field = Utils.unmodifiableSet(value)
-        }
+    var labels: Set<Long>? = labels?.toSet().orEmpty()
+        private set
 
     open var priority: Int = priority
         /**
          * Returns the priority within the bounds defined by [.MIN_PRIORITY] and [.MAX_PRIORITY].
          */
-        get() = Utils.clamp(field, MIN_PRIORITY, MAX_PRIORITY)
+        get() = field.coerceIn(MIN_PRIORITY, MAX_PRIORITY)
         set(value) {
             if (field != value) {
                 field = value
@@ -47,6 +45,10 @@ open class Item<D : Due> @JvmOverloads constructor(
                 dayOrder = -1
             }
         }
+
+    open fun setLabels(labels: Collection<Long>?) {
+        this.labels = labels?.toSet().orEmpty()
+    }
 
     companion object {
         const val MAX_DEPTH = 4
