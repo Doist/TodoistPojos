@@ -20,13 +20,12 @@ public class Project extends TodoistObject {
     private boolean collapsed;
     private boolean inbox;
     private boolean teamInbox;
-    private boolean hasMoreNotes;
     private boolean shared;
     private boolean favorite;
     private boolean archived;
 
     public Project(long id, String name, int color, Long parentId, int childOrder, boolean collapsed, boolean inbox,
-                   boolean teamInbox, boolean hasMoreNotes, boolean shared, boolean favorite, boolean archived,
+                   boolean teamInbox, boolean shared, boolean favorite, boolean archived,
                    boolean deleted) {
         super(id, deleted);
         this.name = sanitizeName(name);
@@ -36,25 +35,22 @@ public class Project extends TodoistObject {
         this.collapsed = collapsed;
         this.inbox = inbox;
         this.teamInbox = teamInbox;
-        this.hasMoreNotes = hasMoreNotes;
         this.shared = shared;
         this.favorite = favorite;
         this.archived = archived;
     }
 
     public Project(long id, String name, int color, Long parentId, int childOrder, boolean collapsed, boolean inbox,
-                   boolean teamInbox, boolean hasMoreNotes, boolean shared, boolean favorite) {
-        this(id, name, color, parentId, childOrder, collapsed, inbox, teamInbox, hasMoreNotes, shared, favorite, false,
-             false);
+                   boolean teamInbox, boolean shared, boolean favorite) {
+        this(id, name, color, parentId, childOrder, collapsed, inbox, teamInbox, shared, favorite, false, false);
     }
 
     public Project(long id, String name, int color, Long parentId, int childOrder, boolean favorite) {
-        this(id, name, color, parentId, childOrder, false, false, false, false, false, favorite, false, false);
+        this(id, name, color, parentId, childOrder, false, false, false, false, favorite, false, false);
     }
 
     public Project(long id, String name, int childOrder) {
-        this(id, name, Colors.DEFAULT_COLOR_ID, null, childOrder, false, false, false, false, false, false, false,
-             false);
+        this(id, name, Colors.DEFAULT_COLOR_ID, null, childOrder, false, false, false, false, false, false, false);
     }
 
     public String getName() {
@@ -121,14 +117,6 @@ public class Project extends TodoistObject {
 
     public void setTeamInbox(boolean teamInbox) {
         this.teamInbox = teamInbox;
-    }
-
-    public boolean hasMoreNotes() {
-        return hasMoreNotes;
-    }
-
-    public void setHasMoreNotes(boolean hasMoreNotes) {
-        this.hasMoreNotes = hasMoreNotes;
     }
 
     public boolean isShared() {
