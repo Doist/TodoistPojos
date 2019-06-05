@@ -11,12 +11,12 @@ public class Note extends TodoistObject {
     private Set<Long> uidsToNotify;
     private FileAttachment fileAttachment;
     private Map<String, long[]> reactions;
-    private long projectId;
-    private long itemId;
+    private Long projectId;
+    private Long itemId;
     private boolean archived;
 
     public Note(long id, String content, long posted, long postedUid, Collection<Long> uidsToNotify,
-                FileAttachment fileAttachment, Map<String, long[]> reactions, long projectId, long itemId,
+                FileAttachment fileAttachment, Map<String, long[]> reactions, Long projectId, Long itemId,
                 boolean archived, boolean deleted) {
         super(id, deleted);
         this.content = content;
@@ -31,12 +31,12 @@ public class Note extends TodoistObject {
     }
 
     public Note(long id, String content, long posted, long postedUid, Collection<Long> uidsToNotify,
-                FileAttachment fileAttachment, long projectId, long itemId) {
+                FileAttachment fileAttachment, Long projectId, Long itemId) {
         this(id, content, posted, postedUid, uidsToNotify, fileAttachment, null, projectId, itemId, false, false);
     }
 
     public Note(long id, String content, long postedUid, Collection<Long> uidsToNotify,
-                FileAttachment fileAttachment, long projectId, long itemId) {
+                FileAttachment fileAttachment, Long projectId, Long itemId) {
         this(id, content, System.currentTimeMillis(), postedUid, uidsToNotify, fileAttachment, null, projectId, itemId,
              false, false);
     }
@@ -96,19 +96,19 @@ public class Note extends TodoistObject {
         this.reactions = Utils.unmodifiableMap(reactions);
     }
 
-    public long getProjectId() {
+    public Long getProjectId() {
         return projectId;
     }
 
-    public void setProjectId(long projectId) {
+    public void setProjectId(Long projectId) {
         this.projectId = projectId;
     }
 
-    public long getItemId() {
+    public Long getItemId() {
         return itemId;
     }
 
-    public void setItemId(long itemId) {
+    public void setItemId(Long itemId) {
         this.itemId = itemId;
     }
 
