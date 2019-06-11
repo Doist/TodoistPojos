@@ -6,7 +6,7 @@ The naming follows the same as the API, both for classes, variables and methods,
 
 ## Usage
 
-These models are already usable out of the box. As they're written in Kotlin, all the classes and respective properties are open to allow for their extension easily.
+These models are usable out of the box. All models and their properties are open to allow subclassing and overriding.
 
 ## General considerations
 

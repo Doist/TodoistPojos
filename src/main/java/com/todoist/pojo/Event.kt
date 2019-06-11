@@ -1,6 +1,6 @@
 package com.todoist.pojo
 
-open class Event<EED: EventExtraData>(
+open class Event<E: EventExtraData>(
         open var parentProjectId: Long?, 
         open var parentItemId: Long?, 
         open var eventType: String?, 
@@ -8,5 +8,5 @@ open class Event<EED: EventExtraData>(
         open var objectId: Long?,
         open var initiatorId: Long?, 
         open var eventDate: Long?, 
-        open var eventExtraData: EED?,
+        open var eventExtraData: E?,
         open var id: Long)

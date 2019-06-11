@@ -16,17 +16,17 @@ open class Due(
             return false
         }
 
-        val d = other as Due?
-        return date == d?.date && timezone == d.timezone && string == d.string && lang == d.lang
+        val d = other as Due
+        return date == d.date && timezone == d.timezone && string == d.string && lang == d.lang
                 && isRecurring == d.isRecurring
     }
 
     override fun hashCode(): Int {
         var hash = 23
-        hash = 31 * hash + (date.hashCode())
+        hash = 31 * hash + date.hashCode()
         hash = 31 * hash + (timezone?.hashCode() ?: 0)
-        hash = 31 * hash + (string.hashCode())
-        hash = 31 * hash + (lang.hashCode())
+        hash = 31 * hash + string.hashCode()
+        hash = 31 * hash + lang.hashCode()
         hash = 31 * hash + if (isRecurring) 1231 else 1237
         return hash
     }

@@ -15,15 +15,9 @@ open class FileAttachment(
         open var title: String?,
         open var description: String?
 ) {
-
-    val isUploadCompleted: Boolean
-        get() = uploadState == UPLOAD_STATE_COMPLETED
-
-    val isUploadCanceled: Boolean
-        get() = uploadState == UPLOAD_STATE_CANCELED
-
-    val isUploadPending: Boolean
-        get() = uploadState == UPLOAD_STATE_PENDING
+    val isUploadCompleted get() = uploadState == UPLOAD_STATE_COMPLETED
+    val isUploadCanceled get() = uploadState == UPLOAD_STATE_CANCELED
+    val isUploadPending get() = uploadState == UPLOAD_STATE_PENDING
 
     companion object {
         const val RESOURCE_TYPE_FILE = "file"

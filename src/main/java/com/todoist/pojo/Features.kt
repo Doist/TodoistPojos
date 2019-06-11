@@ -5,6 +5,5 @@ open class Features(
         open var restriction: Int,
         open var isDateistInlineDisabled: Boolean,
         open var dateistLang: String?,
-        open var goldTheme: Boolean,
-        open var isAutoAcceptInvitesDisabled: Boolean
-)
+        open var isGoldThemeEnabled: Boolean,
+        open var isAutoAcceptInvitesDisabled: Boolean)

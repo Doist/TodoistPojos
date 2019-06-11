@@ -12,15 +12,14 @@ open class Project @JvmOverloads constructor(
         open var isShared: Boolean = false,
         open var isFavorite: Boolean,
         open var isArchived: Boolean = false,
-        deleted: Boolean = false
-) : TodoistObject(id, deleted) {
-    open var name: String = sanitizeName(name)!!
+        isDeleted: Boolean = false
+) : TodoistObject(id, isDeleted) {
+    open var name: String = sanitizeName(name)
         set(value) {
-            field = sanitizeName(value)!!
+            field = sanitizeName(value)
         }
 
-    open val colorInt: Int
-        get() = Colors.getColor(color)
+    open val colorInt get() = Colors.getColor(color)
 
     companion object {
         const val MAX_DEPTH = 3
@@ -36,8 +35,7 @@ open class Project @JvmOverloads constructor(
         const val MAX_COLLABORATORS_COUNT_BUSINESS = 50
 
         @JvmStatic
-        fun sanitizeName(name: String?): String? =
-                Sanitizers.PROJECT_NAME_INVALID_PATTERN.matcher(name?.trim { it <= ' ' })
-                                                       .replaceAll(Sanitizers.REPLACEMENT)
+        fun sanitizeName(name: String): String =
+                Sanitizers.PROJECT_NAME_INVALID_PATTERN.matcher(name.trim()).replaceAll(Sanitizers.REPLACEMENT)
     }
 }

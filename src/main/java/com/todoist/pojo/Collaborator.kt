@@ -7,17 +7,12 @@ open class Collaborator @JvmOverloads constructor(
         imageId: String? = null,
         projectsActive: Collection<Long>? = null,
         projectsInvited: Collection<Long>? = null,
-        deleted: Boolean = false
-) : Person(id, email, fullName, imageId, deleted) {
+        isDeleted: Boolean = false
+) : Person(id, email, fullName, imageId, isDeleted) {
 
-    /**
-     * @return Unmodifiable set of active project ids.
-     */
     var projectsActive: Set<Long> = projectsActive.orEmpty().toSet()
         private set
-    /**
-     * @return Unmodifiable set of invited project ids.
-     */
+
     var projectsInvited: Set<Long> = projectsInvited.orEmpty().toSet()
         private set
 
@@ -29,9 +24,6 @@ open class Collaborator @JvmOverloads constructor(
         }
     }
 
-    /**
-     * Sets the state for a specific project id.
-     */
     open fun setProjectState(projectId: Long, state: String) {
         when (state) {
             STATE_ACTIVE -> {
@@ -56,7 +48,7 @@ open class Collaborator @JvmOverloads constructor(
     /**
      * Copies the active project ids into an unmodifiable set.
      *
-     * @see {@link .setProjectState
+     * @see setProjectState
      */
     fun setProjectsActive(projectsActive: Collection<Long>) {
         this.projectsActive = projectsActive.toSet()
@@ -65,7 +57,7 @@ open class Collaborator @JvmOverloads constructor(
     /**
      * Copies the invited project ids into an unmodifiable set.
      *
-     * @see {@link .setProjectState
+     * @see setProjectState
      */
     fun setProjectsInvited(projectsInvited: Collection<Long>) {
         this.projectsInvited = projectsInvited.toSet()

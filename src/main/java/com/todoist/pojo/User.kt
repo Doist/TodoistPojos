@@ -1,12 +1,12 @@
 package com.todoist.pojo
 
-open class User<TzI: TzInfo, F: Features>(
+open class User<T: TzInfo, F: Features>(
         id: Long,
         email: String,
         fullName: String,
         imageId: String?,
         open var apiToken: String?,
-        open var tzInfo: TzI?,
+        open var tzInfo: T?,
         open var isPremium: Boolean,
         open var premiumUntil: Long?,
         open var freeTrialExpires: Long?,

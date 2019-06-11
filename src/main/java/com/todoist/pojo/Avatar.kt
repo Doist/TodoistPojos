@@ -20,15 +20,7 @@ enum class Avatar constructor(private val size: Int, private val arg: String) {
          * Returns the first [Avatar] to be larger than `size`. If none exist, returns the largest one.
          */
         @JvmStatic
-        fun getForSize(size: Int): Avatar {
-            val avatars = values()
-            for (avatar in avatars) {
-                if (avatar.size >= size) {
-                    return avatar
-                }
-            }
-            return avatars[avatars.size - 1]
-        }
+        fun getForSize(size: Int) = values().firstOrNull { it.size >= size } ?: values().last()
 
         /**
          * Returns an array of [Avatar] ordered by how optimal they are. The first should be the best, followed by
@@ -36,29 +28,21 @@ enum class Avatar constructor(private val size: Int, private val arg: String) {
          */
         @JvmStatic
         fun getOrderedForSize(size: Int): Array<Avatar> {
-            val avatars = values()
-            val result = emptyArray<Avatar>()
+            val bestAvatar = getForSize(size)
+            val bestOrdinal = bestAvatar.ordinal
 
-            result[0] = getForSize(size)
-            val bestOrdinal = result[0].ordinal
+            return arrayListOf<Avatar>().apply {
+                add(0, bestAvatar)
 
-            for (i in 1 until result.size) {
-                val prevOrdinal = result[i - 1].ordinal
-                val ordinal: Int
-                ordinal = if (prevOrdinal >= bestOrdinal) {
-                    if (prevOrdinal < result.size - 1) {
-                        prevOrdinal + 1
-                    } else {
-                        bestOrdinal - 1
+                for (i in 1 until values().size) {
+                    val prevOrdinal = this[i - 1].ordinal
+                    val ordinal = when {
+                        prevOrdinal >= bestOrdinal -> prevOrdinal + if (prevOrdinal < values().size - 1) 1 else -1
+                        else -> prevOrdinal - 1
                     }
-                } else {
-                    prevOrdinal - 1
+                    add(i, values()[ordinal])
                 }
-
-                result[i] = avatars[ordinal]
-            }
-
-            return result
+            }.toTypedArray()
         }
     }
 }

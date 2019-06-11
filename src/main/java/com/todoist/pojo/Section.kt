@@ -9,5 +9,5 @@ open class Section @JvmOverloads constructor(
         open var dateAdded: Long = 0,
         open var isArchived: Boolean = false,
         open var dateArchived: Long? = null,
-        deleted: Boolean = false
-) : TodoistObject(id, deleted)
+        isDeleted: Boolean = false
+) : TodoistObject(id, isDeleted)

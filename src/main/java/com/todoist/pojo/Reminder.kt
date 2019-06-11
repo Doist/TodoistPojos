@@ -19,16 +19,11 @@ open class Reminder<D: Due> @JvmOverloads constructor(
         open var locTrigger: String?,
         open var notifyUid: Long?,
         open var itemId: Long,
-        deleted: Boolean = false
-) : TodoistObject(id, deleted) {
-    open val isAbsolute: Boolean
-        get() = TYPE_ABSOLUTE == type
-
-    open val isRelative: Boolean
-        get() = TYPE_RELATIVE == type
-
-    open val isLocation: Boolean
-        get() = TYPE_LOCATION == type
+        isDeleted: Boolean = false
+) : TodoistObject(id, isDeleted) {
+    open val isAbsolute get() = TYPE_ABSOLUTE == type
+    open val isRelative get() = TYPE_RELATIVE == type
+    open val isLocation get() = TYPE_LOCATION == type
 
     companion object {
         const val TYPE_ABSOLUTE = "absolute"

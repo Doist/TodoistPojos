@@ -18,15 +18,15 @@ open class Item<D : Due> @JvmOverloads constructor(
         open var isInHistory: Boolean = false,
         open var dateAdded: Long,
         open var dateCompleted: Long? = null,
-        deleted: Boolean = false
-) : TodoistObject(id, deleted) {
+        isDeleted: Boolean = false
+) : TodoistObject(id, isDeleted) {
     var labels: Set<Long>? = labels?.toSet().orEmpty()
         private set
 
+    /**
+     * Returns the priority within the bounds defined by [.MIN_PRIORITY] and [.MAX_PRIORITY].
+     */
     open var priority: Int = priority
-        /**
-         * Returns the priority within the bounds defined by [.MIN_PRIORITY] and [.MAX_PRIORITY].
-         */
         get() = field.coerceIn(MIN_PRIORITY, MAX_PRIORITY)
         set(value) {
             if (field != value) {
@@ -35,10 +35,10 @@ open class Item<D : Due> @JvmOverloads constructor(
             }
         }
 
+    /**
+     * Sets the due date, with the side effect of resetting the day order to its default value of -1.
+     */
     open var due: D? = due
-        /**
-         * Sets the due date, with the side effect of resetting the day order to its default value of -1.
-         */
         set(value) {
             if (field != value) {
                 field = value

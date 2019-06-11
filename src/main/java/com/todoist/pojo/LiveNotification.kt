@@ -2,8 +2,8 @@ package com.todoist.pojo
 
 open class LiveNotification<C : Collaborator>(
         id: Long,
-        var notificationType: String?,
-        open var created: Long?,
+        var notificationType: String,
+        open var created: Long,
         open var isUnread: Boolean,
         // Optional fields, not set in all types.
         open var fromUid: Long?,
@@ -28,14 +28,12 @@ open class LiveNotification<C : Collaborator>(
         open var topProcent: Double?,
         open var dateReached: Long?,
         open var promoImg: String?,
-        deleted: Boolean
-) : TodoistObject(id, deleted) {
-    open val isInvitation: Boolean
-        get() =
-            notificationType == TYPE_SHARE_INVITATION_SENT || notificationType == TYPE_BIZ_INVITATION_CREATED
+        isDeleted: Boolean
+) : TodoistObject(id, isDeleted) {
+    open val isInvitation get() =
+        notificationType == TYPE_SHARE_INVITATION_SENT || notificationType == TYPE_BIZ_INVITATION_CREATED
 
-    open val isStatePending: Boolean
-        get() = state != STATE_ACCEPTED && state!= STATE_REJECTED
+    open val isStatePending get() = state != STATE_ACCEPTED && state!= STATE_REJECTED
 
     companion object {
         const val TYPE_SHARE_INVITATION_SENT = "share_invitation_sent"
