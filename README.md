@@ -1,12 +1,12 @@
 # TodoistPojos
 
-TodoistPojos is a Java project which provides the base POJOs for most [Todoist API](https://todoist.com/API/) objects.
+TodoistPojos is a JVM project which provides the base POJOs (in Kotlin) for most [Todoist API](https://todoist.com/API/) objects.
 
 The naming follows the same as the API, both for classes, variables and methods, with very few helper methods added.
 
 ## Usage
 
-For the most part, you should extend the `Base*` class files and add the necessary logic for your application — persistence, serialization, syncing, etc, whatever you need.
+These models are usable out of the box. All models and their properties are open to allow subclassing and overriding.
 
 ## General considerations
 
@@ -16,22 +16,24 @@ Temporary ids are negative `long` values. Regular ids start at 0 and go up from 
 
 The generation of temporary ids is up to the host application, but the algorithm can be really simple: start at -1 and go down from there. An Android application could use something like the following:
 
-```java
-public static synchronized long getNextTempId(Context context) {
-	SharedPreferences preferences = context.getSharedPreferences("todoist_temp_ids", Context.MODE_PRIVATE);
-	SharedPreferences.Editor editor = preferences.edit();
-	long id = preferences.getLong("temp_id", 0) - 1;
-	if (id > Long.MIN_VALUE) {
-		// Save decremented temp id.
-		editor.putLong("temp_id", id);
-	} else {
-		// Restart from -1 in next call.
-		editor.remove("temp_id");
-	}
-	editor.commit();
-	return id;
+```kotlin
+@Synchronized
+fun getNextTempId(context: Context): Long {
+    val preferences = context.getSharedPreferences("todoist_temp_ids", MODE_PRIVATE)
+    val id = preferences.getLong("temp_id", 0) - 1
+    preferences.edit().apply {
+        if (id > Long.MIN_VALUE) {
+            // Save decremented temp id.
+            putLong("temp_id", id)
+        } else {
+            // Restart from -1 in next call.
+            remove("temp_id")
+        }
+        apply()
+    }
+    
+    return id
 }
-
 ```
 
 ## License
