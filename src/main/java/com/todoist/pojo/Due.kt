@@ -3,7 +3,7 @@ package com.todoist.pojo
 open class Due(
         open val date: String,
         open val timezone: String?,
-        open val string: String,
+        open val string: String?,
         open val lang: String,
         open val isRecurring: Boolean
 ) {
