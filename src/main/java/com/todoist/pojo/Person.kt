@@ -32,7 +32,7 @@ open class Person(
             if (email != null) {
                 val atIndex = email.indexOf('@')
                 if (atIndex > 0) {
-                    val colors = getAvatarColors(useLightColors)
+                    val colors = if (useLightColors) LIGHT_AVATAR_COLORS else DARK_AVATAR_COLORS
                     val index = (email[0].toInt() + email[atIndex - 1].toInt()) % colors.size
                     return colors[index]
                 }
@@ -40,10 +40,6 @@ open class Person(
 
             return 0xFF000000.toInt()
         }
-
-        @ExperimentalUnsignedTypes
-        private fun getAvatarColors(useLightColors: Boolean) =
-                if (useLightColors) LIGHT_AVATAR_COLORS else DARK_AVATAR_COLORS
 
         @JvmStatic
         fun getDefaultAvatarText(fullName: String): String {
