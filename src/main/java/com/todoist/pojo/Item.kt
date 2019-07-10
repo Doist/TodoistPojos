@@ -14,13 +14,13 @@ open class Item<D : Due> @JvmOverloads constructor(
         open var isCollapsed: Boolean = false,
         open var assignedByUid: Long?,
         open var responsibleUid: Long?,
-        labels: Collection<Long>? = null,
+        labels: Collection<String>? = null,
         open var isInHistory: Boolean = false,
         open var dateAdded: Long,
         open var dateCompleted: Long? = null,
         isDeleted: Boolean = false
 ) : TodoistObject(id, isDeleted) {
-    var labels: Set<Long>? = labels?.toSet().orEmpty()
+    var labels: Set<String> = labels?.toSet().orEmpty()
         private set
 
     /**
@@ -46,7 +46,7 @@ open class Item<D : Due> @JvmOverloads constructor(
             }
         }
 
-    open fun setLabels(labels: Collection<Long>?) {
+    open fun setLabels(labels: Collection<String>?) {
         this.labels = labels?.toSet().orEmpty()
     }
 
