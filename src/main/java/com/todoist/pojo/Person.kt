@@ -48,7 +48,7 @@ open class Person(
                 if (useLightColors) LIGHT_AVATAR_COLORS else DARK_AVATAR_COLORS
 
         @JvmStatic
-        fun getDefaultAvatarText(fullName: String?): String {
+        fun getDefaultAvatarText(fullName: String): String {
             if (!fullName.isNullOrBlank()) {
                 val names = ESCAPE_PATTERN.matcher(fullName).replaceAll("").split("\\s+".toRegex()).toTypedArray()
 
