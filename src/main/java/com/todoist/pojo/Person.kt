@@ -28,17 +28,13 @@ open class Person(
 
         @ExperimentalUnsignedTypes
         @JvmStatic
-        fun getDefaultAvatarColorInt(email: String?, useLightColors: Boolean): Int {
-            if (email != null) {
-                val atIndex = email.indexOf('@')
-                if (atIndex > 0) {
-                    val colors = if (useLightColors) LIGHT_AVATAR_COLORS else DARK_AVATAR_COLORS
-                    val index = (email[0].toInt() + email[atIndex - 1].toInt()) % colors.size
-                    return colors[index]
-                }
-            }
+        fun getDefaultAvatarColorInt(email: String, useLightColors: Boolean): Int {
+            val atIndex = email.indexOf('@')
+            if (atIndex <= 0) return 0xFF000000u.toInt()
 
-            return 0xFF000000.toInt()
+            val colors = if (useLightColors) LIGHT_AVATAR_COLORS else DARK_AVATAR_COLORS
+            val index = (email[0].toInt() + email[atIndex - 1].toInt()) % colors.size
+            return colors[index]
         }
 
         @JvmStatic
