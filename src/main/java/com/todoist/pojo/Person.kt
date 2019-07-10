@@ -1,7 +1,5 @@
 package com.todoist.pojo
 
-import java.util.regex.Pattern
-
 open class Person(
         id: Long,
         open var email: String,
@@ -15,7 +13,7 @@ open class Person(
 
     companion object {
         // Matches leading and trailing spaces and special characters commonly found in name fields.
-        private val ESCAPE_PATTERN = Pattern.compile("""^\s+|\s+$|[().,\-_\[\]'"]""")
+        private val ESCAPE_PATTERN = Regex("""^\s+|\s+$|[().,\-_\[\]'"]""")
 
         @ExperimentalUnsignedTypes
         private val LIGHT_AVATAR_COLORS = uintArrayOf(
@@ -49,20 +47,13 @@ open class Person(
 
         @JvmStatic
         fun getDefaultAvatarText(fullName: String): String {
-            if (!fullName.isNullOrBlank()) {
-                val names = ESCAPE_PATTERN.matcher(fullName).replaceAll("").split("\\s+".toRegex()).toTypedArray()
+            val escapedName = fullName.replace(ESCAPE_PATTERN, "")
+            if (escapedName.isBlank()) return "?"
 
-                if (names.isNotEmpty()) {
-                    val initials = StringBuilder(2).apply {
-                        names.firstOrNull()?.firstOrNull()?.toUpperCase()?.let { append(it) }
-                        names.lastOrNull()?.firstOrNull()?.toUpperCase()?.let { append(it) }
-                    }.toString()
-
-                    if (initials.isNotEmpty()) return initials
-                }
-            }
-
-            return "?"
+            val first = escapedName[0].toUpperCase()
+            val lastSpace = escapedName.indexOfLast { it.isWhitespace() }
+            val last = if (lastSpace != -1) escapedName[lastSpace + 1].toUpperCase().toString() else ""
+            return first + last
         }
     }
 }
