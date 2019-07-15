@@ -27,7 +27,7 @@ open class Project @JvmOverloads constructor(
         const val MAX_COUNT_FREE = 80
         const val MAX_COUNT_PREMIUM = 300
         const val MAX_COUNT_BUSINESS = 500
-        const val MAX_SECTION_COUNT = 10
+        const val MAX_SECTION_COUNT = 20
         const val MAX_ITEM_COUNT_FREE = 150
         const val MAX_ITEM_COUNT_PREMIUM = 300
         const val MAX_COLLABORATOR_COUNT_FREE = 5
