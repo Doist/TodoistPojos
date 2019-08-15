@@ -12,8 +12,8 @@ open class Person(
     fun getDefaultAvatarColorInt(useLightColors: Boolean) = getDefaultAvatarColorInt(email, useLightColors)
 
     companion object {
-        // Matches leading and trailing spaces and special characters commonly found in name fields.
-        private val ESCAPE_PATTERN = Regex("""^\s+|\s+$|[().,\-_\[\]'"]""")
+        // Matches special characters commonly found in name fields.
+        private val ESCAPE_PATTERN = Regex("""[().,\-_\[\]'"]""")
 
         @ExperimentalUnsignedTypes
         private val LIGHT_AVATAR_COLORS = uintArrayOf(
@@ -39,7 +39,7 @@ open class Person(
 
         @JvmStatic
         fun getDefaultAvatarText(fullName: String): String {
-            val escapedName = fullName.replace(ESCAPE_PATTERN, "")
+            val escapedName = fullName.replace(ESCAPE_PATTERN, "").trim()
             if (escapedName.isBlank()) return "?"
 
             val first = escapedName[0].toUpperCase()

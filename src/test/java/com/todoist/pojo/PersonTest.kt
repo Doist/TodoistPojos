@@ -12,6 +12,7 @@ class PersonTest {
                "ã ž" to "ÃŽ",
                "Ludwig van Beethoven" to "LB",
                "[Spe-cial], (Chars)" to "SC",
+               "\u00A0NO-BREAK\u00A0SPACE\u00A0" to "NS",
                "Mononym" to "M",
                "Q" to "Q",
                "  " to "?"
