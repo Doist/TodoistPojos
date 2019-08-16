@@ -1,6 +1,6 @@
 # TodoistPojos
 
-TodoistPojos is a JVM project which provides the base POJOs (in Kotlin) for most [Todoist API](https://todoist.com/API/) objects.
+TodoistPojos is a JVM project which provides the base POJOs (in Kotlin) for most [Todoist API](https://developer.todoist.com/sync/v8/) objects.
 
 The naming follows the same as the API, both for classes, variables and methods, with very few helper methods added.
 
