@@ -8,7 +8,7 @@ open class Item<D : Due> @JvmOverloads constructor(
         due: D?,
         open var sectionId: Long?,
         open var parentId: Long?,
-        open var childOrder: Int = 0,
+        open var childOrder: Int = MIN_CHILD_ORDER,
         open var dayOrder: Int = -1,
         open var isChecked: Boolean = false,
         open var isCollapsed: Boolean = false,
@@ -51,6 +51,8 @@ open class Item<D : Due> @JvmOverloads constructor(
     }
 
     companion object {
+        const val MIN_CHILD_ORDER = 1
+        const val MIN_DEPTH = 0
         const val MAX_DEPTH = 4
         const val MIN_PRIORITY = 1
         const val MAX_PRIORITY = 4
