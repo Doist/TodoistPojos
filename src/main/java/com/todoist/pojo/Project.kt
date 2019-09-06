@@ -22,6 +22,8 @@ open class Project @JvmOverloads constructor(
     open val colorInt get() = Colors.getColor(color)
 
     companion object {
+        const val MIN_CHILD_ORDER = 1
+        const val MIN_DEPTH = 0
         const val MAX_DEPTH = 3
 
         const val MAX_COUNT_FREE = 80
