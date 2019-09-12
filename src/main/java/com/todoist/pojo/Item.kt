@@ -20,8 +20,10 @@ open class Item<D : Due> @JvmOverloads constructor(
         open var dateCompleted: Long? = null,
         isDeleted: Boolean = false
 ) : TodoistObject(id, isDeleted) {
-    var labels: Set<String> = labels?.toSet().orEmpty()
-        private set
+    open var labels: Set<String> = labels?.toSet().orEmpty()
+        set(value) {
+            field = value.toSet()
+        }
 
     /**
      * Returns the priority within the bounds defined by [.MIN_PRIORITY] and [.MAX_PRIORITY].
