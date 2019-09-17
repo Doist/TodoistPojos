@@ -9,12 +9,9 @@ open class Collaborator @JvmOverloads constructor(
         projectsInvited: Collection<Long>? = null,
         isDeleted: Boolean = false
 ) : Person(id, email, fullName, imageId, isDeleted) {
-
     var projectsActive: Set<Long> = projectsActive.orEmpty().toSet()
-        private set
 
     var projectsInvited: Set<Long> = projectsInvited.orEmpty().toSet()
-        private set
 
     fun getProjectState(projectId: Long): String {
         return when {
@@ -43,24 +40,6 @@ open class Collaborator @JvmOverloads constructor(
 
             else -> throw IllegalArgumentException("Unknown state.")
         }
-    }
-
-    /**
-     * Copies the active project ids into an unmodifiable set.
-     *
-     * @see setProjectState
-     */
-    fun setProjectsActive(projectsActive: Collection<Long>) {
-        this.projectsActive = projectsActive.toSet()
-    }
-
-    /**
-     * Copies the invited project ids into an unmodifiable set.
-     *
-     * @see setProjectState
-     */
-    fun setProjectsInvited(projectsInvited: Collection<Long>) {
-        this.projectsInvited = projectsInvited.toSet()
     }
 
     companion object {
