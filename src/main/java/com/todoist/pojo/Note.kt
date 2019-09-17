@@ -14,9 +14,4 @@ open class Note<F : FileAttachment> @JvmOverloads constructor(
         isDeleted: Boolean = false
 ) : TodoistObject(id, isDeleted) {
     var uidsToNotify: Set<Long> = uidsToNotify.orEmpty().toSet()
-        private set
-
-    fun setUidsToNotify(uidsToNotify: Collection<Long>) {
-        this.uidsToNotify = uidsToNotify.toSet()
-    }
 }
