@@ -20,10 +20,7 @@ open class Item<D : Due> @JvmOverloads constructor(
         open var dateCompleted: Long? = null,
         isDeleted: Boolean = false
 ) : TodoistObject(id, isDeleted) {
-    open var labels: Set<String> = labels?.toSet().orEmpty()
-        set(value) {
-            field = value.toSet()
-        }
+    open var labels: Set<String> = labels.orEmpty().toSet()
 
     /**
      * Returns the priority within the bounds defined by [.MIN_PRIORITY] and [.MAX_PRIORITY].
@@ -47,10 +44,6 @@ open class Item<D : Due> @JvmOverloads constructor(
                 dayOrder = -1
             }
         }
-
-    open fun setLabels(labels: Collection<String>?) {
-        this.labels = labels?.toSet().orEmpty()
-    }
 
     companion object {
         const val MIN_CHILD_ORDER = 1
