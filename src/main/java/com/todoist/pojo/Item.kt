@@ -14,14 +14,12 @@ open class Item<D : Due> @JvmOverloads constructor(
         open var isCollapsed: Boolean = false,
         open var assignedByUid: Long?,
         open var responsibleUid: Long?,
-        labels: Collection<String>? = null,
+        open var labels: Set<String> = emptySet(),
         open var isInHistory: Boolean = false,
         open var dateAdded: Long,
         open var dateCompleted: Long? = null,
         isDeleted: Boolean = false
 ) : TodoistObject(id, isDeleted) {
-    open var labels: Set<String> = labels.orEmpty().toSet()
-
     /**
      * Returns the priority within the bounds defined by [.MIN_PRIORITY] and [.MAX_PRIORITY].
      */

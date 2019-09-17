@@ -5,20 +5,14 @@ open class Collaborator @JvmOverloads constructor(
         email: String,
         fullName: String = "",
         imageId: String? = null,
-        projectsActive: Collection<Long>? = null,
-        projectsInvited: Collection<Long>? = null,
+        open var projectsActive: Set<Long> = emptySet(),
+        open var projectsInvited: Set<Long> = emptySet(),
         isDeleted: Boolean = false
 ) : Person(id, email, fullName, imageId, isDeleted) {
-    var projectsActive: Set<Long> = projectsActive.orEmpty().toSet()
-
-    var projectsInvited: Set<Long> = projectsInvited.orEmpty().toSet()
-
-    fun getProjectState(projectId: Long): String {
-        return when {
-            projectsActive.contains(projectId) -> STATE_ACTIVE
-            projectsInvited.contains(projectId) -> STATE_INVITED
-            else -> STATE_DELETED
-        }
+    fun getProjectState(projectId: Long) = when {
+        projectsActive.contains(projectId) -> STATE_ACTIVE
+        projectsInvited.contains(projectId) -> STATE_INVITED
+        else -> STATE_DELETED
     }
 
     open fun setProjectState(projectId: Long, state: String) {
