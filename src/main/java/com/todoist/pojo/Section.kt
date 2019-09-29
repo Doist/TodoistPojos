@@ -10,4 +10,8 @@ open class Section @JvmOverloads constructor(
         open var isArchived: Boolean = false,
         open var dateArchived: Long? = null,
         isDeleted: Boolean = false
-) : TodoistObject(id, isDeleted)
+) : TodoistObject(id, isDeleted) {
+    companion object {
+        const val MIN_CHILD_ORDER = 1
+    }
+}
