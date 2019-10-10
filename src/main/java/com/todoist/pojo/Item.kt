@@ -15,7 +15,6 @@ open class Item<D : Due> @JvmOverloads constructor(
         open var assignedByUid: Long?,
         open var responsibleUid: Long?,
         open var labels: Set<String> = emptySet(),
-        open var isInHistory: Boolean = false,
         open var dateAdded: Long,
         open var dateCompleted: Long? = null,
         isDeleted: Boolean = false
