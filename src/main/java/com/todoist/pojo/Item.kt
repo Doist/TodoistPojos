@@ -9,7 +9,7 @@ open class Item<D : Due> @JvmOverloads constructor(
         open var sectionId: Long?,
         open var parentId: Long?,
         open var childOrder: Int = MIN_CHILD_ORDER,
-        open var dayOrder: Int = -1,
+        open var dayOrder: Int = DEF_DAY_ORDER,
         open var isChecked: Boolean = false,
         open var isCollapsed: Boolean = false,
         open var assignedByUid: Long?,
@@ -20,25 +20,25 @@ open class Item<D : Due> @JvmOverloads constructor(
         isDeleted: Boolean = false
 ) : TodoistObject(id, isDeleted) {
     /**
-     * Returns the priority within the bounds defined by [.MIN_PRIORITY] and [.MAX_PRIORITY].
+     * Returns the priority within the bounds defined by [MIN_PRIORITY] and [MAX_PRIORITY].
      */
     open var priority: Int = priority
         get() = field.coerceIn(MIN_PRIORITY, MAX_PRIORITY)
         set(value) {
             if (field != value) {
                 field = value
-                dayOrder = -1
+                dayOrder = DEF_DAY_ORDER
             }
         }
 
     /**
-     * Sets the due date, with the side effect of resetting the day order to its default value of -1.
+     * Sets the due date, with the side effect of resetting the day order to its default value of [DEF_DAY_ORDER].
      */
     open var due: D? = due
         set(value) {
             if (field != value) {
                 field = value
-                dayOrder = -1
+                dayOrder = DEF_DAY_ORDER
             }
         }
 
@@ -48,6 +48,7 @@ open class Item<D : Due> @JvmOverloads constructor(
         const val MAX_DEPTH = 4
         const val MIN_PRIORITY = 1
         const val MAX_PRIORITY = 4
+        const val DEF_DAY_ORDER = -1
         const val MAX_LABEL_COUNT = 100
     }
 }
