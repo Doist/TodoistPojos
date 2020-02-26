@@ -26,5 +26,6 @@ open class User<T: TzInfo, F: Features>(
         open var dailyGoal: Int?,
         open var weeklyGoal: Int?,
         open var daysOff: IntArray?,
-        open var uniquePrefix: Long?
+        open var uniquePrefix: Long?,
+        open var hasPassword: Boolean
 ) : Person(id, email, fullName, imageId, false)
