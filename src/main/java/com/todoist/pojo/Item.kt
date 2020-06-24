@@ -16,6 +16,7 @@ open class Item<D : Due> @JvmOverloads constructor(
     open var responsibleUid: Long?,
     open var labels: Set<String> = emptySet(),
     open var dateAdded: Long,
+    open var addedByUid: Long?,
     open var dateCompleted: Long? = null,
     isDeleted: Boolean = false
 ) : TodoistObject(id, isDeleted) {
