@@ -1,23 +1,24 @@
 package com.todoist.pojo
 
 open class Item<D : Due> @JvmOverloads constructor(
-        id: Long,
-        open var content: String,
-        open var projectId: Long,
-        priority: Int,
-        due: D?,
-        open var sectionId: Long?,
-        open var parentId: Long?,
-        open var childOrder: Int = MIN_CHILD_ORDER,
-        open var dayOrder: Int = DEF_DAY_ORDER,
-        open var isChecked: Boolean = false,
-        open var isCollapsed: Boolean = false,
-        open var assignedByUid: Long?,
-        open var responsibleUid: Long?,
-        open var labels: Set<String> = emptySet(),
-        open var dateAdded: Long,
-        open var dateCompleted: Long? = null,
-        isDeleted: Boolean = false
+    id: Long,
+    open var content: String,
+    open var projectId: Long,
+    priority: Int,
+    due: D?,
+    open var sectionId: Long?,
+    open var parentId: Long?,
+    open var childOrder: Int = MIN_CHILD_ORDER,
+    open var dayOrder: Int = DEF_DAY_ORDER,
+    open var isChecked: Boolean = false,
+    open var isCollapsed: Boolean = false,
+    open var assignedByUid: Long?,
+    open var responsibleUid: Long?,
+    open var labels: Set<String> = emptySet(),
+    open var dateAdded: Long,
+    open var addedByUid: Long?,
+    open var dateCompleted: Long? = null,
+    isDeleted: Boolean = false
 ) : TodoistObject(id, isDeleted) {
     /**
      * Returns the priority within the bounds defined by [MIN_PRIORITY] and [MAX_PRIORITY].
@@ -32,7 +33,8 @@ open class Item<D : Due> @JvmOverloads constructor(
         }
 
     /**
-     * Sets the due date, with the side effect of resetting the day order to its default value of [DEF_DAY_ORDER].
+     * Sets the due date, with the side effect of resetting the day order
+     * to its default value of [DEF_DAY_ORDER].
      */
     open var due: D? = due
         set(value) {
