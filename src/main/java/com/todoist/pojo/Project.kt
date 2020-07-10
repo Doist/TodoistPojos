@@ -1,19 +1,19 @@
 package com.todoist.pojo
 
 open class Project @JvmOverloads constructor(
-        id: Long,
-        name: String,
-        open var color: Int = Colors.DEFAULT_COLOR_ID,
-        open var viewStyle: String = VIEW_STYLE_DEFAULT,
-        open var parentId: Long?,
-        open var childOrder: Int,
-        open var isCollapsed: Boolean = false,
-        open var isInbox: Boolean = false,
-        open var isTeamInbox: Boolean = false,
-        open var isShared: Boolean = false,
-        open var isFavorite: Boolean,
-        open var isArchived: Boolean = false,
-        isDeleted: Boolean = false
+    id: Long,
+    name: String,
+    open var color: Int = Colors.DEFAULT_COLOR_ID,
+    open var viewStyle: String = VIEW_STYLE_DEFAULT,
+    open var parentId: Long?,
+    open var childOrder: Int,
+    open var isCollapsed: Boolean = false,
+    open var isInbox: Boolean = false,
+    open var isTeamInbox: Boolean = false,
+    open var isShared: Boolean = false,
+    open var isFavorite: Boolean,
+    open var isArchived: Boolean = false,
+    isDeleted: Boolean = false
 ) : TodoistObject(id, isDeleted) {
     open var name: String = sanitizeName(name)
         set(value) {
@@ -43,6 +43,7 @@ open class Project @JvmOverloads constructor(
 
         @JvmStatic
         fun sanitizeName(name: String): String =
-                Sanitizers.PROJECT_NAME_INVALID_PATTERN.matcher(name.trim()).replaceAll(Sanitizers.REPLACEMENT)
+            Sanitizers.PROJECT_NAME_INVALID_PATTERN.matcher(name.trim())
+                .replaceAll(Sanitizers.REPLACEMENT)
     }
 }

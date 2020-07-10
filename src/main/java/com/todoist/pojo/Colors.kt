@@ -28,15 +28,15 @@ object Colors {
 
     const val DEFAULT_COLOR_ID = 48 // GRAY.
 
-    private val COLORS = uintArrayOf(BERRY_RED, RED, ORANGE, YELLOW, OLIVE_GREEN, LIME_GREEN, GREEN, MINT_GREEN, TEAL,
-                                     SKY_BLUE, LIGHT_BLUE, BLUE, GRAPE, VIOLET, LAVENDER, MAGENTA, SALMON, CHARCOAL,
-                                     GRAY, TAUPE).toIntArray()
+    private val COLORS = uintArrayOf(
+        BERRY_RED, RED, ORANGE, YELLOW, OLIVE_GREEN, LIME_GREEN, GREEN, MINT_GREEN, TEAL,
+        SKY_BLUE, LIGHT_BLUE, BLUE, GRAPE, VIOLET, LAVENDER, MAGENTA, SALMON, CHARCOAL,
+        GRAY, TAUPE
+    ).toIntArray()
 
     fun getColor(colorId: Int): Int {
-        var colorId = colorId
-        // Color IDs start at 30. To simplify, subtract that value and it can be mapped to the array's index.
-        colorId -= 30
-
-        return if (colorId >= 0 && colorId < COLORS.size) COLORS[colorId] else GRAY.toInt()
+        // Color ids start at 30. Subtract that value, so it can be mapped to the array's index.
+        val colorIndex = colorId - 30
+        return if (colorIndex >= 0 && colorIndex < COLORS.size) COLORS[colorIndex] else GRAY.toInt()
     }
 }

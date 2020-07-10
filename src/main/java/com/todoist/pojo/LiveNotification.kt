@@ -1,39 +1,40 @@
 package com.todoist.pojo
 
 open class LiveNotification<C : Collaborator>(
-        id: Long,
-        var notificationType: String,
-        open var created: Long,
-        open var isUnread: Boolean,
-        // Optional fields, not set in all types.
-        open var fromUid: Long?,
-        open var projectId: Long?,
-        open var projectName: String?,
-        open var invitationId: Long?,
-        open var invitationSecret: String?,
-        open var state: String?,
-        open var itemId: Long?,
-        open var itemContent: String?,
-        open var responsibleUid: Long?,
-        open var noteId: Long?,
-        open var noteContent: String?,
-        open var removedUid: Long?,
-        open var fromUser: C?,
-        open var accountName: String?,
-        // Optional fields used in Karma notifications (which are set depends on the karma level).
-        open var karmaLevel: Int?,
-        open var completedTasks: Int?,
-        open var completedInDays: Int?,
-        open var completedLastMonth: Int?,
-        open var topProcent: Double?,
-        open var dateReached: Long?,
-        open var promoImg: String?,
-        isDeleted: Boolean
+    id: Long,
+    var notificationType: String,
+    open var created: Long,
+    open var isUnread: Boolean,
+    // Optional fields, not set in all types.
+    open var fromUid: Long?,
+    open var projectId: Long?,
+    open var projectName: String?,
+    open var invitationId: Long?,
+    open var invitationSecret: String?,
+    open var state: String?,
+    open var itemId: Long?,
+    open var itemContent: String?,
+    open var responsibleUid: Long?,
+    open var noteId: Long?,
+    open var noteContent: String?,
+    open var removedUid: Long?,
+    open var fromUser: C?,
+    open var accountName: String?,
+    // Optional fields used in Karma notifications (which are set depends on the karma level).
+    open var karmaLevel: Int?,
+    open var completedTasks: Int?,
+    open var completedInDays: Int?,
+    open var completedLastMonth: Int?,
+    open var topProcent: Double?,
+    open var dateReached: Long?,
+    open var promoImg: String?,
+    isDeleted: Boolean
 ) : TodoistObject(id, isDeleted) {
-    open val isInvitation get() =
-        notificationType == TYPE_SHARE_INVITATION_SENT || notificationType == TYPE_BIZ_INVITATION_CREATED
+    open val isInvitation
+        get() = notificationType == TYPE_SHARE_INVITATION_SENT ||
+            notificationType == TYPE_BIZ_INVITATION_CREATED
 
-    open val isStatePending get() = state != STATE_ACCEPTED && state!= STATE_REJECTED
+    open val isStatePending get() = state != STATE_ACCEPTED && state != STATE_REJECTED
 
     companion object {
         const val TYPE_SHARE_INVITATION_SENT = "share_invitation_sent"
