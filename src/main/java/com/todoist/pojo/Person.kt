@@ -16,7 +16,6 @@ open class Person(
         // Matches special characters commonly found in name fields.
         private val ESCAPE_PATTERN = Regex("""[().,\-_\[\]'"]""")
 
-        @ExperimentalUnsignedTypes
         private val LIGHT_AVATAR_COLORS = uintArrayOf(
             0XFFE9952Cu,
             0XFFE16B2Du,
@@ -36,7 +35,6 @@ open class Person(
             0XFF5E5E5Eu
         ).toIntArray()
 
-        @ExperimentalUnsignedTypes
         private val DARK_AVATAR_COLORS = uintArrayOf(
             0XFFFCC652u,
             0XFFE9952Cu,
@@ -55,7 +53,6 @@ open class Person(
             0XFF2D88C3u
         ).toIntArray()
 
-        @ExperimentalUnsignedTypes
         @JvmStatic
         fun getDefaultAvatarColorInt(email: String, useLightColors: Boolean): Int {
             val atIndex = email.indexOf('@')

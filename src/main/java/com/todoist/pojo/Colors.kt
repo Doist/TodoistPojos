@@ -3,7 +3,6 @@ package com.todoist.pojo
 /**
  * Available colors, as ARGB ints.
  */
-@ExperimentalUnsignedTypes
 object Colors {
     const val BERRY_RED = 0xFFB8255Fu
     const val RED = 0xFFDB4035u
