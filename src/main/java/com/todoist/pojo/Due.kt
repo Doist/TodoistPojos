@@ -1,11 +1,11 @@
 package com.todoist.pojo
 
 open class Due(
-        open val date: String,
-        open val timezone: String?,
-        open val string: String?,
-        open val lang: String,
-        open val isRecurring: Boolean
+    open val date: String,
+    open val timezone: String?,
+    open val string: String?,
+    open val lang: String,
+    open val isRecurring: Boolean
 ) {
 
     override fun equals(other: Any?): Boolean {
@@ -18,7 +18,7 @@ open class Due(
 
         val d = other as Due
         return date == d.date && timezone == d.timezone && string == d.string && lang == d.lang
-                && isRecurring == d.isRecurring
+            && isRecurring == d.isRecurring
     }
 
     override fun hashCode(): Int {

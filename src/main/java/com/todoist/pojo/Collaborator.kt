@@ -1,14 +1,15 @@
 package com.todoist.pojo
 
 open class Collaborator @JvmOverloads constructor(
-        id: Long,
-        email: String,
-        fullName: String = "",
-        imageId: String? = null,
-        open var projectsActive: Set<Long> = emptySet(),
-        open var projectsInvited: Set<Long> = emptySet(),
-        isDeleted: Boolean = false
+    id: Long,
+    email: String,
+    fullName: String = "",
+    imageId: String? = null,
+    open var projectsActive: Set<Long> = emptySet(),
+    open var projectsInvited: Set<Long> = emptySet(),
+    isDeleted: Boolean = false
 ) : Person(id, email, fullName, imageId, isDeleted) {
+
     fun getProjectState(projectId: Long) = when {
         projectsActive.contains(projectId) -> STATE_ACTIVE
         projectsInvited.contains(projectId) -> STATE_INVITED

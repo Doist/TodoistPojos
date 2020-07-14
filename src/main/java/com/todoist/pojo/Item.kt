@@ -20,6 +20,7 @@ open class Item<D : Due> @JvmOverloads constructor(
     open var dateCompleted: Long? = null,
     isDeleted: Boolean = false
 ) : TodoistObject(id, isDeleted) {
+
     /**
      * Returns the priority within the bounds defined by [MIN_PRIORITY] and [MAX_PRIORITY].
      */
@@ -33,8 +34,8 @@ open class Item<D : Due> @JvmOverloads constructor(
         }
 
     /**
-     * Sets the due date, with the side effect of resetting the day order
-     * to its default value of [DEF_DAY_ORDER].
+     * Sets the due date, with the side effect of resetting the day order to its default value of
+     * [DEF_DAY_ORDER].
      */
     open var due: D? = due
         set(value) {
