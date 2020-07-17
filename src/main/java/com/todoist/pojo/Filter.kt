@@ -17,8 +17,6 @@ open class Filter @JvmOverloads constructor(
         const val MAX_COUNT = 150
 
         @JvmStatic
-        fun sanitizeName(name: String): String =
-            Sanitizers.FILTER_NAME_INVALID_PATTERN.matcher(name.trim())
-                .replaceAll(Sanitizers.REPLACEMENT)
+        fun sanitizeName(name: String): String = name.trim()
     }
 }
