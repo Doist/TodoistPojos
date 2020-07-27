@@ -12,6 +12,7 @@ open class User<T : TzInfo, F : Features>(
     open var freeTrialExpires: Long?,
     open var startPage: String?,
     open var startDay: Int?,
+    open var weekendStartDay: Int?,
     open var nextWeek: Int?,
     open var teamInbox: Long?,
     open var shareLimit: Int?,
