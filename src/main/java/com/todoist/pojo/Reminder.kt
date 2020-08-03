@@ -35,6 +35,7 @@ open class Reminder<D : Due> @JvmOverloads constructor(
         const val LOC_TRIGGER_ON_ENTER = "on_enter"
         const val LOC_TRIGGER_ON_LEAVE = "on_leave"
 
-        const val MAX_COUNT = 700
+        const val MAX_COUNT_ABSOLUTE_RELATIVE = 700
+        const val MAX_COUNT_LOCATION = 300
     }
 }
