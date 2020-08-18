@@ -16,8 +16,6 @@ open class Label @JvmOverloads constructor(
     val colorInt get() = Colors.getColor(color)
 
     companion object {
-        const val MAX_COUNT = 500
-
         @JvmStatic
         fun sanitizeName(name: String): String =
             Sanitizers.LABEL_NAME_INVALID_PATTERN.matcher(name.trim())
