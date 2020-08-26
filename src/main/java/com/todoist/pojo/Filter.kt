@@ -14,8 +14,6 @@ open class Filter @JvmOverloads constructor(
     open val colorInt get() = Colors.getColor(color)
 
     companion object {
-        const val MAX_COUNT = 150
-
         @JvmStatic
         fun sanitizeName(name: String): String = name.trim()
     }
