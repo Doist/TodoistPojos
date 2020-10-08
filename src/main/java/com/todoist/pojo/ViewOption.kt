@@ -2,7 +2,7 @@ package com.todoist.pojo
 
 open class ViewOption(
     id: Long,
-    open var viewType: Type,
+    open var viewType: Type?,
     open var objectId: Long?,
     open var sortedBy: Sort?,
     open var sortOrder: SortOrder?,
@@ -18,7 +18,7 @@ open class ViewOption(
         override fun toString() = key
 
         companion object {
-            fun get(typeKey: String): Type? = values().find { it.key == typeKey }
+            fun get(typeKey: String?): Type? = values().find { it.key == typeKey }
         }
     }
 
