@@ -23,7 +23,7 @@ open class ViewOption(
     }
 
     enum class Sort(private val key: String) {
-        ALPHABETICAL("ALPHABETICAL"),
+        ALPHABETICALLY("ALPHABETICALLY"),
         ASSIGNEE("ASSIGNEE"),
         ADDED_DATE("ADDED_DATE"),
         DUE_DATE("DUE_DATE"),
