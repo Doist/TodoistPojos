@@ -11,6 +11,7 @@ open class ViewOption(
     isDeleted: Boolean
 ) : TodoistObject(id, isDeleted) {
     enum class Type(private val key: String) {
+        TODAY("TODAY"),
         PROJECT("PROJECT"),
         LABEL("LABEL"),
         FILTER("FILTER");
