@@ -2,7 +2,7 @@ package com.todoist.pojo
 
 open class ViewOption(
     id: Long,
-    open var viewType: Type?,
+    open var viewType: Type,
     open var objectId: Long?,
     open var sortedBy: Sort?,
     open var sortOrder: SortOrder?,
@@ -10,16 +10,30 @@ open class ViewOption(
     open var filteredBy: String?,
     isDeleted: Boolean
 ) : TodoistObject(id, isDeleted) {
-    enum class Type(private val key: String) {
-        TODAY("TODAY"),
-        PROJECT("PROJECT"),
-        LABEL("LABEL"),
-        FILTER("FILTER");
+    sealed class Type(protected open val key: String) {
+        object Today : Type("TODAY")
+
+        object Project : Type("PROJECT")
+
+        object Label : Type("LABEL")
+
+        object Filter : Type("FILTER")
+
+        data class Unknown(override val key: String) : Type(key)
+
+        object Invalid : Type("INVALID")
 
         override fun toString() = key
 
         companion object {
-            fun get(typeKey: String?): Type? = values().find { it.key == typeKey }
+            fun get(typeKey: String?) = when {
+                typeKey.isNullOrEmpty() -> Invalid
+                typeKey == Today.key -> Today
+                typeKey == Project.key -> Project
+                typeKey == Label.key -> Label
+                typeKey == Filter.key -> Filter
+                else -> Unknown(typeKey)
+            }
         }
     }
 
