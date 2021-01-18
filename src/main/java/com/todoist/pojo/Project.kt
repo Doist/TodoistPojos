@@ -2,7 +2,7 @@ package com.todoist.pojo
 
 open class Project @JvmOverloads constructor(
     id: Long,
-    name: String,
+    open var name: String,
     open var color: Int = Colors.DEFAULT_COLOR_ID,
     open var viewStyle: String = VIEW_STYLE_DEFAULT,
     open var parentId: Long?,
@@ -15,11 +15,6 @@ open class Project @JvmOverloads constructor(
     open var isArchived: Boolean = false,
     isDeleted: Boolean = false
 ) : TodoistObject(id, isDeleted) {
-    open var name: String = sanitizeName(name)
-        set(value) {
-            field = sanitizeName(value)
-        }
-
     open val colorInt get() = Colors.getColor(color)
 
     companion object {
