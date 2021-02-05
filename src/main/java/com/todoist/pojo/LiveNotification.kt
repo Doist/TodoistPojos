@@ -29,7 +29,7 @@ open class LiveNotification<C : Collaborator>(
     open var dateReached: Long?,
     open var promoImg: String?,
     isDeleted: Boolean
-) : TodoistObject(id, isDeleted) {
+) : Model(id, isDeleted) {
     open val isInvitation
         get() = notificationType == TYPE_SHARE_INVITATION_SENT ||
             notificationType == TYPE_BIZ_INVITATION_CREATED

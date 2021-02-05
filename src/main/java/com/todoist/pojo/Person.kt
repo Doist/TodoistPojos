@@ -6,7 +6,7 @@ open class Person(
     open var fullName: String = "",
     open var imageId: String?,
     isDeleted: Boolean
-) : TodoistObject(id, isDeleted) {
+) : Model(id, isDeleted) {
     val defaultAvatarText get() = getDefaultAvatarText(fullName)
 
     fun getDefaultAvatarColorInt(useLightColors: Boolean) =

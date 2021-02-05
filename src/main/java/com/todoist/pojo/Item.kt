@@ -20,7 +20,7 @@ open class Item<D : Due> @JvmOverloads constructor(
     open var addedByUid: Long?,
     open var dateCompleted: Long? = null,
     isDeleted: Boolean = false
-) : TodoistObject(id, isDeleted) {
+) : Model(id, isDeleted) {
 
     /**
      * Returns the priority within the bounds defined by [MIN_PRIORITY] and [MAX_PRIORITY].

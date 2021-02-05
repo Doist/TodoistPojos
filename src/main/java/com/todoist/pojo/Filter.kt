@@ -8,7 +8,7 @@ open class Filter @JvmOverloads constructor(
     open var itemOrder: Int,
     open var isFavorite: Boolean,
     isDeleted: Boolean = false
-) : TodoistObject(id, isDeleted) {
+) : Model(id, isDeleted) {
     open val colorInt get() = Colors.getColor(color)
 
     companion object {

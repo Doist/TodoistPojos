@@ -9,7 +9,7 @@ open class ViewOption(
     open var groupedBy: Group?,
     open var filteredBy: String?,
     isDeleted: Boolean
-) : TodoistObject(id, isDeleted) {
+) : Model(id, isDeleted) {
     sealed class Type(protected open val key: String) {
         object Today : Type("TODAY")
 
