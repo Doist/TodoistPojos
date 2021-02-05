@@ -9,5 +9,5 @@ open class Model(open var id: Long, open var isDeleted: Boolean) {
         else -> id == (other as Model).id
     }
 
-    override fun hashCode() = (id xor id.ushr(32)).toInt()
+    override fun hashCode() = (id xor (id ushr 32)).toInt()
 }
