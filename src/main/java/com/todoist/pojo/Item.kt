@@ -3,6 +3,7 @@ package com.todoist.pojo
 open class Item<D : Due> @JvmOverloads constructor(
     id: Long,
     open var content: String,
+    open var description: String? = null,
     open var projectId: Long,
     priority: Int,
     due: D?,
