@@ -8,6 +8,7 @@ open class ViewOption(
     open var sortOrder: SortOrder?,
     open var groupedBy: Group?,
     open var filteredBy: String?,
+    open var viewMode: ViewMode,
     isDeleted: Boolean
 ) : Model(id, isDeleted) {
     sealed class Type(protected open val key: String) {
@@ -75,6 +76,18 @@ open class ViewOption(
 
         companion object {
             fun get(groupKey: String?): Group? = values().find { it.key == groupKey }
+        }
+    }
+
+    enum class ViewMode(private val key: String) {
+        LIST("LIST"),
+        BOARD("BOARD");
+
+        override fun toString() = key
+
+        companion object {
+            fun get(viewKey: String?): ViewMode =
+                values().find { it.key == viewKey?.toUpperCase() } ?: LIST
         }
     }
 }
