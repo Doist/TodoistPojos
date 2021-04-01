@@ -54,5 +54,7 @@ open class Item<D : Due> @JvmOverloads constructor(
         const val MAX_PRIORITY = 4
         const val DEF_DAY_ORDER = -1
         const val MAX_LABEL_COUNT = 100
+        const val MAX_CONTENT_CHAR_COUNT = 300
+        const val MAX_DESCRIPTION_CHAR_COUNT = 1000
     }
 }
