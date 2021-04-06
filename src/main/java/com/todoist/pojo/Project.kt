@@ -14,7 +14,7 @@ open class Project @JvmOverloads constructor(
     open var isFavorite: Boolean,
     open var isArchived: Boolean = false,
     isDeleted: Boolean = false
-) : TodoistObject(id, isDeleted) {
+) : Model(id, isDeleted) {
     open val colorInt get() = Colors.getColor(color)
 
     companion object {

@@ -20,7 +20,7 @@ open class Reminder<D : Due> @JvmOverloads constructor(
     open var notifyUid: Long?,
     open var itemId: Long,
     isDeleted: Boolean = false
-) : TodoistObject(id, isDeleted) {
+) : Model(id, isDeleted) {
     open val isAbsolute get() = TYPE_ABSOLUTE == type
     open val isRelative get() = TYPE_RELATIVE == type
     open val isLocation get() = TYPE_LOCATION == type

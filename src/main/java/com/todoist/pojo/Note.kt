@@ -12,4 +12,4 @@ open class Note<F : FileAttachment> @JvmOverloads constructor(
     open var itemId: Long?,
     open var isArchived: Boolean = false,
     isDeleted: Boolean = false
-) : TodoistObject(id, isDeleted)
+) : Model(id, isDeleted)

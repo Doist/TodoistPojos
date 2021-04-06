@@ -7,7 +7,7 @@ open class Label @JvmOverloads constructor(
     open var itemOrder: Int,
     open var isFavorite: Boolean,
     isDeleted: Boolean = false
-) : TodoistObject(id, isDeleted) {
+) : Model(id, isDeleted) {
     val colorInt get() = Colors.getColor(color)
 
     companion object {
