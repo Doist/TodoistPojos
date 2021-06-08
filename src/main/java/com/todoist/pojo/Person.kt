@@ -59,7 +59,7 @@ open class Person(
             if (atIndex <= 0) return 0xFF000000u.toInt()
 
             val colors = if (useLightColors) LIGHT_AVATAR_COLORS else DARK_AVATAR_COLORS
-            val index = (email[0].toInt() + email[atIndex - 1].toInt()) % colors.size
+            val index = (email[0].code + email[atIndex - 1].code) % colors.size
             return colors[index]
         }
 
@@ -68,10 +68,10 @@ open class Person(
             val escapedName = fullName.replace(ESCAPE_PATTERN, "").trim()
             if (escapedName.isBlank()) return "?"
 
-            val first = escapedName[0].toUpperCase()
+            val first = escapedName[0].uppercaseChar()
             val lastSpace = escapedName.indexOfLast { it.isWhitespace() }
             val last =
-                if (lastSpace != -1) escapedName[lastSpace + 1].toUpperCase().toString() else ""
+                if (lastSpace != -1) escapedName[lastSpace + 1].uppercaseChar().toString() else ""
             return first + last
         }
     }
