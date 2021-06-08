@@ -2,8 +2,8 @@ apply plugin: 'kotlin'
 
 buildscript {
     ext.versions = [
-            kotlin: '1.4.32',
-            junit : '5.7.1',
+            kotlin: '1.5.10',
+            junit : '5.7.2',
     ]
 
     repositories {
@@ -23,6 +23,10 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$versions.kotlin"
 
     testImplementation "org.junit.jupiter:junit-jupiter:$versions.junit"
+}
+
+test {
+    useJUnitPlatform()
 }
 
 compileKotlin {
