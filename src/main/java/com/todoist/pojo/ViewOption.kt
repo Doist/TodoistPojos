@@ -1,5 +1,7 @@
 package com.todoist.pojo
 
+import java.util.Locale
+
 open class ViewOption(
     id: Long,
     open var viewType: Type,
@@ -87,7 +89,7 @@ open class ViewOption(
 
         companion object {
             fun get(viewKey: String?): ViewMode =
-                values().find { it.key == viewKey?.toUpperCase() } ?: LIST
+                values().find { it.key == viewKey?.uppercase(Locale.getDefault()) } ?: LIST
         }
     }
 }
