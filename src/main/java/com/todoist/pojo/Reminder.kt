@@ -2,6 +2,7 @@ package com.todoist.pojo
 
 open class Reminder<D : Due> @JvmOverloads constructor(
     id: Long,
+    open var v2Id: String? = null,
     open var type: String?,
     /** Exclusive to reminders of type [.TYPE_ABSOLUTE].  */
     open var due: D?,

@@ -2,6 +2,7 @@ package com.todoist.pojo
 
 open class Project @JvmOverloads constructor(
     id: Long,
+    open var v2Id: String? = null,
     open var name: String,
     open var color: Int = Colors.DEFAULT_COLOR_ID,
     open var viewStyle: String = VIEW_STYLE_DEFAULT,

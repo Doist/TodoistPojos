@@ -2,6 +2,7 @@ package com.todoist.pojo
 
 open class Section @JvmOverloads constructor(
     id: Long,
+    open var v2Id: String? = null,
     open var name: String,
     open var projectId: Long,
     open var sectionOrder: Int = 0,

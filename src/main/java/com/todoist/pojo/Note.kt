@@ -2,6 +2,7 @@ package com.todoist.pojo
 
 open class Note<F : FileAttachment> @JvmOverloads constructor(
     id: Long,
+    open var v2Id: String? = null,
     open var content: String?,
     open var posted: Long = System.currentTimeMillis(),
     open var postedUid: Long,
