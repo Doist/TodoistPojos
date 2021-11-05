@@ -1,6 +1,19 @@
 package com.todoist.pojo
 
-class Workspace {
+open class Workspace(
+    id: Long,
+    open var name: String,
+    open var description: String?,
+    open var logoBig: String?,
+    open var logoMedium: String?,
+    open var logoSmall: String?,
+    open var logoS640: String?,
+    open var isInviteOnlyDefault: Boolean,
+    open var defaultCollaboratorRole: Collaborator.Role,
+    open var createdAt: Long,
+    open var members: List<WorkspaceMember>?,
+    isDeleted: Boolean,
+) : Model(id, isDeleted) {
     sealed class Role(protected open val key: String) {
         object Admin : Role("ADMIN")
 
@@ -26,5 +39,11 @@ class Workspace {
                 }
             }
         }
+    }
+
+    companion object {
+        fun sanitizeName(name: String): String =
+            Sanitizers.WORKSPACE_NAME_INVALID_PATTERN.matcher(name.trim())
+                .replaceAll(Sanitizers.REPLACEMENT)
     }
 }
