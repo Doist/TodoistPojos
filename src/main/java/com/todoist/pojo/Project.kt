@@ -2,7 +2,12 @@ package com.todoist.pojo
 
 open class Project @JvmOverloads constructor(
     id: Long,
+    open var v2Id: String? = null,
     open var name: String,
+    open var workspaceId: Long? = null,
+    open var description: String? = null,
+    open var isInviteOnly: Boolean = false,
+    open var status: Status = Status.Planned,
     open var color: Int = Colors.DEFAULT_COLOR_ID,
     open var viewStyle: String = VIEW_STYLE_DEFAULT,
     open var parentId: Long?,
@@ -16,6 +21,39 @@ open class Project @JvmOverloads constructor(
     isDeleted: Boolean = false
 ) : Model(id, isDeleted) {
     open val colorInt get() = Colors.getColor(color)
+
+    sealed class Status(protected open val key: String) {
+        object Planned : Status("PLANNED")
+
+        object InProgress : Status("IN_PROGRESS")
+
+        object Paused : Status("PAUSED")
+
+        object Completed : Status("COMPLETED")
+
+        object Canceled : Status("CANCELED")
+
+        data class Unknown(override val key: String) : Status(key)
+
+        object Invalid : Status("INVALID")
+
+        override fun toString() = key
+
+        companion object {
+            fun get(typeKey: String?): Status {
+                val upperCasedKey = typeKey?.uppercase()
+                return when {
+                    upperCasedKey.isNullOrEmpty() -> Invalid
+                    upperCasedKey == Planned.key -> Planned
+                    upperCasedKey == InProgress.key -> InProgress
+                    upperCasedKey == Paused.key -> Paused
+                    upperCasedKey == Completed.key -> Completed
+                    upperCasedKey == Canceled.key -> Canceled
+                    else -> Unknown(typeKey)
+                }
+            }
+        }
+    }
 
     companion object {
         const val VIEW_STYLE_LIST = "list"
