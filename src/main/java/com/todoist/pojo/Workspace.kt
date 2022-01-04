@@ -12,7 +12,6 @@ open class Workspace(
     open var defaultCollaboratorRole: Collaborator.Role,
     open var createdAt: Long,
     open var isCollapsed: Boolean,
-    open var members: List<WorkspaceMember>?,
     isDeleted: Boolean,
 ) : Model(id, isDeleted) {
     sealed class Role(protected open val key: String) {
