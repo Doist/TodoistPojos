@@ -2,6 +2,7 @@ package com.todoist.pojo
 
 open class WorkspaceMember(
     id: Long,
+    open var workspaceId: Long,
     open var email: String,
     open var fullName: String?,
     open var timeZone: String?,
