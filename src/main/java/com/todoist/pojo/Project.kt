@@ -60,7 +60,7 @@ open class Project @JvmOverloads constructor(
         const val VIEW_STYLE_BOARD = "board"
         const val VIEW_STYLE_DEFAULT = VIEW_STYLE_LIST
 
-        const val MIN_CHILD_ORDER = 1
+        const val DEFAULT_CHILD_ORDER = 1
         const val MIN_DEPTH = 0
         const val MAX_DEPTH = 3
 
