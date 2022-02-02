@@ -10,8 +10,8 @@ open class Item<D : Due> @JvmOverloads constructor(
     due: D?,
     open var sectionId: Long?,
     open var parentId: Long?,
-    open var childOrder: Int = MIN_CHILD_ORDER,
-    open var dayOrder: Int = DEF_DAY_ORDER,
+    open var childOrder: Int = DEFAULT_CHILD_ORDER,
+    open var dayOrder: Int = DEFAULT_DAY_ORDER,
     open var isChecked: Boolean = false,
     open var isCollapsed: Boolean = false,
     open var assignedByUid: Long?,
@@ -31,29 +31,29 @@ open class Item<D : Due> @JvmOverloads constructor(
         set(value) {
             if (field != value) {
                 field = value
-                dayOrder = DEF_DAY_ORDER
+                dayOrder = DEFAULT_DAY_ORDER
             }
         }
 
     /**
      * Sets the due date, with the side effect of resetting the day order to its default value of
-     * [DEF_DAY_ORDER].
+     * [DEFAULT_DAY_ORDER].
      */
     open var due: D? = due
         set(value) {
             if (field != value) {
                 field = value
-                dayOrder = DEF_DAY_ORDER
+                dayOrder = DEFAULT_DAY_ORDER
             }
         }
 
     companion object {
-        const val MIN_CHILD_ORDER = 1
+        const val DEFAULT_CHILD_ORDER = 1
         const val MIN_DEPTH = 0
         const val MAX_DEPTH = 4
         const val MIN_PRIORITY = 1
         const val MAX_PRIORITY = 4
-        const val DEF_DAY_ORDER = -1
+        const val DEFAULT_DAY_ORDER = -1
         const val MAX_LABEL_COUNT = 100
         const val MAX_CONTENT_CHAR_COUNT = 500
         const val MAX_DESCRIPTION_CHAR_COUNT = 16384

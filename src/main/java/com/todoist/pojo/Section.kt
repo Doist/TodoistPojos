@@ -13,7 +13,7 @@ open class Section @JvmOverloads constructor(
     isDeleted: Boolean = false
 ) : Model(id, isDeleted) {
     companion object {
-        const val MIN_CHILD_ORDER = 1
+        const val DEFAULT_CHILD_ORDER = 1
         const val MIN_DEPTH = 0
 
         @JvmStatic
