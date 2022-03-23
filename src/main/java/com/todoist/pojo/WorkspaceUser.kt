@@ -1,6 +1,6 @@
 package com.todoist.pojo
 
-open class WorkspaceMember(
+open class WorkspaceUser(
     id: Long,
     open var workspaceId: Long,
     open var email: String,
