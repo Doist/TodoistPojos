@@ -28,5 +28,20 @@ open class User<T : TzInfo, F : Features>(
     open var weeklyGoal: Int?,
     open var daysOff: IntArray?,
     open var uniquePrefix: Long?,
-    open var hasPassword: Boolean
-) : Person(id, email, fullName, imageId, false)
+    open var hasPassword: Boolean,
+    open var verificationStatus: VerificationStatus,
+) : Person(id, email, fullName, imageId, false) {
+    enum class VerificationStatus(private val key: String) {
+        VERIFIED("verified"),
+        VERIFIED_BY_THIRD_PARTY("verified_by_third_party"),
+        UNVERIFIED("unverified"),
+        LEGACY("legacy"),
+        BLOCKED("blocked");
+
+        override fun toString() = key
+
+        companion object {
+            fun get(statusKey: String): VerificationStatus = values().first { it.key == statusKey }
+        }
+    }
+}
