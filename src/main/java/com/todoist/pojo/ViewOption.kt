@@ -46,7 +46,8 @@ open class ViewOption(
         ADDED_DATE("ADDED_DATE"),
         DUE_DATE("DUE_DATE"),
         PRIORITY("PRIORITY"),
-        PROJECT("PROJECT");
+        PROJECT("PROJECT"),
+        WORKSPACE("WORKSPACE");
 
         override fun toString() = key
 
@@ -72,7 +73,8 @@ open class ViewOption(
         DUE_DATE("DUE_DATE"),
         LABEL("LABEL"),
         PRIORITY("PRIORITY"),
-        PROJECT("PROJECT");
+        PROJECT("PROJECT"),
+        WORKSPACE("WORKSPACE");
 
         override fun toString() = key
 
