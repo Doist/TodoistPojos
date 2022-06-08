@@ -30,6 +30,6 @@ test {
 compileKotlin {
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
-        freeCompilerArgs += '-Xopt-in=kotlin.ExperimentalUnsignedTypes'
+        freeCompilerArgs += '-opt-in=kotlin.ExperimentalUnsignedTypes'
     }
 }
