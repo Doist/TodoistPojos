@@ -11,16 +11,16 @@ class CollaboratorTest {
 
         Collaborator(ID, EMAIL).apply {
             setProjectState(projectId, Collaborator.STATE_INVITED)
-            assertEquals(true, projectsInvited.contains(projectId))
-            assertEquals(false, projectsActive.contains(projectId))
+            assertEquals(true, projectId in projectsInvited)
+            assertEquals(false, projectId in projectsActive)
 
             setProjectState(projectId, Collaborator.STATE_ACTIVE)
-            assertEquals(false, projectsInvited.contains(projectId))
-            assertEquals(true, projectsActive.contains(projectId))
+            assertEquals(false, projectId in projectsInvited)
+            assertEquals(true, projectId in projectsActive)
 
             setProjectState(projectId, Collaborator.STATE_DELETED)
-            assertEquals(false, projectsInvited.contains(projectId))
-            assertEquals(false, projectsActive.contains(projectId))
+            assertEquals(false, projectId in projectsInvited)
+            assertEquals(false, projectId in projectsActive)
         }
 
         Collaborator(ID, EMAIL).apply {
