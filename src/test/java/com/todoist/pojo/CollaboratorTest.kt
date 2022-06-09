@@ -1,8 +1,8 @@
 package com.todoist.pojo
 
-import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.api.Assertions.assertThrows
-import org.junit.jupiter.api.Test
+import kotlin.test.Test
+import kotlin.test.assertEquals
+import kotlin.test.assertFailsWith
 
 class CollaboratorTest {
     @Test
@@ -11,20 +11,20 @@ class CollaboratorTest {
 
         Collaborator(ID, EMAIL).apply {
             setProjectState(projectId, Collaborator.STATE_INVITED)
-            assertEquals(true, projectsInvited.contains(projectId))
-            assertEquals(false, projectsActive.contains(projectId))
+            assertEquals(true, projectId in projectsInvited)
+            assertEquals(false, projectId in projectsActive)
 
             setProjectState(projectId, Collaborator.STATE_ACTIVE)
-            assertEquals(false, projectsInvited.contains(projectId))
-            assertEquals(true, projectsActive.contains(projectId))
+            assertEquals(false, projectId in projectsInvited)
+            assertEquals(true, projectId in projectsActive)
 
             setProjectState(projectId, Collaborator.STATE_DELETED)
-            assertEquals(false, projectsInvited.contains(projectId))
-            assertEquals(false, projectsActive.contains(projectId))
+            assertEquals(false, projectId in projectsInvited)
+            assertEquals(false, projectId in projectsActive)
         }
 
         Collaborator(ID, EMAIL).apply {
-            assertThrows(IllegalArgumentException::class.java) {
+            assertFailsWith<IllegalArgumentException> {
                 setProjectState(projectId, "bogus")
             }
         }

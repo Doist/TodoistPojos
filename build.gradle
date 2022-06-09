@@ -3,7 +3,6 @@ apply plugin: 'kotlin'
 buildscript {
     ext.versions = [
             kotlin: '1.6.21',
-            junit : '5.7.2',
     ]
 
     repositories {
@@ -21,8 +20,7 @@ repositories {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$versions.kotlin"
-
-    testImplementation "org.junit.jupiter:junit-jupiter:$versions.junit"
+    testImplementation "org.jetbrains.kotlin:kotlin-test:$versions.kotlin"
 }
 
 test {
@@ -32,6 +30,6 @@ test {
 compileKotlin {
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
-        freeCompilerArgs += '-Xopt-in=kotlin.ExperimentalUnsignedTypes'
+        freeCompilerArgs += '-opt-in=kotlin.ExperimentalUnsignedTypes'
     }
 }

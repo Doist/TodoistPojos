@@ -10,9 +10,9 @@ open class Collaborator @JvmOverloads constructor(
     isDeleted: Boolean = false
 ) : Person(id, email, fullName, imageId, isDeleted) {
 
-    fun getProjectState(projectId: Long) = when {
-        projectsActive.contains(projectId) -> STATE_ACTIVE
-        projectsInvited.contains(projectId) -> STATE_INVITED
+    fun getProjectState(projectId: Long) = when (projectId) {
+        in projectsActive -> STATE_ACTIVE
+        in projectsInvited -> STATE_INVITED
         else -> STATE_DELETED
     }
 
