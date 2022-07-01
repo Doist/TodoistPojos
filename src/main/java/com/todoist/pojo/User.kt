@@ -30,6 +30,7 @@ open class User<T : TzInfo, F : Features>(
     open var uniquePrefix: Long?,
     open var hasPassword: Boolean,
     open var verificationStatus: VerificationStatus,
+    open var multiFactorAuthEnabled: Boolean,
 ) : Person(id, email, fullName, imageId, false) {
     enum class VerificationStatus(private val key: String) {
         VERIFIED("verified"),
