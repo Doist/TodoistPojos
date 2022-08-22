@@ -7,7 +7,7 @@ open class Person(
     open var imageId: String?,
     isDeleted: Boolean
 ) : Model(id, isDeleted) {
-    val defaultAvatarText get() = getDefaultAvatarText(fullName)
+    val defaultAvatarText get() = getDefaultAvatarText(fullName, email)
 
     fun getDefaultAvatarColorInt(useLightColors: Boolean) =
         getDefaultAvatarColorInt(email, useLightColors)
@@ -64,15 +64,31 @@ open class Person(
         }
 
         @JvmStatic
-        fun getDefaultAvatarText(fullName: String): String {
-            val escapedName = fullName.replace(ESCAPE_PATTERN, "").trim()
-            if (escapedName.isBlank()) return "?"
+        fun getDefaultAvatarText(fullName: String?, email: String?): String {
+            val escapedName = fullName?.replace(ESCAPE_PATTERN, "")?.trim().orEmpty()
+            if (escapedName.isBlank()) {
+                return getEmailInitials(email)
+            }
 
             val first = escapedName[0].uppercaseChar()
             val lastSpace = escapedName.indexOfLast { it.isWhitespace() }
             val last =
                 if (lastSpace != -1) escapedName[lastSpace + 1].uppercaseChar().toString() else ""
             return first + last
+        }
+
+        private fun getEmailInitials(email: String?): String {
+            val validEmail = email ?: "?"
+            return buildString {
+                val emailInitials = validEmail.substringBefore("@")
+                    .split(".")
+                    .filter { it.isNotEmpty() }
+                    .map { emailPart -> emailPart.first().uppercase() }
+                append(emailInitials.firstOrNull().orEmpty())
+                if (emailInitials.size > 1) {
+                    append(emailInitials.lastOrNull().orEmpty())
+                }
+            }
         }
     }
 }
