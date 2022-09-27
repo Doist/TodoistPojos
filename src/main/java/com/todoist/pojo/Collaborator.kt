@@ -5,38 +5,8 @@ open class Collaborator @JvmOverloads constructor(
     email: String,
     fullName: String = "",
     imageId: String? = null,
-    open var projectsActive: Set<Long> = emptySet(),
-    open var projectsInvited: Set<Long> = emptySet(),
     isDeleted: Boolean = false
 ) : Person(id, email, fullName, imageId, isDeleted) {
-
-    fun getProjectState(projectId: Long) = when (projectId) {
-        in projectsActive -> STATE_ACTIVE
-        in projectsInvited -> STATE_INVITED
-        else -> STATE_DELETED
-    }
-
-    open fun setProjectState(projectId: Long, state: String) {
-        when (state) {
-            STATE_ACTIVE -> {
-                projectsActive = projectsActive + projectId
-                projectsInvited = projectsInvited - projectId
-            }
-
-            STATE_INVITED -> {
-                projectsActive = projectsActive - projectId
-                projectsInvited = projectsInvited + projectId
-            }
-
-            STATE_DELETED -> {
-                projectsActive = projectsActive - projectId
-                projectsInvited = projectsInvited - projectId
-            }
-
-            else -> throw IllegalArgumentException("Unknown state.")
-        }
-    }
-
     sealed class Role(protected open val key: String) {
         object Creator : Role("CREATOR")
 
