@@ -3,9 +3,9 @@ package com.todoist.pojo
 import java.util.Locale
 
 open class ViewOption(
-    id: Long,
+    id: String,
     open var viewType: Type,
-    open var objectId: Long?,
+    open var objectId: String?,
     open var sortedBy: Sort?,
     open var sortOrder: SortOrder?,
     open var groupedBy: Group?,

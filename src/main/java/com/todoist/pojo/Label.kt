@@ -1,7 +1,7 @@
 package com.todoist.pojo
 
 open class Label @JvmOverloads constructor(
-    id: Long,
+    id: String,
     open var name: String,
     open var color: Int = Colors.DEFAULT_COLOR_ID,
     open var itemOrder: Int,

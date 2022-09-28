@@ -1,7 +1,7 @@
 package com.todoist.pojo
 
 open class Workspace(
-    id: Long,
+    id: String,
     open var name: String,
     open var description: String?,
     open var logoBig: String?,

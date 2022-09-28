@@ -1,16 +1,16 @@
 package com.todoist.pojo
 
 open class Note<F : FileAttachment> @JvmOverloads constructor(
-    id: Long,
+    id: String,
     open var v2Id: String? = null,
     open var content: String?,
     open var posted: Long = System.currentTimeMillis(),
-    open var postedUid: Long,
-    open var uidsToNotify: Set<Long> = emptySet(),
+    open var postedUid: String,
+    open var uidsToNotify: Set<String> = emptySet(),
     open var fileAttachment: F? = null,
-    open var reactions: Map<String, LongArray> = emptyMap(),
-    open var projectId: Long?,
-    open var itemId: Long?,
+    open var reactions: Map<String, Array<String>> = emptyMap(),
+    open var projectId: String?,
+    open var itemId: String?,
     open var isArchived: Boolean = false,
     isDeleted: Boolean = false
 ) : Model(id, isDeleted)
