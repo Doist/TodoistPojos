@@ -26,6 +26,7 @@ object Colors {
     const val TAUPE = 0xFFCCAC93u
 
     const val DEFAULT_COLOR_ID = 48 // GRAY.
+    const val DEFAULT_COLOR_NAME = "grey"
 
     private val COLORS = uintArrayOf(
         BERRY_RED, RED, ORANGE, YELLOW, OLIVE_GREEN, LIME_GREEN, GREEN, MINT_GREEN, TEAL,

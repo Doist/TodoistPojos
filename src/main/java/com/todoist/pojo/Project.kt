@@ -8,7 +8,7 @@ open class Project @JvmOverloads constructor(
     open var description: String? = null,
     open var isInviteOnly: Boolean = false,
     open var status: Status = Status.Planned,
-    open var color: Int = Colors.DEFAULT_COLOR_ID,
+    open var color: String = Colors.DEFAULT_COLOR_NAME,
     open var viewStyle: String = VIEW_STYLE_DEFAULT,
     open var parentId: String?,
     open var childOrder: Int,
@@ -20,8 +20,6 @@ open class Project @JvmOverloads constructor(
     open var isArchived: Boolean = false,
     isDeleted: Boolean = false
 ) : Model(id, isDeleted) {
-    open val colorInt get() = Colors.getColor(color)
-
     sealed class Status(protected open val key: String) {
         object Planned : Status("PLANNED")
 
