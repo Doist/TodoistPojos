@@ -14,5 +14,6 @@ open class EventExtraData(
     open var parentProjectName: String?,
     open var parentProjectColor: Int?,
     open var parentItemContent: String?,
-    open var noteCount: Int?
+    open var noteCount: Int?,
+    open var subTasksReset: Int?,
 )
