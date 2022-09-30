@@ -4,7 +4,7 @@ open class Note<F : FileAttachment> @JvmOverloads constructor(
     id: String,
     open var v2Id: String? = null,
     open var content: String?,
-    open var posted: Long = System.currentTimeMillis(),
+    open var postedAt: Long = System.currentTimeMillis(),
     open var postedUid: String,
     open var uidsToNotify: Set<String> = emptySet(),
     open var fileAttachment: F? = null,

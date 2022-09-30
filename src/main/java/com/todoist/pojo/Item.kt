@@ -20,9 +20,9 @@ open class Item<D : Due> @JvmOverloads constructor(
     open var assignedByUid: String?,
     open var responsibleUid: String?,
     open var labels: Set<String> = emptySet(),
-    open var dateAdded: Long,
+    open var addedAt: Long,
     open var addedByUid: String?,
-    open var dateCompleted: Long? = null,
+    open var completedAt: Long? = null,
     isDeleted: Boolean = false
 ) : Model(id, isDeleted) {
 

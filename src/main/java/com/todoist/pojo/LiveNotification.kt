@@ -3,7 +3,7 @@ package com.todoist.pojo
 open class LiveNotification<C : Collaborator>(
     id: String,
     var notificationType: String,
-    open var created: Long,
+    open var createdAt: Long,
     open var isUnread: Boolean,
     // Optional fields, not set in all types.
     open var fromUid: String?,
