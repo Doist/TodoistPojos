@@ -1,16 +1,16 @@
 package com.todoist.pojo
 
 open class Project @JvmOverloads constructor(
-    id: Long,
+    id: String,
     open var v2Id: String? = null,
     open var name: String,
-    open var workspaceId: Long? = null,
+    open var workspaceId: String? = null,
     open var description: String? = null,
     open var isInviteOnly: Boolean = false,
     open var status: Status = Status.Planned,
-    open var color: Int = Colors.DEFAULT_COLOR_ID,
+    open var color: String = Colors.DEFAULT_COLOR_NAME,
     open var viewStyle: String = VIEW_STYLE_DEFAULT,
-    open var parentId: Long?,
+    open var parentId: String?,
     open var childOrder: Int,
     open var isCollapsed: Boolean = false,
     open var isInbox: Boolean = false,
@@ -20,8 +20,6 @@ open class Project @JvmOverloads constructor(
     open var isArchived: Boolean = false,
     isDeleted: Boolean = false
 ) : Model(id, isDeleted) {
-    open val colorInt get() = Colors.getColor(color)
-
     sealed class Status(protected open val key: String) {
         object Planned : Status("PLANNED")
 

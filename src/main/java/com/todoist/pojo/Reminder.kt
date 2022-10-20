@@ -1,7 +1,7 @@
 package com.todoist.pojo
 
 open class Reminder<D : Due> @JvmOverloads constructor(
-    id: Long,
+    id: String,
     open var v2Id: String? = null,
     open var type: String?,
     /** Exclusive to reminders of type [.TYPE_ABSOLUTE].  */
@@ -18,8 +18,8 @@ open class Reminder<D : Due> @JvmOverloads constructor(
     open var radius: Int?,
     /** Exclusive to reminders of type [.TYPE_LOCATION].  */
     open var locTrigger: String?,
-    open var notifyUid: Long?,
-    open var itemId: Long,
+    open var notifyUid: String?,
+    open var itemId: String,
     isDeleted: Boolean = false
 ) : Model(id, isDeleted) {
     open val isAbsolute get() = TYPE_ABSOLUTE == type

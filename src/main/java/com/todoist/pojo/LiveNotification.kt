@@ -1,23 +1,23 @@
 package com.todoist.pojo
 
 open class LiveNotification<C : Collaborator>(
-    id: Long,
+    id: String,
     var notificationType: String,
-    open var created: Long,
+    open var createdAt: Long,
     open var isUnread: Boolean,
     // Optional fields, not set in all types.
-    open var fromUid: Long?,
-    open var projectId: Long?,
+    open var fromUid: String?,
+    open var projectId: String?,
     open var projectName: String?,
-    open var invitationId: Long?,
+    open var invitationId: String?,
     open var invitationSecret: String?,
     open var state: String?,
-    open var itemId: Long?,
+    open var itemId: String?,
     open var itemContent: String?,
-    open var responsibleUid: Long?,
-    open var noteId: Long?,
+    open var responsibleUid: String?,
+    open var noteId: String?,
     open var noteContent: String?,
-    open var removedUid: Long?,
+    open var removedUid: String?,
     open var fromUser: C?,
     open var accountName: String?,
     // Optional fields used in Karma notifications (which are set depends on the karma level).

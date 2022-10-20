@@ -1,7 +1,7 @@
 package com.todoist.pojo
 
 open class User<T : TzInfo, F : Features>(
-    id: Long,
+    id: String,
     email: String,
     fullName: String,
     imageId: String?,
@@ -14,16 +14,16 @@ open class User<T : TzInfo, F : Features>(
     open var startDay: Int?,
     open var weekendStartDay: Int?,
     open var nextWeek: Int?,
-    open var teamInbox: Long?,
+    open var teamInboxId: String?,
     open var shareLimit: Int?,
     open var karma: Long?,
     open var karmaTrend: String?,
     open var isKarmaDisabled: Boolean,
     open var isKarmaVacation: Boolean,
     open var autoReminder: Int?,
-    open var theme: Int?,
+    open var themeId: String?,
     open var features: F?,
-    open var businessAccountId: Long?,
+    open var businessAccountId: String?,
     open var dailyGoal: Int?,
     open var weeklyGoal: Int?,
     open var daysOff: IntArray?,

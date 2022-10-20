@@ -1,7 +1,7 @@
 package com.todoist.pojo
 
 open class Collaborator @JvmOverloads constructor(
-    id: Long,
+    id: String,
     email: String,
     fullName: String = "",
     imageId: String? = null,

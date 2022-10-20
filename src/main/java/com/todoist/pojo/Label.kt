@@ -1,15 +1,13 @@
 package com.todoist.pojo
 
 open class Label @JvmOverloads constructor(
-    id: Long,
+    id: String,
     open var name: String,
-    open var color: Int = Colors.DEFAULT_COLOR_ID,
+    open var color: String = Colors.DEFAULT_COLOR_NAME,
     open var itemOrder: Int,
     open var isFavorite: Boolean,
     isDeleted: Boolean = false
 ) : Model(id, isDeleted) {
-    val colorInt get() = Colors.getColor(color)
-
     companion object {
         @JvmStatic
         fun sanitizeName(name: String): String =

@@ -1,8 +1,8 @@
 package com.todoist.pojo
 
 open class WorkspaceUser(
-    id: Long,
-    open var workspaceId: Long,
+    id: String,
+    open var workspaceId: String,
     open var email: String,
     open var fullName: String?,
     open var timeZone: String?,

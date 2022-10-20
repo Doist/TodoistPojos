@@ -1,7 +1,7 @@
 package com.todoist.pojo
 
 open class Person(
-    id: Long,
+    id: String,
     open var email: String,
     open var fullName: String = "",
     open var imageId: String?,
