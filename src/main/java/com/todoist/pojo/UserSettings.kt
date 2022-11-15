@@ -10,6 +10,7 @@ open class UserSettings<
     open val reminderEmail: Boolean,
     open val completedSoundDesktop: Boolean,
     open val completedSoundMobile: Boolean,
+    open val resetRecurringSubtasks: Boolean,
     open val quickAddCustomization: Q?,
     open val navigationCustomization: N?,
     open val habitPushNotifications: P?,
