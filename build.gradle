@@ -2,7 +2,7 @@ apply plugin: 'kotlin'
 
 buildscript {
     ext.versions = [
-            kotlin: '1.6.21',
+            kotlin: '1.8.0',
     ]
 
     repositories {
