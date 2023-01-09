@@ -6,5 +6,6 @@ open class Features(
     open var isDateistInlineDisabled: Boolean,
     open var dateistLang: String?,
     open var isGoldThemeEnabled: Boolean,
-    open var isAutoAcceptInvitesDisabled: Boolean
+    open var isAutoAcceptInvitesDisabled: Boolean,
+    open var isTeamsFlagEnabled: Boolean,
 )
