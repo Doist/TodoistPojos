@@ -11,6 +11,7 @@ open class Project @JvmOverloads constructor(
     open var color: String = Colors.DEFAULT_COLOR_NAME,
     open var viewStyle: String = VIEW_STYLE_DEFAULT,
     open var parentId: String?,
+    open var v2ParentId: String?,
     open var childOrder: Int,
     open var isCollapsed: Boolean = false,
     open var isInbox: Boolean = false,
