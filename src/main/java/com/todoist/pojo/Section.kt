@@ -5,6 +5,7 @@ open class Section @JvmOverloads constructor(
     open var v2Id: String? = null,
     open var name: String,
     open var projectId: String,
+    open var v2ProjectId: String?,
     open var sectionOrder: Int = 0,
     open var isCollapsed: Boolean = false,
     open var addedAt: Long = 0,
