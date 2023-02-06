@@ -1,3 +1,5 @@
+> **Warning** — Not actively maintained.
+
 # TodoistPojos
 
 TodoistPojos is a JVM project which provides the base POJOs (in Kotlin) for most [Todoist API](https://developer.todoist.com/sync/v8/) objects.
